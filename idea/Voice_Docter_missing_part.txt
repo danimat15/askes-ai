@@ -1,0 +1,337 @@
+00:00:01 Now in this new start consultation flow after entering the uh notes and symptom
+00:00:07 we want to make an am model call. To this LLM model we wanted to pass a
+00:00:13 doctor specialist agent list and the symptoms in order to get the suggested
+00:00:18 specialist doctor list and then everything we going to save it to a database. Once we save the information
+00:00:24 to a database then we redirect user to the actual conversation page. So in
+00:00:30 order to add an AILM model, we are going to use an open router. Open router
+00:00:35 provide you a variety of different AI LLM model. For example, a chat GPT open
+00:00:42 AI uh then Google's Jiny or even DeepS
+00:00:47 as well. Not only that, but you can also get a free open model uh to for a
+00:00:54 development purpose. So over here you can filter this out for a free and then you'll get a bunch of different free am
+00:01:01 model and most important is very easy to integrate as well. Now select the model
+00:01:08 which you like it. Now for example I will select this Gemini 2.5 flash preview and then once you select it
+00:01:15 select this API section. Now if you don't have an API key here you need to
+00:01:20 create a new API key. So click on this create API key. I already have lot of API key created. Now I will click create
+00:01:28 API key and give the name for it. So here we will say AI medical voice agent
+00:01:36 app then you can even put the limit and simply click create. Once you created
+00:01:42 this API key simply paste it inside your file. So I will add open
+00:01:49 router API key and simply I will paste it here. After pasting let's go back to
+00:01:56 this documentation and make sure you will copy that very first time otherwise you cannot retrive it better you have to
+00:02:03 create a new one if you lose that the first one. Now after adding that this is
+00:02:08 the simply simplest way to make an API call or you can even use a open AI
+00:02:16 framework as well. So you have to install this open AI SDK and that's what
+00:02:21 we are going to use and once you add that you simply need to call this
+00:02:27 method. Okay. Now we need to create an API endpoint for this AI LLM model. So
+00:02:32 simply I will go to the app folder under this API we'll create a new uh folder
+00:02:40 and here we'll say suggest doctors I will say okay then inside this
+00:02:47 we'll create a route tsx file inside this we'll add a sync export a sync
+00:02:54 function this need to be a post request and the type is next request
+00:03:02 Now inside here we need to define this open lm model. So I'm going to define
+00:03:07 this inside this share and inside this maybe we can add it inside this config
+00:03:14 as well. So open AI model I will call and simply
+00:03:20 paste it here. I will export this one so that we can use it at many places. Once
+00:03:25 you define you can use at multiple places. Um here you need to import this
+00:03:31 open AI
+00:03:38 and then we don't need to add default header you can remove it and for API key
+00:03:45 let's add that so I will go to the env
+00:03:52 copy this API key variable name okay and that's how you can define this open AI
+00:03:58 Once you initialize this, you just need to call this method.
+00:04:04 So uh I will add a try catch block
+00:04:12 and then inside the try we'll add this. Make sure to import this open AI from
+00:04:18 our config. Then you can add the model name. This model name you can get
+00:04:24 by copying this particular model name. Okay. So I will just paste it here.
+00:04:31 And now obviously we need to get the user nodes. So here we will say constant nodes is equal to use
+00:04:38 not use but await request dot JSON. From the body of this post request we'll get
+00:04:44 the nodes. Now inside the message we need to
+00:04:49 add the prompt so that we can easily get
+00:04:54 the suggestion. Now first thing uh we need to provide a system prompt. Okay.
+00:04:59 And so here we'll say role as system. Now this system role is helpful uh for
+00:05:07 the init uh initial content. So over here we'll say AI uh doctor agents from
+00:05:14 the list and that's what I'm going to provide. So this need to be a string. So we'll change this to a stringify.
+00:05:22 So initially we just provided the uh list of all the agents okay to the
+00:05:29 system prompt and for the user prompt here we'll say
+00:05:35 user notes slash symptoms
+00:05:42 and then we are going to provide a symptoms nothing but the notes and then we are going to say depends on user
+00:05:52 notes and symptoms please suggest list of doctors
+00:06:02 and here we also going to write
+00:06:08 return object in JSON only okay and that's a simple uh
+00:06:15 oneline prompt we are going to write because we just want a suggestion
+00:06:20 Then over here we'll say constant raw response is equal to completion.
+00:06:28 Then um I think it's a inside the choices of zero element dot message
+00:06:35 and if you see the documentation you'll get to know
+00:06:40 inside the message you'll get the actual response. Then I will just make sure to trim this
+00:06:46 one something like this. I don't know whether this is correct way or not but
+00:06:52 let's keep it uh like this for now. Inside the return we'll say next
+00:06:59 response dot JSON and then we'll get the raw response. This response we need to
+00:07:06 convert into a JSON format. But for now I'm going to check what are the response
+00:07:12 we are getting. If there is any error inside the catch, we'll get the exception a and then simply save it. Now
+00:07:20 head back to our original uh UI component. So inside the route under the
+00:07:26 component where we have the dialogue. Now over here
+00:07:32 we'll create a method called constant on click next
+00:07:40 and the arrow function. Now this method we're going to call when the user click
+00:07:45 on next button. So over here we'll say on click
+00:07:51 and on click next. Inside this we need to call a method. So we say constant result is equal to await
+00:08:00 exos dot post API call and then our API endpoint. So in this case he suggest
+00:08:07 doctors. So we'll simply say suggest
+00:08:12 doctors and then in body we need to pass a notes.
+00:08:18 So it's a notes. So we'll say notes and then the whatever the note user
+00:08:24 entered as we are using await so we are to use is as a sync
+00:08:30 and then inside the console we'll get the result dot data and then save it. So
+00:08:37 whenever user click on the onclick next obviously it will take some time to load the data. So we'll maintain the loading
+00:08:43 state. So we'll say loading comma set loading is equal to use state and initially it
+00:08:50 will be false. Then in set loading we'll make it false and at the top
+00:08:58 the set loading will be true. And then save it. Now we'll go back
+00:09:05 and here we are going to uh actually we don't need to just we'll
+00:09:11 test it. So I will make sure to refresh it. Also open the inspect panel because
+00:09:16 inside the inspect panel we are only consoling the result. Now click and add consion here we say I have headache
+00:09:26 and click next. Now once you click next right now uh inside the network tab or
+00:09:32 maybe inside the console only right if you see we got the data. Now inside the content we have the list of
+00:09:38 specialization uh list. So here we have general physician. Whatever the object
+00:09:43 list we pass that similar object list is returned with an uh with an u
+00:09:49 suggestion. Okay. But if you observe this one I let me copy that in a new uh
+00:09:55 page. This is how we are getting output. At the start we are getting this string. Now we need to remove this string. Okay.
+00:10:02 So simply we'll go back to the route and we only want to pass the JSON object or
+00:10:09 we want to return the JSON right. So here now we will say constant response is equal to
+00:10:16 JSON or first we'll say uh
+00:10:25 let me remove that first. So here we say response dotreplace here we say slash oh
+00:10:32 JSON with an empty value and at the last as well we need to say replace
+00:10:40 this empty string with this empty or space. So this one as well and then this one. Okay,
+00:10:47 here uh we'll add a condition if it raw response. Uh right now it's saying does
+00:10:54 not exist on chart completion message. That's weird. Here um I will add ts
+00:11:02 ignore. So we'll just ignore this one. And also let me remove this.
+00:11:08 Maybe over here we'll say trim and then replace. Okay, then we'll get the
+00:11:14 response and then we'll get the final response in JSON format. So you have to
+00:11:19 write JSON dotparse with the response. Okay, and this JSON parse response we
+00:11:26 need to pass back. I will just delete this file and then we have the result
+00:11:32 dot data. Okay, now let's test this again. So I will click next and once you
+00:11:37 click next now in this case you'll get only the response. So right now we are getting empty one that's weird. So I
+00:11:45 will go to the suggest doctor in the preview we are getting empty value.
+00:11:50 So one more thing we forgot. So over here let me remove this console because I
+00:11:56 just console we need to get the content and from the content we'll get the data. Okay. Now I will clean this one and I
+00:12:03 will say I have a headache and boom. If you see we got the suggestion. Right now we are just getting one uh and it uh
+00:12:12 suggesting us okay you can take a uh you can consider this particular uh
+00:12:17 specialist which is a general physician. So that's how we have to do it. Now once
+00:12:22 we get this one we need to store in one state. So basically we'll define a constant uh here we'll say doctor
+00:12:31 suggested doctor we'll say suggested doctors comma set suggested
+00:12:39 doctors is equal to use state and uh you can provide the type as well.
+00:12:49 So type will be same as we in we previously display that one. So
+00:12:55 I forgot. So this doctor agent okay. So I will add a doctor agent as a type and
+00:13:00 which is of type list. Okay. Along with the list and make sure you'll export this one. So that you can use it. Make
+00:13:09 sure to import this doctor agent. Perfect.
+00:13:14 Now once you add here we'll say set suggested doctor will be result dot data
+00:13:22 perfect and then save it. Now once you have the list of suggested doctors we have to make sure we'll update this
+00:13:29 content because we are not opening a new dialogue better we can simply uh hide
+00:13:34 this content and show the list of doctors. Okay. So for that one I'm going
+00:13:40 to add condition if suggested doctors are there or if initially if it's not there then
+00:13:46 it will show this div otherwise it will show other div something like this maybe
+00:13:53 we can wrap this you know one div first or let me undo this make sure to add a
+00:13:58 question mark and then another div now in this div we wanted to show suggested
+00:14:04 doctors Okay. And then save it. Also, whenever there is a loading state, we want to
+00:14:11 show a loader. So, we'll add a loader icon. Add a class
+00:14:16 name. We'll say animate spin.
+00:14:21 And uh again here as well, I'm going to add a condition. If not suggested
+00:14:28 doctor, then show this button. Otherwise, we'll add a new button. we say start
+00:14:37 consultation after selecting okay so that logic will
+00:14:43 add in a moment but for now I hope you understand this one let's test this out scenario so I will click on start
+00:14:50 consultation then here we'll say I have headache you can add more details right
+00:14:56 now if you see the loading is get started immediately that's because um
+00:15:03 we did not added the condition here. So I will say if loader is there then only
+00:15:09 show this icon.
+00:15:14 Oh it's a not loader it's a loading. If loading is true then only show this icon. See now I click next button and if
+00:15:22 you see the next loader is showing uh just uh here. So now right now it's
+00:15:29 redirecting to this add basic detail page because we have the list of suggested doctors. Beautiful. Just quick
+00:15:36 thing uh actually we can add this in place of this arrow
+00:15:42 and here I will add a turnary operator and then I will also show arrow right
+00:15:50 something like this. Okay. And then uh save it. Make sure whenever there is a
+00:15:55 loading you will disable this button. So I will add a or condition along with this not a note and here we'll say if
+00:16:03 loading is true then disable this button. Okay let's try this again. So I will
+00:16:10 refresh this screen once. We'll say start consultation. Here we will say I have um pain in my back. Click next. And
+00:16:20 if you see we have this beautiful button. Oh it's gone now. But yeah, that's what we got it. And now if you
+00:16:25 see we got the suggested doctor list. Now once we have the suggested doctor list, simply we have to display that one
+00:16:31 inside this div. So here we will say suggested doctors dot
+00:16:36 map uh I will say let me okay let's add map
+00:16:45 doctor, index and the arrow function inside this. Let's uh reuse our uh
+00:16:52 doctor card. So here we have the doctor agent card. To this doctor agent card we
+00:16:57 need to provide a doctor agent and with a value doctor key and we'll pass a key as a index
+00:17:06 and for this due we'll add a class name. We'll make it grid. We'll make grid column three with a gap to let's say
+00:17:14 five for now. And then save it. And over here we got this user. See?
+00:17:22 Beautiful. Uh let's make it two because I think two
+00:17:28 will be good. See this is the suggested doctors. But right now if you see uh it's quite big uh uh I think we it's
+00:17:35 better we can uh change this. So this particular card is not look
+00:17:42 good. So we'll create a new one. Okay. So basically let's u create a new card.
+00:17:50 So here we'll say suggested doctor
+00:17:57 card.tsx add a default template and similar like
+00:18:02 this doctor agent card. I'm going to copy this prop because we wanted to use
+00:18:10 inside our suggested doctor card. Make sure to import this doctor agent.
+00:18:16 And here we say doctor agent with this props.
+00:18:23 And inside this we'll add an image tag with a source arrow function. Inside
+00:18:30 here we'll say doctor agent dot image. Inside the alt we'll say doctor agent
+00:18:37 dot specialist. Then we'll say width let's say 70 and
+00:18:47 height to 70. Okay. Uh
+00:18:52 here we have error. So let's go back because we did not addit anything. Now we can
+00:18:58 add the suggested doctor card option. And inside this we need to provide a
+00:19:03 doctor agent with a doctor and then save it. You can provide a key
+00:19:09 as a index over here. and then save. Now according to
+00:19:15 obviously if you see we need to update this uh make sure you can show a three
+00:19:21 in a row. Now inside the suggested doctor I will add a class name. We'll give it to 50 height sorry uh 50 pixel.
+00:19:30 I'm going to add a customized value. So that's the reason I'm giving in a square braces.
+00:19:37 Then once you add height and width you can make this rounded. So we'll say
+00:19:42 rounded corner. Below that we need to write a specialization.
+00:19:48 So doctor agent dot specialist
+00:19:55 and we can add some description as well.
+00:20:00 Now for this one we'll say font bold and for this we'll say class name text
+00:20:06 excess. Here we'll say text small. Perfect. Now let's bring everything in
+00:20:13 one line. So we'll say class name flex flex column item to be in the center justify content
+00:20:20 in center. And over here we say object cover
+00:20:26 because it will not the image will not get stretched. See, now that's beautiful. And make sure to add a border
+00:20:32 as well. So, we'll say border rounded corner we want. So, rounded to 2 XL and
+00:20:39 little bit of shadow. Uh, make sure to add some padding. So,
+00:20:44 we'll add padding to five. I think padding five is too much.
+00:20:55 Just remove this uh justify between uh for this text. Make it text in the center. And here as well, I will make
+00:21:02 text in the center.
+00:21:07 Perfect. Um for the description, I think it's better we can clamp it.
+00:21:14 Okay. And here we have the suggested doctor's option.
+00:21:20 Uh I think that's good. uh over here I will add an heading tag. So maybe we can
+00:21:27 wrap this in another div so that we can add a heading tag. I will
+00:21:32 say select the uh doctor. Select the doctor
+00:21:45 and maybe uh these curly braces need to be to the other div. Perfect. Now on
+00:21:51 hover we need to uh show some kind of effect. So over here we'll say on hover
+00:22:00 we'll change the border color to let's say blue.
+00:22:07 See something like this. Okay. And uh I think that's all we need. make
+00:22:16 cursor pointer and on the select of that any of the
+00:22:21 card we have to make sure uh the card is showing as a selected one. Okay, right
+00:22:27 now it's not showing. So uh on the click of it you have to write a method. So basically
+00:22:35 we'll write on click and on this click we'll say set selected
+00:22:43 doctor and then add that particular doctor agent as an complete object. Now
+00:22:49 this set selected doctor function we are going to write back over here. Make sure to add that. I will provide a type any
+00:22:56 and make sure inside this session dialogue we will accept that
+00:23:03 and then we're going to simply call a method or not method but we'll simply save it in a
+00:23:09 state. So we'll say constant selected doctor set selected doctor is equal to
+00:23:17 use state and it is of type doctor agent. So we'll
+00:23:22 say doctor agent only and we'll set this
+00:23:29 selected doctor with this doctor. Perfect.
+00:23:35 I think this is pretty good. Perfect. Now once we have the selected doctor
+00:23:40 right and then on the click of this consultation button we wanted to save all the information
+00:23:47 and then we want to redirect it as we already have this start consultation uh
+00:23:53 button. So here we'll say on click on start consultation
+00:24:00 and this method we need to call. So we will write a new method called constant
+00:24:05 start consultation and the arrow function. And here we wanted to save all
+00:24:11 info to database. Now in order to save all of this info we
+00:24:16 need a new table for that one. So simply go to the schema and here we going to create a new table. So we'll say export
+00:24:23 constant and we will rename name this to a session chart
+00:24:29 table is equal to pg table. give the table name which is again I will give it as a session chart table and then arrow
+00:24:37 function I'm this uh table name is just calling a session chart you can call anything the first I will add an ID then
+00:24:46 I will add a UID not UID but we can call it as a session id and is of type vare
+00:24:56 and make sure it's a not null so you can add a condition Okay. The validation
+00:25:01 that this is not null. Then uh if I go back over here, you will see we have the
+00:25:09 I don't think so we I save it somewhere. So over here
+00:25:14 on the click start we wanted to save the created by created on so who started
+00:25:20 this conversation. So here we'll call it as a created by which will be the user's name. Okay. And you can even reference
+00:25:28 this one. So we'll say references and we can reference it to the
+00:25:34 users table. So here we'll say user table sorry user table dot email. Okay.
+00:25:41 Then after created by we'll say created on. So it will be a date. I will just put it as a ware for now. Then we want
+00:25:50 to say the whatever the user enter notes. Okay. So I'll just put above. So
+00:25:55 here we will say notes vare or you can add a text as well from
+00:26:02 the pg core. So make sure you will import the correct one. Uh after this
+00:26:08 we'll say conversation and conversation is of type JSON. So
+00:26:15 make sure you import a JSON format and then report this report also in the JSON format. Okay. So it will be easy for us
+00:26:23 to fetch on the front end side and then save it. Now these are some column we created for this session chart table.
+00:26:30 Now we have to push this all the table changes. So simply stop this result
+00:26:35 studio and then I will push the new changes. Once you push this see it's
+00:26:41 saying the changes are applied. Now you can verify by running the your uh studio locally and then once you open it you
+00:26:49 will see brand new table called session chart table. See and in that we
+00:26:55 have all the column. Beautiful right? So that's how you need to uh add a new
+00:27:01 table into your database now let's head back to this dialogue and here that's uh
+00:27:06 on the click of this start consultation we need to make an API call. This API call will save all our data. So go to
+00:27:13 this API and we'll create a new folder where we will
+00:27:19 say session chart only. Inside this we'll create a route dot tsx file
+00:27:27 make and post API call.
+00:27:32 So here will be the request. The type is next request and the arrow function.
+00:27:39 inside this we need to get some basic information also I think uh I just
+00:27:44 realized um we also need to save the suggested doctors right so I will go
+00:27:52 to the schema and I will add that new column that's is the very very important column so here we'll say uh suggested
+00:27:59 doctor and again this is of type JSON or we'll say selected suggested not se
+00:28:06 suggested but selected uh doctor.
+00:28:13 Okay. So this is also very important. And now once you make this update, same
+00:28:18 thing you have to do. I will stop it. I will push this changes.
+00:28:25 And then this table will get update automatically once you push these changes. See. And now over here we have
+00:28:31 the selected doctor column. Now in this one we'll get a notes then
+00:28:38 we'll get the selected doctors and that's all we need it for now. Here we'll say await request dot JSON.
+00:28:47 Now inside the try catch here we'll say next response dot JSON
+00:28:55 with an exception E. Inside the try block we need to save the data. So we'll say constant
+00:29:03 result is equal to await db dot insert and then the table name.
+00:29:10 So here the session chart table right dot values. So whichever value you want to add. So first the session ID. Now the
+00:29:18 session ID need to be unique. Okay. And we need to generate this unique session ID. So for that one we can use this uh
+00:29:25 UU ID. Not this one but U ID. Oh god.
+00:29:30 Uid V4. So this npm package. Okay. So which will
+00:29:35 generate a unique identifier globally unique identifier we can call it as. So make sure to install that so that it
+00:29:42 will generate a unique identification number for us. So over here we say constant
+00:29:50 session id is equal to uh I will just
+00:29:56 take this example
+00:30:02 and this import statement.
+00:30:08 Now with this session ID we'll pass this session ID. Then uh obviously the
+00:30:13 conversation is empty. Now created by will be the users uh email. So you can
+00:30:19 get this using this o current user which you will get it from the clerk nextjs. I
+00:30:26 will use this user dot primary email address dot email address. Then we want
+00:30:32 a notes. So that notes we can get. Next we want
+00:30:38 the selected doctor that selected doctor also we have. And then I think we don't have a report.
+00:30:45 We can add create created on date. So here we say date dot
+00:30:52 now or maybe we can simply say new date
+00:30:57 and I will convert this into string. Perfect.
+00:31:03 And obviously once we have the report and conversation we can add it later on. But right now we just need to add this
+00:31:08 basic information. In the returning uh we'll simply return this session
+00:31:15 chart table and here I will just mark it as a ts
+00:31:21 ignore. Okay. So it will return the inserted record uh information and
+00:31:27 inside the return. Okay. So here I think I forgot to add a return. We'll say next
+00:31:33 response dot JSON and the result. Perfect. Now let's head back to this add
+00:31:40 new session. Here I will make an call. So we say constant result is equal to
+00:31:45 await exos dot post request.
+00:31:53 Then we'll say / ai / session chart. And then inside the body
+00:32:01 we need to pass a note as note.
+00:32:06 Then selected doctor as
+00:32:11 selected doctor. Okay. Only two field we need to pass here. We I will make this as a async. And then
+00:32:19 I will also make sure we'll set the loading as true. Once it's finished
+00:32:25 we'll set the loading as false. Now we'll add a condition. If result dot
+00:32:31 data dot um id will say session id if
+00:32:37 it's there then I will console this result dot data at the top as well. I
+00:32:45 want to console this result dot data and here I will console the session ID
+00:32:50 basically. Okay. Now whenever the loading is true
+00:32:56 uh so here uh for this button as well we're going to add a loader. So
+00:33:01 basically I will copy the same condition over here and then save it.
+00:33:11 So let's head back again and let's test this out. So I will refresh the screen.
+00:33:16 I think uh I will make sure it's disabled. The button is disabled.
+00:33:24 when the loading is true. So let's say here we will say I have
+00:33:30 headache and you can ask more question then I will open the inspect panel just
+00:33:35 to verify that we don't have any error. We'll say next. Now if you see it's loading now we'll get the result and
+00:33:42 right now it only suggest one doctor. We'll select this doctor. Okay. So right now uh we don't have the selection
+00:33:48 showing. So we need to add that style and then we'll say start consultation. And right now if you see it's loading
+00:33:54 and boom we got the result. Now right now in the result if you see it's
+00:33:59 written inside the first element and then session chart table. So basically
+00:34:05 if I head back over here inside the result we have the zero element and then
+00:34:13 session chart table something like this. Okay. So that's how you'll get the
+00:34:19 result and again try this out. So we'll say start consultation and boom. Now
+00:34:24 second I second time it get inserted and then we'll get the session ID. Okay, it
+00:34:30 means it's going inside this if loop.
+00:34:36 See this one. And once we have we need to route to conversation screen.
+00:34:45 Okay. Once we have this uh session ID and just to verify that inside the
+00:34:52 database if I refresh this database you will see the two new record get added
+00:34:57 which having the different session ID then nodes and who created that along
+00:35:02 with the selected uh doctor as well.
+00:35:07 Now um currently when you select the doctor is not showing as a selected one. So we need to add some style for that.
+00:35:18 So basically over here
+00:35:23 we can pass a selected doctor as selected doctor again. Okay. Anyway,
+00:35:30 it's updating and inside the suggested doctor here will say doctor agent.
+00:35:37 Then I will just make sure the selected oh I think we added the wrong one.
+00:35:45 Yeah, this need to be a selected doctor only.
+00:35:51 Perfect. And then depends on the condition, we're going to add a dynamic styling. So I will wrap this in a curly
+00:35:57 braces with this tag and then add a dollar sign. Here we say selected doctor
+00:36:04 ID matches with the selected do not selected but the current doctor. So we'll say doctor agent dot id. If that
+00:36:12 is matches then we say border as blue
+00:36:20 500. Okay let's take this out. So if you see it is showing as a selected one
+00:36:25 because only one doctor is there and once user select then only we want to enable this start consultation option.
+00:36:33 So that condition also we need to add
+00:36:39 here you can add nts ignore.
+00:36:44 Now um over here make sure this is disable if
+00:36:54 doctors or selected doctor is not there. So that is important. Right now it's
+00:37:00 selected. So it's showing this start consultation as enable one. And once user click on this one, we also
+00:37:06 obviously want to redirect to the user to the conversation

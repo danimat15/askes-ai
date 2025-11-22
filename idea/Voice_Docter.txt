@@ -1,0 +1,2002 @@
+00:00:00 In this exciting fullstack tutorial, we are going to build something truly futuristic. An AI powered medical voice
+00:00:08 agent app using NexJS, React and AI. All packaged into a production ready SAS
+00:00:15 application. Imagine a virtual medical assistant that talk with your users,
+00:00:21 understand their symptoms, and provide an AIdriven response all in real time.
+00:00:27 That's exactly what we are going to build today. From front-end UI with a voice interaction to backend AI
+00:00:34 intelligence and realtime audio streaming. We will cover everything step
+00:00:39 by step. But let me walk through the application first. Let's see what we are going to build in this particular
+00:00:45 project and then we'll talk about the all the text stack which we are going to use to build this application. If you
+00:00:52 see we have this beautiful landing screen which I'm going to tell you how easily we can build this one. Then this
+00:00:59 beautiful animation or animated component. How can we add it? Everything
+00:01:05 we going to uh learn it step by step with the help of clerk authentication.
+00:01:11 We added a Gmail and email password authentication. And after sign in you will jump directly on this beautiful
+00:01:18 dashboard. At the top you will see this beautiful header section. On the right hand side you will see the profile uh
+00:01:26 option to manage your profile. If user is new and coming to the first time you
+00:01:32 will see this empty uh option because we don't have any uh recent consultation uh
+00:01:37 history. So you have option to create a new one or you can see all the specialist doctor agent. Here we'll see
+00:01:45 all these different different types of doctor's agent. Now currently you are on
+00:01:50 the free uh trial. So you can only access to this general physician directly. Okay. But if you want to get
+00:01:58 access to any of them, you have to buy or join the membership. That's what I'm
+00:02:03 going to tell uh show you the next. But before that, let's see how it works. So simply I will say start a consultation.
+00:02:11 Here you can add your symptoms. What is happening to you? So in this case we'll say uh I have
+00:02:17 some body pain. Then we'll say next and then our AI model automatically check
+00:02:25 which doctor uh is the best to help you. Okay. So in this case if you see the
+00:02:31 general physician and orthopedic can help us uh to uh remove our to fix our
+00:02:37 problem. Okay. So we'll select the either of the one. Then select the doctor which you think best for you and
+00:02:44 start the consultation. Once you start it, you will jump onto this beautiful
+00:02:49 conversation screen at the top. Currently you are not connected and you have option to start your call. So it
+00:02:55 will start the conversation. So let's test this out.
+00:03:03 Hi there, I'm your AI medical assistant. I'm here to help you with any health questions or concerns you might have
+00:03:09 today. How are you feeling? I have some back pain uh from last 3 to
+00:03:16 4 hours and I'm really going through it.
+00:03:22 I'm sorry to hear you're in pain. Let's figure this out. Did you strain yourself recently, lift anything heavy, or make
+00:03:28 any sudden movements? Is the pain sharp, dull, or more of an ache? Yes, it's a sharp pain. I lift uh some
+00:03:36 heavy weight, so I'm really looking for some painkiller tablet.
+00:03:44 Got it. Lifting heavy weights might have strained your back. Over the counter painkillers like ibuprofen or
+00:03:49 paracetamol can help reduce pain and inflammation. For now, try resting, applying an ice pack to the area, and
+00:03:55 avoid heavy lifting. If the pain worsens or doesn't improve, consider seeing a doctor. Let me know if I can guide you
+00:04:01 further. Okay, I think I'm good. Thank you so much.
+00:04:07 You're very welcome. Take care of your back. Rest up and I hope you feel better soon. Don't hesitate to reach out if you
+00:04:14 need more help. Take care. And then it will automatically redirect
+00:04:20 you to the home screen. It will also generate the final report in the background which I'm going to show you
+00:04:26 now. But if you see how seamlessly in a real time uh the AI wise agent giving
+00:04:32 you the response. Not only that but we also getting the speech to take in a
+00:04:37 live streaming format. Okay. As soon as you speak you are getting that text
+00:04:42 displaying on the screen. So with the help of assembly AI you will learn how
+00:04:48 easily we can add uh speechto text live streaming uh feature into our
+00:04:53 application. Now once you jump onto this dashboard you will see uh your previous
+00:04:58 or latest um consultation report just now or here you will see the 2 minutes
+00:05:03 ago we got this and here you have option to view report. Once you click on this one, you will see the detailed report.
+00:05:10 Here you will see the session information, the complaint, the complete summary about your conversation, what
+00:05:17 the doctor or agent guide for you. Here you will see the symptoms. Not only that, but it also give you the
+00:05:24 medication that you can even take ibuprofen or paracetamol. Obviously, that is very unknown tablet. Okay. And
+00:05:31 then uh rest recommendation. How cool it is, right? And now obviously this user
+00:05:38 on the free trial. So user cannot create any more consultation u directly user
+00:05:44 need to uh join the our pricing model. And if you see here as well I cannot uh
+00:05:50 click or join a talk with any consultation. So simply I will head to
+00:05:56 this pricing section and with the help of clerk subscription billing uh feature
+00:06:02 we are going to add this billing pricing within just one line of code. Yes, you
+00:06:08 heard right. So with the help of clerk billing we added this beautiful subscription model where you will find
+00:06:14 an option to subscribe inside your application. It will not navigate to any
+00:06:19 other third party um uh URL. Okay. With the help of clerk and the stripe we have
+00:06:24 this beautiful uh check out subscription model option. Obviously currently it is
+00:06:29 in development mode. So you have option to pay with the test card and once you make a payment say the payment is done
+00:06:35 and then you will navigate to the dashboard again and now you have option
+00:06:41 to create a consultation here. Now you can talk with any agent directly from uh
+00:06:47 your uh dashboard. Okay. So that's how easy it is. So guys, that's what all we
+00:06:54 are going to develop in this particular video. At the end of this part tutorial, we are going to deploy this application
+00:07:01 directly on the cloud so that you can share with your friends and family. I
+00:07:07 will put the link in the description so that you can test this demo and you can check how it actually work in a real
+00:07:14 time. This particular is a application is a gamecher SAS application which you
+00:07:21 can uh build it and you can make money by um making business with this
+00:07:29 application. This is a completely responsive application which we are going to build.
+00:07:34 So you're going to learn step by step how uh we are going to make this uh SAS
+00:07:39 application completely and uh fully responsive. Now let's talk about the text tack which
+00:07:46 uh we are going to use to build this application. The very first and my favorite we are going to use a clerk
+00:07:52 authentication. Clerk is not just providing authentication service but it
+00:07:58 also provide a billing uh subscription billing u features where you can
+00:08:03 integrate the subscription model within just one line of code. Okay. So that also we are going to learn how can we do
+00:08:10 that for speech to text uh in live streaming mode we are going to use an
+00:08:16 assembly AI because assembly AI provide you the best streaming speech to text
+00:08:21 also with a low latency more accuracy and within one of the best cheapest rate
+00:08:27 you will find with the assembly air but don't worry in in this video whatever we are going to use to build this
+00:08:33 application is completely free and you have don't need to pay for any service.
+00:08:39 Then for the database obviously I'm going to use a neon postgate SQL database with the help of drizzle ORM
+00:08:46 and to build and to bring all these AI model together to build an AI agent we
+00:08:52 are going to use WP AI everything we are going to deploy on a versel with the
+00:08:57 help of GitHub. So guys uh if you are new to this channel don't forget to
+00:09:03 subscribe press notification bell icon so that you will not miss any update and if you really like this video press like
+00:09:10 button also if you want to access all my source code or exclusive courses simply
+00:09:15 go to the tubeuri.com where you will find an exclusive courses and the source
+00:09:20 code for each of the project and you can follow the step-by-step uh chapter as well. So without doing any further
+00:09:28 delay, let's begin to develop AI medical voice agent application.
+00:09:37 Now it's time to create a NexJS application. As NexJS is a react framework to develop the web application
+00:09:43 which where it provide a lot of different feature like built-in optimization, dynamic HTML streaming and
+00:09:50 most important react server component along with the uh folder based routing
+00:09:56 which is quite helpful to build any complicated or big uh web application.
+00:10:02 So that is the reason we are going to use a NexJS. Now in order to create a NexJS application if you see this is the
+00:10:07 command to create it or you can simply go to the documentation just to explore more uh features about the NJS.
+00:10:15 Now simply open a folder where you want to create a project and open a terminal at that folder.
+00:10:22 Then simply type a command npx create next
+00:10:29 app at latest. Now at latest will install the latest version of the NexJS.
+00:10:35 If you want to install a specific version of NexJS, make sure to enter that version and then simply click
+00:10:41 enter. After that you will it will ask you the project name. So here we'll say AI medical voice agent
+00:10:51 and then click enter. Then it will ask do you want to use TypeScript? So we'll say
+00:11:00 yes to it. Then say no to eslint, yes to the tailwind CSS. So it will install the tailwind CSS version 4 for us. And no to
+00:11:08 the source, yes to the app router, and no to the turbo pack. And no again. Now
+00:11:13 as we are using Typescript if you don't know how to use TypeScript or you never build anything about the TypeScript
+00:11:19 don't worry because it is quite similar to the TypeScript except you need to provide a type to the each of the field
+00:11:26 that you are uh you are mentioning okay that we're going to learn in this particular course as well then once the
+00:11:32 project is created if you see project is created I will close this terminal and simply open the VS code then open a
+00:11:40 folder at that Okay, open the project where you just created this uh project.
+00:11:46 So in my case it in the projects NJS and
+00:11:52 I will open this folder. Now on the left hand side you will see some files and
+00:11:58 folder get created. Let me walk through each of these folder. the very first folder which is app folder in which
+00:12:05 we're going to write all our uh pages code all the routing everything or even
+00:12:11 in uh API as well we're going to keep inside this app folder.
+00:12:16 Now the very first pile which is global CSS which contain uh CSS styling which
+00:12:21 is applied throughout the application. Then we have the layout.tsx tsx which is the root layout of your application uh
+00:12:28 which contain the metadata along with the HTML and body tag and inside this you will see this children. Now all the
+00:12:35 pages or route are going to render through this uh children which is inside this HTML body tag. Now the metadata is
+00:12:43 quite helpful uh for SEO purpose. Now here if I change here we'll rename this to AI medical
+00:12:50 agent. You can update the description and even if you want to update the font, you can update that too and then simply
+00:12:57 save it. Then we have the default page which is a page.tsx. Now once you run the application you will see this
+00:13:04 particular page.tsx file are getting rendered. Now one more important thing if you see the file name with an
+00:13:11 extension tsx which stand for typ script extension. Okay. So if you want to use a
+00:13:18 JavaScript just change to the JSX and that's all you need to do. Then we have
+00:13:24 the public folder in which we are going to keep all all our images fonts uh
+00:13:29 whichever files you want to access it from the local as a image for example or video URL video you can keep it inside
+00:13:36 this public folder. The node model folder contain the all the packages which help to run this application.
+00:13:42 Obviously we are not going to touch this folder any time. Then we have the next doconfig.ts file which contain the
+00:13:48 configuration related to your NexJS application. Then we have package.json
+00:13:54 uh which contain the name version of your application along with the script to run to build your application and the
+00:14:01 dependency along with their version and the dev dependency as well. Now this dependency is quite u important because
+00:14:09 if you want to update any dependency version you can just change this one and then make sure to update your packages
+00:14:16 by running npm install command. Now you have two option to open a
+00:14:21 terminal either you can just drag this up and then it will open a terminal for you or simply go to the terminal and
+00:14:29 click new terminal and then there that that's how you can open the terminal as well. Now anytime here you'll see this
+00:14:36 option to add a new terminal. Okay. So once you click it will add a new terminal inside the VS code only. Now in
+00:14:43 order to run your application just type a command npm rundev and then it will
+00:14:49 open a port 3000 on URL localhost 3000. So we'll open this URL on the web
+00:14:56 browser and then you will see the default page getting rendered on the screen.
+00:15:02 Now I will put this side by side
+00:15:11 and we'll go to the page.tsx file. Now whichever whatever you see on the screen it is written inside this page.tsx. For
+00:15:18 example, let's change this particular line. Okay. So I will just remove everything from here and we'll say hello
+00:15:25 world and then save it. And boom. If you see the text changed to the hello world.
+00:15:30 So that's how easily uh you can make update to your page and it automatically get refreshed as soon as you save this
+00:15:37 file. Now I will remove everything and then we'll keep empty and then you will
+00:15:42 see a blank screen. Inside this we'll add an H2 tag and we'll say subscribe to
+00:15:48 tube guruj. So guys if you did not subscribe to our channel please do subscribe and as soon as I save you will
+00:15:54 see the text is displaying on the screen. That's how you can create a NexJS application and run it very first
+00:16:03 time. Now the next step is to install a Tel CSS based UI component library
+00:16:10 called Shad CN. Now Shad Cen uh UI library is very popular among the
+00:16:16 developers which help us to develop your UI much faster.
+00:16:21 So simply go to the UI.shen.com shad cnen.com and then go to the documentation select the correct
+00:16:28 framework in our case it's a neckjs and then this is the command to initialize the shad cen so I will copy that
+00:16:36 and inside the new terminal I will paste it here so it will initialize the shad cen for us so here we'll say do you want
+00:16:43 to proceed say yes and then uh it will ask the base color okay so you can
+00:16:49 select any base color which you want so I will select let's say gray Okay. And
+00:16:54 obviously we're going to change that base color. Okay. We'll add our own primary color as well. And right now if
+00:17:00 you see uh our shad CN now initialized successfully. Now whenever or whatever
+00:17:06 component you want to use from the shad CN UI library, you have to install that
+00:17:11 first. So in this case, let's say you want to use the button. So copy this and then simply install this button
+00:17:17 component. Now once the button component is installed you will see whenever when
+00:17:22 you init initialize the shadian so couple of file and folder get created the very first folder which is
+00:17:28 component.json which contain the shadian related configuration like which style
+00:17:34 the allis the tailwind related configuration and everything. Then inside the li folder we have util.ts ts
+00:17:41 which is related to the chat and the most important inside the component folder you will see the button component
+00:17:47 which we just installed is inside this button.tsx file which contain the default code as well. Cool right now
+00:17:55 let's go to the global CSS file and inside the global CSS you will see a very big change all this color uh code
+00:18:03 is getting added. Now obviously we don't have the tailwind.config.js JS file
+00:18:08 which were in the version 3 or older. Now in version 4 everything is moved to this global CSS file which contain all
+00:18:15 the styling. For example, if you want to change a primary color you have to change it here. See? Okay. So that's how
+00:18:21 it works. Now very first thing let's use this button uh component which we just
+00:18:27 installed. So we'll add a button component say subscribe and then save
+00:18:32 it. Now if I go back to our application and then whoa why the button company is
+00:18:38 not showing. So it's very quick fix. There is a a small bug inside the chat scen. So
+00:18:45 simply go to the global CSS and at the top you will see this TWW animate CSS. Just remove that save it and then it
+00:18:53 will fix your problem. Obviously you can keep it back. Okay it happens sometimes.
+00:18:58 So it depends on the version and share s version. um you have this small bug but
+00:19:04 it's very very tiny one but right now you are able to uh install the shadian
+00:19:09 UI library as well. If you have any question any doubt until this point let
+00:19:15 me know in know in the comment section or you can ask any question on my discord channel the link is in the
+00:19:20 description. Now we are going to add an landing
+00:19:27 screen for our application. Obviously for the landing screen we want to add navigation bar at the top, the hero
+00:19:33 section and many others features and section you can add that too. And for
+00:19:38 that one I'm going to use an asset UI.
+00:19:43 This is the base on shaden and it provide a very uh different animated
+00:19:49 components which you can use it without uh writing any complicated code. You can
+00:19:54 just copy the components and then you can use it to your application. Simply
+00:19:59 go to this UI.eternity.com and then go to the components. Now once
+00:20:06 you install the shaden which we did it in the last chapter, you don't need to uh install anything. Okay, inside the
+00:20:13 CLI if you see the you have to install shad CN and that's all we needed. Now
+00:20:18 whichever component you want to use you can directly uh obviously first you can
+00:20:24 install that. Okay. So here is the installation command and then you can copy the code example code which you
+00:20:30 want to use. And if you see this example how beautiful it is. So simply uh let's consider uh we want to use an hero
+00:20:38 section. So if I scroll a little bit you can search for the component for the hero. So let's scroll a little bit over
+00:20:47 here. And here we have the hero section. Now make sure to select the CLI. Okay.
+00:20:54 So you can directly copy this npm command and then go back to your
+00:20:59 application. I will close all of this tab for now and then simply paste it. Now it will
+00:21:06 install the shaden with this component. Okay. And inside the component you will see this hero section component get
+00:21:13 added. Obviously you have option to control and uh modify and customize
+00:21:19 according to your need. Now inside the code section you can copy
+00:21:24 this code as it is. So I will simply copy this example as it is. So we are
+00:21:31 using TypeScript. So I will copy the TypeScript one. Then go to the page.tsx file and simply I'm going to paste all
+00:21:38 of this code. Now over here if you see we don't have this motion react. So make
+00:21:44 sure to install this motion react library. So for that one go to the motion.dev and here you will find the
+00:21:50 command. If you go to the quick start you will see this example as we are using a react. So copy this uh command
+00:21:58 to install the motion react
+00:22:04 and once installed uh it should work. So let me save this
+00:22:09 first. Let me go to the page.tsx. And now if you see we don't have any error.
+00:22:14 Now inside the page.tsx when you paste make sure you will mark this as a default uh export component. Once you
+00:22:22 save it and boom this is how beautiful you see this landing screen. Currently this landing screen is uh inside the
+00:22:30 uh div. Okay. So we can just update that. So we don't need the margin x at
+00:22:36 all. So we'll remove that too. And if you want you can remove the border if there is any.
+00:22:44 And I think they give the maximum width size. So we'll remove this maximum width size.
+00:22:49 And I think this is much better. See now it's a completely full screen. Now obviously over here you can update the
+00:22:57 uh title the dialogue and everything. I'm just uh going to copy and I I am
+00:23:03 going to paste some information over here.
+00:23:08 So so
+00:23:16 just search this text and then I will paste it here. Okay. And then
+00:23:24 uh for the description I already have which is related to our our application
+00:23:30 and here we have explore now contact I think we don't need this button but you can keep it as it is and then for the
+00:23:39 other things you can add more data into that again you if you go to this asset
+00:23:44 edity uh UI you can find more different different component we can uh easily use
+00:23:50 it for example This feature section component is also quite good which also you can use it. Okay. Um then you have
+00:23:58 this bend to grid uh that is quite interesting say and let me show you how
+00:24:03 we can add that too. So first uh once you open any component copy this so go
+00:24:10 to the CLA I will copy this JSON CLA command not JSON but the component is
+00:24:16 from the JSON. And once you install this uh in uh component then you can directly
+00:24:24 use this. So I will copy this code as well
+00:24:30 from the typescript and over here we'll say constant
+00:24:37 um features bento grid
+00:24:42 and the arrow function inside this we'll say return
+00:24:47 I think we just need to okay so over here a lot of things we
+00:24:54 need to add. So just copy this and it's better we can create a component for that.
+00:25:02 So we'll create an underscore component folder and whatever the components we are going to use for this page.tsx or
+00:25:08 which is shared across the application in different different route we can keep inside this underscore component folder.
+00:25:15 Now when we give this name underscore component it means this is not considered as a route. Inside this we'll
+00:25:21 say feature bento grid.tsx
+00:25:27 and then paste this. Now I will just rename this
+00:25:32 to bento grid uh feature bento grid. I will remove this and then
+00:25:42 we'll import this bento grid from this component. See
+00:25:48 and then save it. Now once you add that you can simply add this bento grid.
+00:25:54 So our name is feature bento grid. Save it and let's see how it looks. And boom.
+00:26:00 If you see we have this beautiful bento grid. Now this is the hero section. And
+00:26:06 then after that we have this uh bento grid. Obviously right now I'm not going
+00:26:11 to update everything but in the production you can see uh the complete uh related uh text and content which is
+00:26:19 uh with our application. Okay. But this particular chapter is just wanted to show about this assertity UI how easily
+00:26:26 you can add and make your site more modern uh uh for your business and
+00:26:33 application. Before moving forward, it is very
+00:26:39 important to understand the application workflow so that we can implement each
+00:26:45 section step by step. Now very first step is that when user visit to our
+00:26:51 application we are going to show a landing screen and from there in order to access our application user need to
+00:26:58 authenticate to our app. Once user submit the credentials uh depends on the
+00:27:04 if credential is correct and successful then we are going to give an ac access to the dashboard otherwise if the
+00:27:11 authentication fail then user need to sign in again. Once user in the dashboard or workspace we can call user
+00:27:18 have two option to start a new session. Now once we when we call start a new
+00:27:24 session it means if user want to uh talk with an our AI voice enable medical
+00:27:30 agent then user need to enter some basic information along with the name if user
+00:27:35 have some symptoms he can enter some symptoms or any specific query that he want to ask he just uh enter into the
+00:27:43 text area box. Okay. So once you just add all the information then our AI
+00:27:48 model will give you some suggestion of of doctor's list. Okay obviously it's
+00:27:54 a doctor specialist list. So you have option to select from this uh different different options and once you select
+00:28:01 the option then it will start a vice agent where it will be a two-way conversation and then you can directly
+00:28:08 talk with our uh medical specialist voice agent. Okay. So this is the
+00:28:13 complete flow of our application. Now obviously uh going forward in this
+00:28:18 particular course we going to uh learn and implement each section step by step
+00:28:25 so that you will learn how to proceed uh with this particular flow inside this uh
+00:28:33 project. Okay. So uh obviously first thing first we need to add an
+00:28:38 authentication to our application and in order to save all all the data uh at one
+00:28:44 place obviously we need a database as well. So that's what we are going to see next.
+00:28:53 Now in order to set up a database we are going to use a neons forgate SQL
+00:29:00 database. Uh the link is in the description to check out this neon pgate
+00:29:05 SQL database which is free to use and most important it provide a lot of different feature and very easy to
+00:29:11 integrate. It also support various uh different stack we can you can use it directly into the NexJS or you can um
+00:29:19 integrate with the help of Drizzle OM or Prisma OM. So whichever you like it you
+00:29:25 can use this neon portate SQL database into your application. Now in this particular tutorial we are going to use
+00:29:31 a neon port gets SQL database with Drizzel OM and setting up the Drizzle OM
+00:29:37 along with the neon into the NexJS application is quite straightforward. So
+00:29:43 simply first thing first we'll go to the Drizzel OM website and into this one
+00:29:49 simply go to the get started. Now obviously we want to use a neon postgate SQL database. So make sure to select
+00:29:56 this option and then make sure to install this neon database. So copy the
+00:30:02 first line. Then we'll go to the uh terminal.
+00:30:09 Simply paste this uh command. Next you have to add this diesel kit as well. So
+00:30:17 this diesel kit will helpful. It will it enable you the local studio where you
+00:30:22 can access your database. So make sure to install that too. Then you need to set up a database URL inside
+00:30:30 this env file. So we'll create a environment file
+00:30:36 and inside that we'll simply add this database URL.
+00:30:42 Now this database URL you need to get from the neon postgate SQL database. So simply click the link in the description
+00:30:49 then simply log or sign up depends on whether you're new to this uh neon then
+00:30:56 create a project and once you are in this project dashboard here you will find an option called connect just click
+00:31:03 on it it will open this dialogue you will see there are lot of project which
+00:31:08 I built with the help of neonate SQL database here you have option to create a new database and give the database
+00:31:15 name so here we will add AI medical
+00:31:24 voice agent and then we'll simply say create. Now once you create you will
+00:31:30 find this connection string. Copy this connection string and simply paste it
+00:31:36 here and then save it. Now once you have this uh connection string ready head
+00:31:42 back to the drizzle OM. The next step is to create an index.ts file. Okay. So
+00:31:48 obviously we going to do in our own way. So I will copy this both the lines. Head
+00:31:53 back to our application and inside the root directory we'll
+00:31:59 create a config folder. Inside this we'll create a db dot tsx file and
+00:32:06 simply paste the code which you copied. Okay. as we are using the uh TypeScript.
+00:32:11 So, make sure to add this exclamatory mark and then save it. Now, if you want a synchronous
+00:32:19 connection, you can use this line of code as well. So, it's up to you how you
+00:32:24 want to use. Okay? But if you want to use synchronous, I will just paste this code and everything will be as it is.
+00:32:31 Now, it is very important in order to use this DB reference, you need to export this DB, okay? and then save it
+00:32:38 so that you can use it anywhere inside the application. Now, next step is to
+00:32:44 create a table. Now, in order to create a table, you need to create it with the
+00:32:50 help of this schema file. Okay, you need to write this line of code. You can add a column and everything. So, in our
+00:32:56 case, let's copy this. But from the next time, we can create our own table by
+00:33:02 writing the schema. Now inside this config folder we'll create
+00:33:08 schema.tsx tsx file add the code which you copied and if you
+00:33:14 see over here the table name is users then pg table is the reference which is
+00:33:20 inputting from the pg core and these are the column get added now we don't need a so we'll remove we have the ID name and
+00:33:28 email okay and you can even add a credits if you want okay just add and
+00:33:35 then you can give the uh type Or this need to be integer we can add. For
+00:33:41 example, we are giving just a type which type of this column is. So we give it as
+00:33:46 a integer and then save it. Now once you save this uh let's create this
+00:33:52 drizzle.config.ts file which is the drizzle related configuration. We'll need to create this
+00:33:58 in a root directory. And inside that simply copy the code which is mentioned over here. Now make sure I will remove
+00:34:05 this out for now. And over here we need to provide the schema path. Okay. So I
+00:34:11 will remove it and we'll say config / schema.tsx
+00:34:17 because our schema is inside this config folder and otherwise everything is as it
+00:34:22 is. Now next thing once you define this you need to push your changes so that it
+00:34:28 will be available to your database. So simply run this command called npx
+00:34:34 drizzle kit push. Click enter and then it will install uh sorry it will push
+00:34:40 your all the tables which is mentioned inside the schema. Now once you push it
+00:34:46 you can go back to the neon inside that you have the tables and under the table
+00:34:51 make sure to select this AI medical voice agent from the list if it's not selected by default and then you will
+00:34:58 see a brand new table get added to our database called users. Inside this there
+00:35:03 are ID, name, email and credits column. Whatever the column you mention inside
+00:35:09 the schema. All of these column uh get added to our table. How simple it is.
+00:35:15 Right now obviously every time whenever you want to check your database you need to go to the neon and check this out.
+00:35:22 But there is another way that you can do it. You can even run this database
+00:35:27 locally. Just run the command npx drizzle
+00:35:33 kit space studio. Now drizzle kit provide
+00:35:38 you their own drizzle studio which is similar to what you see inside the neon
+00:35:44 database. Now if I open this once you run it will uh run your studio on the
+00:35:50 local.driel.studio and boom it will display your user table. Obviously you are running on
+00:35:56 locally and here you have all the columns obviously you have option to add a record um you can run the SQL uh query
+00:36:04 as well or you can run diesel query as well okay all of these or all the
+00:36:09 functionality is available inside this local visual studio as well obviously throughout the application we are going
+00:36:15 to referring this local visual studio whenever we want to access the database and that's how easily guys you can uh
+00:36:23 create a database with the help of neon postgate SQL database and the result
+00:36:28 ORM. Now obviously anything you want to save it or fetch it or make any crude
+00:36:35 operation on your database you don't need to learn any pgate SQL uh query
+00:36:41 with the help help of digital OM we going to uh do all the operation that's what we are going to see throughout the
+00:36:48 video as well now it's time to add an authentication
+00:36:54 to our application so when user come to our app we need to authenticate the user
+00:37:01 in order to access all our uh application services and that's where the authentication play very important
+00:37:08 part obviously if user is authenticated successfully then we are going to redirect user to the dashboard otherwise
+00:37:14 user need to sign in again if the authentication is failed and for the authentication purpose I'm going to use
+00:37:22 a clerk clerk is one of the best authentication service provider and it provide a lot of different feature Not
+00:37:29 only that but along with the authentication with the help of clerk we are also going to integrate the
+00:37:35 subscription billing with the help of clerk. Clerk recently introduced the billing feature where you can easily
+00:37:42 integrate the subscription model to your app within just one line of code. Yes,
+00:37:47 you heard like right. So with the help of clerk you can easily add the subscription model which is which is uh
+00:37:54 attached to the stripey payment gateway and is very easy to integrate as well.
+00:38:00 Uh in the profile section you can manage your subscription and all of these subscription plans uh features you can
+00:38:07 add through this clerk uh billing feature and that's uh also we are going
+00:38:12 to see in this particular tutorial. So simply click the link in the description
+00:38:18 and go to the clerk. Once you are on this one, simply go to the or sign into
+00:38:23 your to clerk account. Once you sign in, simply go to the
+00:38:30 option where you you have a option to create the new application. Now many of my application uh uses this clerk
+00:38:37 authentication. Now once you click on the create application, it will redirect you to this particular page where you
+00:38:43 can give the application name. Here we'll say AI medical voice agent. Then you can select the
+00:38:50 different different signin option like email, username, phone number, Google, Facebook and there are many others. As
+00:38:57 soon as you enable or disable any of them on the right hand side you will see actual preview that how it going to look
+00:39:03 on the screen. Once this is done simply click on the create application and then
+00:39:09 your application now getting created. In the meantime, we'll follow this step in order to integrate the clerk inside your
+00:39:17 NexJS application. These are the some step that we need to follow. Now, very first step that we need to install the
+00:39:23 clerk HDK. So, we'll copy this command in the new tab. We'll paste this.
+00:39:30 After this, you need to copy this environment keys. So, copy as it is. Go to env file and we'll paste it here.
+00:39:39 After this we need to create this middleware.ts file. Now this file is very important. This is one of the best
+00:39:47 feature inside the NexJS application which help us to protect your routes. So
+00:39:54 I will copy this middleware create a new file called middleware.ts and then simply copy the content and
+00:40:02 paste it here. Next thing uh we need to wrap our application inside the clerk provider.
+00:40:08 Okay. So so that it will it is applied and your application is completely
+00:40:14 authenticated with the clerk. So simply go to this layout.tsx which contain the root layout and I will simply
+00:40:22 wrap our application something like this. So we'll say clerk provider
+00:40:32 and obviously we need to import this clerk provider uh import statement
+00:40:41 something like this. So let's copy this one for now and make sure the clerk is installed
+00:40:48 successfully. Okay. And I will just paste it here. And if
+00:40:54 you see now the error is gone and then save it. After this if you scroll down
+00:40:59 obviously if you run your application. So this is our application. If I run this one
+00:41:06 nothing is happening right? That's because we did not protected any route yet. So inside the middleware.ts
+00:41:13 we don't have logic which will say that your route this particular route is protected. Right. Uh so simply go to the
+00:41:21 documentation again and we'll say continue to the nextjs guide here. Uh first we'll create our own sign in and
+00:41:27 signup page. So simply we'll copy this route. Okay. And because we need to
+00:41:33 create a folder called signin inside this we need to create this folder and then page.tsx. So simply copy the
+00:41:39 complete path. Then inside the app folder I will create an o folder and inside that we put sign
+00:41:46 in and signup page. Okay. So if you see it automatically
+00:41:52 created the signin page and their route and we'll paste this code.
+00:41:59 Then uh obviously we need to make this sign in or as a route sorry public
+00:42:04 route. So if you see now the middleware now it's showing the public route and then this added this clerk middleware to
+00:42:10 protect the route. So I will copy this middleware and if I go to this middleware.ts TS I will replace the
+00:42:16 complete code with the new one which we just copied. Now here if you see this is
+00:42:22 the signin page which is a public route means it is accessible without any authentication
+00:42:28 and then you have to update this environment variable. So I will add this
+00:42:35 environment variable as well. And obviously I also need to add a
+00:42:42 custom signup because we just added a sign in. So we'll add a sign up as well.
+00:42:49 So it's very very straightforward guys. So you just you just need to follow the
+00:42:55 step-by-step guide and then you're good to go.
+00:43:01 And our signup page is also ready. Make sure it is publicly available. So
+00:43:09 I will add this new route which is the signup and then we'll update this
+00:43:15 environment for the signup. Perfect. I think that's all we need. And
+00:43:22 now if I go to our local host 3000 you will see the page is redirected to
+00:43:29 the signin page and that's where it's showing us the login or sign in screen.
+00:43:34 Cool, right? So that's how easily you can add a authentication. Now this page
+00:43:39 is not look good. Now you have few option that you can customize this page. Okay. Now simply this easiest way I will
+00:43:47 do I will keep this uh component in the middle. So let's go to the sign in
+00:43:55 and then wrap inside the div
+00:44:03 something like this and then we'll say class name flex item to be in the center and height
+00:44:10 to screen and justify center. So it will be in the
+00:44:15 center of the screen. See same thing we have to do for the signup. If I click sign up right now, it's showing on the
+00:44:21 left side because this is just a signup component and this particular component showing this complete UI. So you don't
+00:44:27 need to even add any UI. How cool it is. So simply I will wrap this in a div
+00:44:37 and then we can make mark this as a center.
+00:44:45 Perfect. Okay. So guys, that's how you have to do it. Now let's sign into
+00:44:51 account. So I will select the Gmail account. You can even sign it with the email or a magic link as well.
+00:45:01 And now if you see I'm able to sign in successfully. Currently once it is sign in is showing on or redirecting to the
+00:45:08 home screen. Right now you have option you can add a redirect URL. So here you
+00:45:14 have after sign out URL or maybe you have um force redirect URL. So once it
+00:45:20 is successfully sign in you can redirect it to the dashboard screen. Okay. Now
+00:45:26 once you sign in successfully right let's go to the page.tsx file here. You
+00:45:32 can change this login button to something like um uh dashboard and user
+00:45:37 profile icon as well. So simply we'll go to the navigation bar. That's where we have this login button. Right now in
+00:45:45 order to get whether user is login or not, you can get the user information with the help of one hook called use
+00:45:52 user. Now this use user hook is importing from the clerk. Now if I
+00:45:58 scroll up you will see it is importing from the clerkjs. Now whenever you use
+00:46:03 any hooks you have to mark this component or page as a client side. Now
+00:46:09 once you mark then you can use this one and then you can check if user is not
+00:46:14 there then it means user is not login then you can show this login button
+00:46:20 otherwise I'm using this turnary operator I have to I want to show
+00:46:26 a div and inside the do I will add a button a
+00:46:32 user button component from the clerk neckj and let me show you what it do. So
+00:46:37 once you add this user button component will go back and boom if you see we have this beautiful user profile icon. If I
+00:46:44 click on this one we have this beautiful uh clerk based component where you can
+00:46:50 have option to manage your account. You can even sign out from the account. Inside the manage you will see this
+00:46:56 beautiful popup uh to manage your account profile and all and that is uh
+00:47:02 automatically added by the clerk. just one component. Okay, just one line and it will it will do all the magic for
+00:47:09 you. Also, I want to add a button called dashboard. So, here I will add a button component and inside that I will just
+00:47:16 say dashboard. See, now let's bring everything in one
+00:47:22 line because if you see the button and the profile image is not align. So, here we'll make it flex gap of let's say five
+00:47:29 and item to be in the center. Perfect. And now it's working perfectly fine. So
+00:47:35 that's how you have to do it. Uh make sure when user click on login right. So
+00:47:40 over here I will wrap this component in a link tag. Okay. Now this link tag I'm
+00:47:46 importing from the uh neckjs only and inside the h
+00:47:51 reference make sure to redirect this to a sign in screen. So whenever user click on login button
+00:47:58 it will redirect it to the sign in. Now this uh link component from the nextJS
+00:48:04 is similar to the anchor tag inside the HTML CSS also. Same thing we have to do
+00:48:09 once user click on get started. So I will wrap this in a link tag. Maybe we need to wrap let me undo this. We need
+00:48:16 to wrap this motion div only.
+00:48:24 I think I don't want this button. Let's wrap
+00:48:30 this link and save it. See? Okay. Perfect. So that's how we
+00:48:36 have to do it. Now once user is signed into our account, we need to save the user information to our database. Okay.
+00:48:44 So in order to do that, we'll create a one uh provider file. So we'll create
+00:48:50 provider.tsx. And this provider will start with the name small P. Now this provider will
+00:48:57 will be on the client side. Okay. And we'll keep our layout.tx on the server
+00:49:04 side. Okay. Now in order to uh write a logic on the client side that's the
+00:49:09 reason we created this provider dot tsx file. Inside this we want to render the
+00:49:14 children. So here I will add a children. Now make sure uh the type will be similar like
+00:49:21 this one. I will just copy everything as it is. That will be easy.
+00:49:27 Something like this. Okay. And then go to the layout.tsx and make sure to import this provider
+00:49:34 and then pass these children inside this provider. Okay. Now obviously on the UI
+00:49:40 side you will not see any change. We just passing these children uh from the
+00:49:46 layout to the provider and provider is rendering that children. Now inside here
+00:49:51 we need to check if user is already uh saved to our database or not. So here
+00:49:57 we'll say check user. I will say create new user. Create new user
+00:50:06 and obviously here we need to check if user is already there or not. And then depends on that one we need to save the
+00:50:13 user information to our database. Now for that one we are going to create an API for the users information to store
+00:50:21 or to uh retry from the database. And to create an API endpoint inside the NexJS
+00:50:28 application is very easy. You don't need to set up a different server like a NodeJS or anything like that. Simply
+00:50:36 go to the app folder. inside the app will create a new f of f folder called
+00:50:42 API and that's where all the routes which you want to create you can put inside this API folder NexJS will
+00:50:49 automatically detect that this is are the API endpoints okay as simple as that
+00:50:54 now inside this we'll create an endpoint called um users
+00:51:00 tsx okay so obviously this need to be folder so we'll create a folder called users and oop Sorry, I think I did not
+00:51:08 create it. Let's create a new one. We'll create a users folder. I will
+00:51:14 write in a small only. And then inside this, we'll create a route.tsx. So all
+00:51:20 the API endpoints need to be logic. Whatever you want to add, you need to add inside the route.tsx file. Inside
+00:51:28 this, we'll create export a sync function. And this need to be a post
+00:51:33 request. So you have get, post, put, delete. See in our case we want to use post request then we have to provide a
+00:51:40 request and then next request. Okay the type is next request. Now let's
+00:51:47 get some user information. Now you have two option either you can pass the user basic information or you
+00:51:54 don't need to pass uh any information because on the uh server side because
+00:52:00 API is on obviously on the server side you can get the user information by just calling constant user is equal to await
+00:52:08 current user and this is importing from the next uh sorry clerk nextjs server
+00:52:14 see okay and this particular current user uh we are fetch from that we are going to fetch user information. Now
+00:52:21 here we'll check if user already exist.
+00:52:26 If not then create new user.
+00:52:32 Okay. So we'll add a try cache block.
+00:52:43 Now if there is an any error we'll return next response dojson with an
+00:52:50 error e and inside the try we'll check constant users is equal to await db. Now this db
+00:52:59 reference obviously if you see it's importing from the config / db dot it has a method called select inside that
+00:53:06 we need to provide uh the database name from which you want to fetch. So we'll say users table and this user table is
+00:53:14 importing from our schema. Then we have where clause and inside
+00:53:20 that we need to check uh the column match. So we'll add equal sign or equal method and inside this
+00:53:28 we'll say user table dot email matches with our user's email. So we'll say user
+00:53:36 dot primary email address dot email address. As simple as that. Now here it's saying
+00:53:43 cannot find a name. Make sure to import this from the dri.
+00:53:48 Now sometimes you might get this error. So in order to avoid this you need to add a ts
+00:53:55 ignore. So it will this error will gone. Now this method will check if
+00:54:03 or we'll check we can just say if users do length means if there is no user is
+00:54:10 equal to equal to zero then we'll insert a new user.
+00:54:19 Okay. Otherwise we'll return the user information. Okay. Now
+00:54:26 obviously this is uh from the next JS response we just say users of zero
+00:54:33 because this users contain list and from that we need to provide the first
+00:54:38 element and then if there is a no user found it means this is a new user and
+00:54:43 now we need to create into our database. So we'll simply say constant result is
+00:54:48 equal to await db
+00:54:54 dot insert and then in which table so we'll say user table dot values and inside
+00:55:02 this we need to provide all the value let's say name so we'll say user dot
+00:55:08 full name then we want to provide email we'll say user dot
+00:55:14 um primary email address dot email address and then credits the by default
+00:55:21 you can give let's say 10 credits okay it's up to Now once you add that inside this
+00:55:27 provider when uh inside this create new user method we'll call this API
+00:55:33 endpoint. So we'll say constant uh result is equal to await exos. Now
+00:55:40 this exos is the http client library. Obviously we don't have that. So we need to install by you just you adding a
+00:55:48 command npm exio inside the terminal. And then make sure to import this exio.
+00:55:54 So once you add, make sure to import exosios. So maybe we'll add again.
+00:56:00 So make sure to import this exio. And then we'll say exos.post because this is post request / api/
+00:56:08 users. Okay. So this API endpoint you need to provide.
+00:56:13 And as we are using a so mark this as a sync and then save it. Now inside the
+00:56:19 console we just check the result. Okay. Now one more important thing. So if I go to the route here you need to write the
+00:56:26 result. So inserted record result as well. So inside the returning we'll say
+00:56:32 users table. So whichever the record is inserted it will return this one. And then inside the response we'll say just
+00:56:40 result. Okay. And then save it. So that's the how our users post API endpoint is
+00:56:48 ready. Now obviously here we are calling this endpoint. Now you have to make sure whenever this provider getting called.
+00:56:54 So inside the use effect we need to call this method. Now if you don't know how
+00:56:59 the use effect it work. So use effect is a react hook and it is obviously used in the client side. The most important
+00:57:07 thing about the use effect. So whenever you want to execute uh any logic you have to add inside the use effect or you
+00:57:13 have to call it from the use effect because use effect will execute every instance. But if you want to execute
+00:57:20 this only once you have to provide this empty array. Okay. So inside the provider whenever this component get
+00:57:26 load we are going to execute use effect only once and then we'll call create new
+00:57:32 user method whenever this method get execute. But we also need to make sure
+00:57:38 whenever the user information is there then only we want to call. So for that one I will use this use user and once we
+00:57:46 have the user information I will pass it to the use effect and then I will
+00:57:51 execute this create new user only when uh the user information is available. Now in this case whenever the user
+00:57:58 information is available this use effect will get execute. Okay. So that is also
+00:58:03 a very important point to understand. Now inside the result we'll get the
+00:58:08 result dot data. Inside that we'll get the information. Let's save this one. Go back to our application. As we are using
+00:58:15 use effect inside the provider we have to mark this component on the client side
+00:58:26 and then save it. Now inside the inspect panel if I go to the console you will see new record get inserted and inside
+00:58:33 the provider.tsx TSX on line 19 we got the result see and inside the result we
+00:58:39 have the users information which is inserted to our database if I go to our
+00:58:44 database if I refresh this users you will see brand new record with the ID one the
+00:58:51 name email and the credits okay if I try to refresh this and if I refresh it you
+00:58:57 will see only record it's fetching from the database book because in this case it's checking whether the email is
+00:59:04 already exist. If yes, it's not inserting the record. Okay. So, obviously, it's avoiding a duplicate uh
+00:59:11 insert record functionality. So, that's how you need to uh save the user
+00:59:16 information as well. Now, next thing we need to save the user information along
+00:59:22 with the credit information into into uh or at some place or in some state so
+00:59:28 that we can share it across the application. Right? And for that one we are going to use a context. So in order
+00:59:36 to add a context we'll create a new folder inside the root directory. We can call it as a context. And inside that
+00:59:42 we'll create a user detail context dot tsx file. Inside here we'll create
+00:59:49 export constant user detail context is equal to create context. Okay. Make sure
+00:59:57 this create context is importing from the uh
+01:00:03 uh react. Okay, inside this we need to add a type.
+01:00:08 So basically uh let's define the type inside the provider.
+01:00:13 So at the top I will define a type users
+01:00:19 is equal to or user detail is equal to and inside this we'll say name of type
+01:00:26 string because we are using the j typecript so we have to define a type
+01:00:33 for email it's a string and the credits it's a number
+01:00:41 and over here uh wait make sure it you'll export this type so that you can use it at other
+01:00:48 places you don't need to define every time
+01:00:54 and here we need to provide an empty value so that's let's show undefined I don't know
+01:01:01 undefined is not working maybe here we'll say undefined as
+01:01:12 Perfect. Now once you define the context, you need to wrap your application inside the context uh so
+01:01:18 that you can pass or use this context in order to uh share your information. Now
+01:01:25 once you define the context is very easy to share the data. Okay. So at one place
+01:01:30 update your context anytime from any component and it will applicable to the all the components. So simply we'll say
+01:01:37 user detail context dotp provider and make sure to wrap this
+01:01:44 wrap your children something like this. Now to this provider you need to provide a default value. Now in order to provide
+01:01:51 a default value we'll define a state called user detail comma set
+01:01:56 user detail is equal to use context sorry not use context but use state
+01:02:03 because this is a default state okay now for this context I will say user detail
+01:02:11 and define okay and then I'm going to pass this
+01:02:16 user detail information to this provider here or maybe for now I will just
+01:02:25 here provide as any okay maybe we have this error because we
+01:02:32 need to define uh all the types let me go back
+01:02:39 and provide any okay so that will be good now perfect now once you define
+01:02:45 these contacts with the provider and some default state now whenever you get the value you just need to set
+01:02:52 over here. We'll say result dot data. Okay. But not only this
+01:02:59 inside the route we have to make sure you will get or it will return the same kind of data. So from the result it will
+01:03:06 also get the so here you might need to write result dot users
+01:03:15 table or maybe inside the zero dot users table
+01:03:20 users table something like this okay so that it will just return the exact value
+01:03:26 for us perfect now if I go back inside the inspect panel if I refresh
+01:03:34 this screen you will not see any error. But the most important thing now this information will get saved to our uh
+01:03:42 state called user detail and this user detail now we are sharing across our application because we are using this
+01:03:48 context provider. Okay. Now later on in this particular course you will see how we are going to use this user detail uh
+01:03:56 context in order to get or fetch the data from the user detail. So you don't need to fetch this particular or call
+01:04:02 this uh API endpoint every time only once whenever this application get load
+01:04:07 it automatically get call and save your information to your uh context.
+01:04:16 Now it's time to create an workspace uh screen where user can able to consult
+01:04:22 with the doctor and on this workspace obviously uh if user don't have any
+01:04:28 previous history then we we going to show an empty state and then button to connect with the doctor on that uh
+01:04:35 button click we are going to open a dialogue or popup on which user can upload the basic information and then it
+01:04:42 will start conversation also below that we can show the different AI doctors and on the click of
+01:04:49 that one user can directly able to call to that AI voice agent. Okay, as
+01:04:55 straight as it is. Now obviously in the previous chapter we already uh completed
+01:05:02 the authentication part where we are able to successfully authenticate uh into our application and now we want to
+01:05:09 redirect user to the uh workspace screen. Okay, that's where we need to
+01:05:16 get the user basic information so that user can connect with the doctor whenever he need. Okay, obviously this
+01:05:23 is just a wireframe that we build. But if you want to build your own wireframe with the help of AI, simply go to the
+01:05:30 uuxmup.com or click the link in the description. This uiuxmok.com will generate the UIUX
+01:05:38 mockup instantly for you. Simply create a new account. is free to use and uh you
+01:05:44 have option to create a new design. I already have the uh workspace created.
+01:05:49 So if I open this one, this is the mockup I generated. This is just a wireframe actually. So you have
+01:05:55 different different option to generate a mockup like wireframe basic mockup or
+01:06:00 you can even generate the advanced mockup. You can select the mockup style, select the device type, enter your
+01:06:06 requirements and simply click generate design and then you will get this beautiful mockup for you. Obviously,
+01:06:13 this is just a reference. You can take a reference of it and build your own UI
+01:06:18 over here. You can even edit any of the field which you want or you can see the live mode. Just open that and you can
+01:06:26 open in a new tab. It will get the live mode for you. Also, if you want to get
+01:06:31 the HTML tailwind CSS code, just click on it and then it will download the uh
+01:06:37 HTML code of this particular wireframe. How cool it is, right? So, just visit uh
+01:06:43 uiuxmog.com the link in the description and then you'll get free access to this uh
+01:06:50 application. Now let's head back to our application and inside this app folder we are going
+01:06:57 to create a route or we can call it as a routes only. So all the routes we are
+01:07:03 going to keep inside this routes folder and inside this we're going to create workspace or maybe we can say dashboard
+01:07:12 simply and inside the dashboard we are going to add
+01:07:18 page tsx file. Let's add a default template.
+01:07:24 And here I will rename this to workspace. Now to this workspace, we also want a
+01:07:30 dedicated layout file. Okay. So inside the dashboard, let's create a layout dot
+01:07:37 tsx file and we'll add a default template here. We'll say dashboard
+01:07:42 layout. Now inside this layout, we want to render the children similar like this uh
+01:07:48 root layout. So I will copy this and then we'll paste it here. Okay, because
+01:07:53 we need a type for this children and then make sure to render this children
+01:08:00 something like this and then save it. Now if I go back to our application just
+01:08:05 refresh this. Now this dashboard is u only authenticated user can navigate to
+01:08:11 this dashboard screen. Right now if you see just workspace text is showing on the screen. Okay, I think we gave the
+01:08:17 name workspace. I will just rename this to dashboard.
+01:08:23 Okay, perfect. Now, next part, we want add a header for our application. If you
+01:08:29 see, we have this dedicated header. So, over here and to this header, we want to add some options as well.
+01:08:38 So, inside the dashboard, we'll create an underscore component folder. And all the
+01:08:44 component related to this dashboard we going to keep inside this underscore
+01:08:49 component folder. So in this case we'll say app header dot tsx add a default
+01:08:55 template and then save it. This app header we are going to add inside the layout because
+01:09:02 uh all the routes which come under the dashboard we want the header throughout the application. So that's the reason
+01:09:07 I'm going to add inside this layout file and then go to this app header. Now if I
+01:09:14 go back you will see it is rendering on the screen. Next
+01:09:20 we want a logo on the left hand side. So you can add a placeholder for the logo.
+01:09:25 So you can just go to this logo pum. So
+01:09:32 logo pum is a uh logo placeholder okay and it contain SVG. So you can select
+01:09:39 the one which you like it. So there are lot of different uh logo available. So
+01:09:45 you can select the one which you think it's best best for you. So in my case I
+01:09:51 will select this one. Let's select this one. It's very straightforward. And then
+01:09:57 go to your public folder. Inside this we'll create a logo. SVG file. Later on
+01:10:03 you can update these guys. And then we'll simply paste this. Now once we
+01:10:08 have the logo svg file here inside this app header we'll import this image tag
+01:10:14 the source tag and then simply uh add a file name like like / logo.svg now nextj
+01:10:23 will automatically understand that you are trying to access the assets from the public folder inside the al tag I will
+01:10:29 say logo then give the width let's say 120 and height let's say 60 and then
+01:10:36 save it. Now if I go back, let me refresh. And if you see the logo is showing on the screen. Let's give more
+01:10:44 height and width. So we'll make little bit bigger.
+01:10:50 Perfect. Next u after this we also want to add
+01:10:57 some options. So I will define this option at the top. So here we'll say menu options.
+01:11:04 we'll say id1 then name as home
+01:11:11 path as slashhome and I think that's all we needed for now
+01:11:17 so I will copy paste this multiple times so one is for home one is for uh
+01:11:26 history I will say
+01:11:32 then billing or we'll say pricing
+01:11:39 and then profile.
+01:11:45 I will change this ID as well and then save it. Now once you have the
+01:11:51 menu options just display that. So we have to iterate this right. So we'll simply say menu options dot map and
+01:11:59 inside this we'll say option comma index and the arrow function inside this we'll
+01:12:04 add a div. Now obviously we are mapping each option one by one. Okay so first
+01:12:11 one this one then this and the index is nothing but the 0 1 2 3. Okay. So it's a
+01:12:18 index value. Uh obviously you need to provide a key. Okay unique key. So for
+01:12:23 unique key I I'm providing key is equal to index and inside the H2 tag you can display that.
+01:12:30 So we'll say option dot name and then save it. Now if I go back you will see
+01:12:36 this option but we want in one line. So for this maybe um for this div we'll
+01:12:44 make it flex gap of let's say three and vertically I want everything in the
+01:12:50 center. So we'll say item to be in the center. See now again we want these
+01:12:55 three option in the middle right and then on the right hand side again we
+01:13:00 want a user profile icon so after this we'll add a user button from the clerk
+01:13:06 neckjs component so that we'll get the user button as well and now let's bring everything in one line so for this div
+01:13:14 the parent div we'll add a class name we'll make it flex we'll make it item to be in the center
+01:13:20 and then make it justify between. So say everything is evenly distributed.
+01:13:27 Now for this div we'll also add some padding. So we'll add padding to four and then add a shadow little bit.
+01:13:36 Boom. How beautiful. Right. Let's give some space between these options. So
+01:13:41 over here I will add some space.
+01:13:47 So maybe we can add more.
+01:13:54 Perfect. Now whenever the screen size is smaller, we don't want to show this um
+01:14:00 options. So over here on the smaller screen, I will just hide it. And then on
+01:14:07 the medium, we'll make it flex. Okay. So if I go to the inspect panel
+01:14:13 and change the screen size, see is gone. Okay. So that's what we want. Now whenever we hover on this one, we want
+01:14:20 to uh add some kind of animation. Okay. So,
+01:14:27 so maybe we can say class name on hover. We can make the font bold.
+01:14:35 And if you see it's making the font bold also. Uh we'll make a cursor
+01:14:43 pointer and then save it. Perfect.
+01:14:50 You can even add this transition all for a smooth animation. See? Perfect. Now
+01:14:55 this is how our uh header is ready. Now for this header depends on the screen
+01:15:01 size you can add padding. Right now we give padding x to 10. But when the
+01:15:06 screen size is medium, we'll give padding X to let's say 20. On large, we can give padding X to let's say 40. And
+01:15:13 for Excel, we can give padding X to let's say 60. Something like this. So it will come in
+01:15:19 the middle of the screen. Uh I think this is too much. So over here, I will just keep the 40. Perfect. Okay. And if
+01:15:27 I decrease the screen size as we are building the complete UI responsive so
+01:15:33 we have to make sure to uh add the uh width and padding depends on the screen
+01:15:39 size. Okay. So that's how our header is now ready.
+01:15:46 Now next after the header we want to add this particular section where we going to show uh button to consult with the
+01:15:52 doctor and uh empty state if user don't have any previous history. Okay. And once user have previous history then we
+01:15:59 going to show the list of previous history. On the click of that one you can see the complete uh chart preview
+01:16:06 and the report as well. Uh so let's go back to our application. I will close all of this tab and under this component
+01:16:14 we'll create a new file and we'll say uh history
+01:16:22 or maybe we can say workspace or not workspace
+01:16:27 history list.tsx tsx. You can name it anything. Okay? And then add a default
+01:16:34 template. Once you add, go to the page.tsx because this is our homepage. Here I'm going to add the add this
+01:16:41 history list page. Now just about this history list, I want
+01:16:46 to add an H2 tag. And here we'll say my dashboard.
+01:16:55 Obviously I will wrap this in a div because I want it to show a button as well.
+01:17:01 So if I go back over here if I refresh the screen you will see this my
+01:17:06 dashboard. So let's add a class name. We'll make
+01:17:14 font bold text to Excel and then save it. And then we also want
+01:17:21 to add a button. And inside this we'll say consult with
+01:17:29 doctor and then save it. And that's how it look like. Obviously we want this in
+01:17:34 one line. Before that we want to uh align everything to this header right
+01:17:40 the on the left hand side we want to give padding and all. So we want to give
+01:17:45 padding to all the pages. So simply go to the layout and then to this children
+01:17:51 we're going to add this children inside the div. And if I go to this app header I will just copy this padding. Okay. So
+01:17:58 we have the padding x on 10. Med on medium screen we have padding x to 20 and last screen we have padding x to 40.
+01:18:05 Same thing I'm going to apply to this div. So it will automatically apply to all the children.
+01:18:12 Then uh over here we also give padding Y to 10. So some space and then we'll keep
+01:18:20 this button on the right hand side. So now we'll go back to our
+01:18:25 history list. Oh sorry not history inside the page.tsx and for this do
+01:18:30 we'll same class name flex justify between and make sure it's vertically
+01:18:36 center. So I will put the item to be in the center and boom say okay then just
+01:18:43 below that one we want to show an empty state. So go to the history list and
+01:18:48 inside the history list uh first I will define a state we'll say history list
+01:18:55 history list is equal to use state and initially it will be empty. So I give
+01:19:00 empty only and whenever the history list is empty. So here we'll say if history list is empty
+01:19:08 is equal to equal to or we can say zero maybe or yeah let's say zero
+01:19:15 then we're going to show a div otherwise we'll show another div
+01:19:28 and here we'll say list for now. Okay. And make sure to close it.
+01:19:36 So this need to be htt.length. Okay. Now inside the do as this is a empty state.
+01:19:41 So I will add an image. Then the source tag and close the arrow. Over here if
+01:19:49 you scroll down a little bit uh inside the public folder I added this
+01:19:56 medical assistant image. I will share this assets with you. So I will just add
+01:20:01 it here. Something like this. Here we'll say alt empty. And then for width we'll
+01:20:09 say 250. I make it 200. And for height as well I
+01:20:15 will give 200. Let's save it and let's see how it looks on the screen. As we are using the use state for this
+01:20:22 component we have to make this component on the client side. So I will mark this as a use client.
+01:20:30 Perfect. I think let's make it smaller. It's too big. So I'll make this to 150.
+01:20:38 And then below that I'm going to show some empty states. So if I go over here
+01:20:43 you will see this text no reset consultation. So I will add this and then in P tag it
+01:20:50 I will add this particular text. Now obviously this text uh you can add
+01:20:56 anything but this text is generated or this mockup is generated with the help of uuxmok.com.
+01:21:02 So that's why I'm just copying and pasting here and then save it.
+01:21:07 For this H2 we'll add a class name. We'll make font bold text excel.
+01:21:15 And for this div we'll make it class name. We'll make it flex item to be in the center. Make sure it's a flex
+01:21:21 column. And then justify in center as well. Also give gap to
+01:21:27 let's say five. And now if I go back this is how it will look like. Beautiful. Um maybe you don't
+01:21:36 need to give gap to five. Better we can give margin top to five over here. And
+01:21:42 for this div we'll add a padding. Let's say seven. And then we'll add a border.
+01:21:48 We'll say border dash. And we'll make a rounded to 2 XL.
+01:21:54 See something like this. You can change the border. Let's say border two. So width of the border, I will just make it
+01:22:01 little bit uh width is more width. And for this
+01:22:07 one, let's give margin top. So for this div, we'll add margin
+01:22:13 top to 10. Here I will just make it two.
+01:22:19 Perfect. Now below that we also want to add a button. So over here
+01:22:26 we'll add a button component and I give I will give the same name as this mockup. So we'll say start a
+01:22:33 consultation. So start a consultation.
+01:22:40 I think that's correct right consultation list need to be a consultation.
+01:22:47 Okay. and then save it over here I will add margin top to let's say three
+01:22:54 and if I go back that's how beautiful it's look like okay so this is the empty state obviously uh if user don't have
+01:23:02 anything user can start the consultation uh by clicking on this button or we have
+01:23:07 another button called consult with doctor anything will uh open or do the
+01:23:13 same will do the same action now after this we want to show the list
+01:23:18 of all the doctor specialist as per this mockup. This is how we want to show
+01:23:24 where we going to show the doctor image and their expertise with some description.
+01:23:29 So let's head back to our application and I already added the list of doctor
+01:23:35 images. So if you see if I open this images you will see different different images which I generated with the help
+01:23:40 of AI. Now you can also get these images uh the assets uh all the assets are free. So the link is in the description
+01:23:49 also. Uh I created one folder called share and inside that I added this
+01:23:54 list.tsx file. Now it's very simple. Inside this list tsx it has a id. The
+01:24:00 specialist mean doctor specialization. Then the description what about about
+01:24:05 this doctor's uh specialization. The image this image we are I'm importing from this public. And then agent prompt.
+01:24:13 Now this agent prompt is very very important because this agent prompt is different for each of these special
+01:24:19 list. So obviously uh you will get this um list.tsx files in the source code
+01:24:24 also I will make it available for free. Now simply go back to this dashboard
+01:24:31 component and inside this we'll add doctors agent list.tsx.
+01:24:40 add a default template and then make sure to import this inside this page.tsx
+01:24:45 file. So after this um history list we'll add doctor's agent list. Now
+01:24:53 simply go to this doctor agent list and over here first I will add a class name margin top to let's say 10. Then over
+01:25:03 here we'll add an s2 tag and just for my reference I'm going to use this. So over
+01:25:09 here I have this simply text AI specialist doctor
+01:25:15 agent. Then for this S2 tag we'll add a class name. We'll make font bold tech
+01:25:22 excel. If I head back to our application I will just refresh the screen. Then you will
+01:25:29 see a brand new option called AI specialist doctor agent. Now simply
+01:25:35 whatever the list we have or we created inside this list.tsx we need to show it on the screen here. I
+01:25:42 will just make sure I will give some name to this list. So here we will say export constant
+01:25:49 AI doctor agents is equal to okay once you export
+01:25:55 it and once you give name to this particular object list so that you can use it. So over here I will add a div.
+01:26:02 Inside this div we'll use this AI doctor agents. Make sure to import this from
+01:26:08 the shared list. Then we'll say map because we want to display that. So we'll say doctor, index and the arrow
+01:26:15 function. Inside this we'll simply add a div and to this div we provide a key as the
+01:26:22 index. Now we are iterating each of these doctor and just we want to display it on the screen. Now you have two
+01:26:28 option either you can write a code to display that or we can create a separate component for it. So here we say doctor
+01:26:34 agent card dot tsx. Let's add a default template and then save it. Now over here
+01:26:42 simply add that doctor agent
+01:26:47 card something like this and then save it. Now pass the doctor agent card
+01:26:57 something like this. So this doctor I'm passing to this agent card and I will accept over here.
+01:27:04 Okay. Now I will create a type
+01:27:09 doctor agent is equal to and inside this we want to
+01:27:17 add some field. So first is the ID field. So which is of type number.
+01:27:24 Then we also want to add a special list description.
+01:27:30 Because we are using a typescript we need to add the type for each of the uh
+01:27:35 field which we are defining. Okay.
+01:27:41 And then we have this agent prompt with the type string. And this doctor agent
+01:27:47 I'm going to pass over here. Maybe something like this and then save
+01:27:52 it. Now over here uh maybe we need to define the type. If I define any uh I
+01:27:59 don't think so this error is gone. Okay. So over here one more change we need to do. So I will just add a type props and
+01:28:08 inside this we'll add a doctor agent as doctor agent and then we can do
+01:28:15 something like this. Oops.
+01:28:21 So this need to be we can call it as a doctor agent
+01:28:28 and I will accept the doctor agent only because that's what we saved over here. Okay. And over here if you see we are
+01:28:34 showing all the doctor agent obviously currently it's just showing this text. Now once you add that we need to display
+01:28:42 the proper card. So we add a image tag. Then the source tag I'm from the doctor
+01:28:48 agent dot image tag. For alt I will add a doctor
+01:28:54 agent dot let's say ID or not ID uh because we want to show uh the name. So
+01:29:02 I will add a specialist. Then we'll add a width
+01:29:08 as let's say 200 for now. And then height of 300 and then save it. Now if I
+01:29:16 go back to our application you will see all the doctor list. Now we want this doctor list in the form of grid. So
+01:29:23 simply we'll add a class name. We'll make it grid and we'll make grid column 2 when the screen size is smaller. On
+01:29:30 the medium screen size we'll give grid column 3. On large we'll give grid column 4 and on excel we'll give grid
+01:29:38 column 5. Also we'll give gap of five. And now if you see
+01:29:45 it will display in. Okay. So I think we missed something. So obviously this particular uh grid we
+01:29:52 wanted to show not in the card but we wanted to add inside the agent list just
+01:29:57 before this mapping because we want to apply it to all the grids right sorry all the cards. So that's the reason. Now
+01:30:04 simply paste it inside this agent list and then boom we have in a grid format.
+01:30:10 But still this image is not in a the height is not specified and everything
+01:30:15 right. So let's fix that too. So inside this card I will add a class
+01:30:21 name. I will make it width full but I will make height to let's say 250 pixel.
+01:30:28 And we'll also make object cover and boom. See now all these images in
+01:30:35 proper height and some width and it's not uh none of the images are small and
+01:30:42 uh larger. Okay. So that also we fix it also for this class name I will make a
+01:30:48 rounded corner. So make rounded to excel and
+01:30:54 for this agent list we'll give some margin top to let's say five. So some space. Okay. Next for each of these we
+01:31:03 wanted to add specialization text. So inside this agent card
+01:31:10 I will add an H2 tag and inside this we say doctor agent dot specialized
+01:31:16 specialist. Then in P tag we'll add a description
+01:31:22 and for this description I will make sure I will just want it to show maximum two lines. Okay. Also we'll give margin
+01:31:30 top to one. For this H2 tag we'll add a font bold text larger.
+01:31:38 Perfect. Um over here I will make text smaller
+01:31:43 and text of gray 500. Here I will make this text as it is
+01:31:50 but just I will make this font bold. Okay. Even though if you did not give margin top let's see how it looks. I
+01:31:57 think this is pretty good. Okay. Next,
+01:32:03 uh we'll add a button and it will say
+01:32:08 console or we can add something like let's see
+01:32:14 the button what it's saying. So it's saying a view profile. So instead of that one we'll say consult.
+01:32:24 We'll add a test called start consultion. Here I will add a width to be full margin top to let's say two and
+01:32:31 then save it. Perfect. Now obviously uh we can bring this all the text in a
+01:32:38 center and I feel if I give the width to be or we can give some
+01:32:45 gap more gap I think that that's much better here. You can add arrow
+01:32:53 right that's new icon get added that's
+01:33:00 interesting and if you see we have this icon so once user click on it it will
+01:33:05 automatically start the conversation immediately so that's how you need to display it and most important thing is
+01:33:11 completely responsive and let me show you how so if I decrease the size see how beautifully it's changing it okay so
+01:33:19 that's how we make this application also responsive.
+01:33:24 Now next step is quite interesting because in the next step we going to start implementing the actual voice AI
+01:33:32 agent. Now when user click on this start a
+01:33:39 consultation or consult with the doctor we want to open a dialogue in order to
+01:33:44 get a user information like what are the symptoms user have user can enter in the
+01:33:49 text area or any additional detail and depends on the symptoms or any additional detail u we are going to
+01:33:57 suggest or our AI model going to suggest the best specialist. Now we have the uh
+01:34:02 list of all the specialist doctor and from that one it going to suggest it and then once user click on choose doctor
+01:34:09 specialist then actual conversation will get start. So let's go back to our application and
+01:34:15 on the click of that button we want to add a dialogue component. So from the chat scen I'm going to use the dialogue
+01:34:23 component. So make sure to select this dialogue and you can see how it looks. So on the click we want to open a
+01:34:29 dialogue. Simply first thing first we need to install this dialog component into our application. So inside the
+01:34:36 terminal I will paste this dialog installation command. Then copy this import statement and then go to this
+01:34:44 underscore component folder. Inside this we'll create a new folder called add
+01:34:51 and new session I will say tsx.
+01:34:56 And here we say dialog. Okay. Then add a default template and inside this obviously we want to add
+01:35:03 dialog. So I will paste this import statement.
+01:35:08 Then we want to use the dialog component. So I will copy that dialog component and simply I'm going to paste
+01:35:14 it here. Right now u I think everything is done. I will just save this one. And
+01:35:20 if you see the dialog component is get added. Next thing we want to open this dialogue on the click of our button.
+01:35:29 Okay. So this is our button and on the click we want to open it. Now either you can directly add that button over here.
+01:35:36 So if I go to the um history list where we have this button right? So I will cut
+01:35:42 this button from here and I will simply paste it here. Make sure to import this button and instead of this button now I
+01:35:49 can directly import this add new session dialog component. So if I go back I will
+01:35:54 just refresh the screen once and here everything is as but if I click on this one see the dialog get open. Okay so
+01:36:02 that's what we wanted. Same thing you can do it. So I will copy this component
+01:36:07 and inside our page.tsx we have we have this button consult with the doctor. Obviously uh
+01:36:14 the text might be different. So it's up to you if you want to pass the text. Now in this case if you see the both the
+01:36:20 button are same and it acts in the same way. Now inside add new session dialogue
+01:36:27 here we'll add add basic details
+01:36:33 and inside the description I will add a div. Now if you add a due for the
+01:36:39 description you have to mark it as a child. Okay. And inside the div we'll add a H2 tag. We'll say add
+01:36:46 symptoms or any other details
+01:36:56 and we want to add a text area. So you can get the shad text area component from the shad. So if you scroll down you
+01:37:03 will see this text area component. First I will copy this npm command so that we
+01:37:10 can install that and then once it is installed you can use this text area
+01:37:16 component. Uh here we say type or add detail
+01:37:27 here. Perfect. Now if I go back to our application and this is how it will look
+01:37:33 like. Now you can provide much more uh you can provide more height to this. So here we'll say height to let's say 250
+01:37:40 pixel. I think that's too much. Let's make it
+01:37:46 200. And also I'm going to add margin top to one. Now to this div I'm also going to
+01:37:53 add a dialog footer. So here we will say dialog footer component because we want
+01:37:59 to add two important button. One to cancel it. So here we will say cancel
+01:38:04 and other button we'll say uh
+01:38:11 start and then save it. For this cancel button the variant will be uh outline
+01:38:18 and for start is as it is see. So we have cancel button and then we have
+01:38:23 start button. Now on the click of cancel you can you can even uh close this dialogue. So here we say dialog close
+01:38:29 component and wrap your button inside this dialog close. So on the click now
+01:38:36 it will close this dialog. See obviously on the cross as well you can close it.
+01:38:41 Now on the start obviously uh once user click on the start we want to
+01:38:47 send the user symptoms and all the basic details uh to the AI model and it will
+01:38:53 give you this or suggest some doctors from this particular list.
+01:38:58 uh instead of start here I will say next because and I will add arrow
+01:39:04 right because I also want to go to the next uh section where we wanted to show
+01:39:10 the list of all the suggested uh doctors. Okay. Now over here if I
+01:39:17 save this one and go back to our application and on the click of the start consider session you will see this
+01:39:23 next button. Now this next button only enable once user enters some uh uh text
+01:39:31 uh sorry data inside this text area. So over here I will define a constant. We'll say
+01:39:38 um note comma set note is equal to use
+01:39:43 state. Now this is very important to add some
+01:39:49 uh symptoms of some node because depends on that one our AI model will suggest some uh doctors. Okay. Now this note is
+01:39:57 of type string
+01:40:04 and then on this text area on change method we are going to accept the user's
+01:40:11 input. So here we'll say set node and then whenever user click on some changes
+01:40:16 it will emit the event. So we'll say event dot target dot value. Okay and
+01:40:22 that's what we are saving inside the node. Also make sure to mark this
+01:40:27 component on the client side because we are using the react hook. Okay. And now if I go back over here if you see
+01:40:36 obviously nothing uh changes on the UI side but make sure the button is
+01:40:42 disabled. Okay. So here will say disabled if the note is not there.
+01:40:50 See now as soon as I enter this button is enable. And now on the click of next
+01:40:55 it will start uh or obviously we want to to send
+01:41:00 and make a call to the model with these nodes in order to get the suggested
+01:41:06 doctors and once user select the doctors then we wanted to save all the data into our database.
+01:41:15 Now it's time to implement the conversation page as we are saving all the information which user enter in
+01:41:22 order to start the conversation with the uh doctors or medical voice agent and
+01:41:28 that's where we are going to uh create a new page and on that page we are going
+01:41:34 to show the doctor image at the top or who's who we are talking with that image
+01:41:40 going to show at the top. Then the last message and the latest message we are
+01:41:45 going to show in a real time. Yes. So in real time as soon as assistant speak or
+01:41:51 uh user speak we going to display that message on the screen and obviously we have button to start a car or end the
+01:41:59 conversation and uh once the conversation end then we
+01:42:04 going to generate a report as well. So this is the complete uh workflow you know for the uh conversation screen. So
+01:42:12 let's go back to our application and inside this we going to create a new
+01:42:18 route. Now we want to create a dynamic route because we are saving the session
+01:42:23 ID right. So if I go to our database and if you see we have this session ID and
+01:42:28 based on the session ID uh we are going to fetch the record and then we'll get to know what is the user's input and
+01:42:36 which doctor is selected along with the all the information. So we'll create a
+01:42:42 dynamic route. So under this routes we're going to create maybe under
+01:42:47 dashboard we'll create a new uh route and we can call it as a conversation
+01:42:54 and we'll say medical agent and inside this we'll create a
+01:43:02 page dot tsx file. Let's add a default template and we'll
+01:43:07 rename this to medical voice agent and then save it. But as once we created
+01:43:14 this route, this is just a simple route. So if I go to the /dashboard/medical
+01:43:19 agent, it will open this page. But we want the route which is dynamic. So that
+01:43:24 we can pass this session ID. So in order to do that here inside the medical
+01:43:30 agent, we'll create session ID and we give the folder name
+01:43:37 start with the square bracket. So it means you can put any session ID value over here and then I will now move this
+01:43:44 page.tsx to this under the session ID something like this. Okay. Now if I go
+01:43:51 back to our application and then go to the dashboard/medical
+01:43:57 agent slash and add any ID and then click enter. Then you will see you still
+01:44:03 jump on the onto this medical voice agent but the ID whichever ID you put it will still show same page but depend on
+01:44:10 depends on this session ID we wanted to fetch the record from the database.
+01:44:17 So first thing first let's use the session ID in order to fetch a record.
+01:44:23 Now in order to get this session ID whichever session ID is passed here make
+01:44:28 sure to give the same name here we'll say use params and that's how you will get the session ID. Now let me print
+01:44:35 this session ID here so that you will get to know as we are using the react hook or maybe
+01:44:42 any hook in this case is next/ navigation hook you need to mark this
+01:44:48 component on the client side and if you see whichever session ID you pass is
+01:44:53 printing on the screen. So now here we're going to write a
+01:45:00 method. We'll say constant get u agent or session info session details
+01:45:10 and the arrow function and inside that we need to call an API endpoint. So
+01:45:15 inside the API under this session chart we already have the post request. Now
+01:45:21 we'll write a get request. So here we say export a sync function.
+01:45:28 Here this will be a get request and the type is next request.
+01:45:35 Now obviously we need to fetch the data from the parameter. So we say constant
+01:45:41 search params is equal to new URL and
+01:45:47 then we'll say request dot URL. And once you define this search param you can get
+01:45:53 the value. So in this case we want to get a session ID. So we say session ID is equal to search param dot get and
+01:46:02 then the parameter name which we are going to add as a session ID.
+01:46:08 Okay. Then under this we'll also get the user information. So that you can get it
+01:46:14 from the current user. Now make sure to import this current
+01:46:20 user from the clerk neckjs. After this we'll write constant result
+01:46:26 is equal to await db because we want to fetch
+01:46:32 dot select from and the table name is
+01:46:38 session chart table and then the where clause inside this we'll add a equal to
+01:46:44 we say session chart table dot session id which matches with our session ID and
+01:46:50 that record we want it to fetch. Now sometimes for the equal we you might get a warning inside the typescript. So I
+01:46:58 will just ignore that and then in return I will say next response dot JSON and
+01:47:06 then result of zero because you will get only the first element and then save it.
+01:47:11 So this is how simple it is for the get API call in order to get the session information for that particular record.
+01:47:18 Now obviously you can add the user condition because you can pass the user email so that it will verify that you
+01:47:24 are only fetching that particular user's record. Then inside the page.tsx tsx
+01:47:30 file we simply say constant result is equal to await
+01:47:36 aios get/ ai/
+01:47:41 session chart and then the session id I'm going to pass now in this case we
+01:47:48 have the uh session id already defined as we are using aait I will make this as
+01:47:56 a sync And then inside the console.log
+01:48:02 I'll print the result dot data. Now this method we need to call whenever this
+01:48:07 component get load. Okay. And make sure whenever the session
+01:48:13 ID is available then only we wanted to call. So I make sure that we are
+01:48:19 executing this use effect whenever the session ID is available. Now let's save it. I will go back to our application.
+01:48:27 Uh also just for the testing not testing but here if you
+01:48:33 remember um inside the add new session dialogue right we wanted
+01:48:39 to route it once it is successful right so here we already put a comment on that
+01:48:45 so in order to route it first you need to add a router using this use router
+01:48:50 hook make sure you will import this use router from the next /navigation
+01:48:56 and then you We'll say router dotpush and then API endpoint we'll say not API
+01:49:02 endpoint sorry the route. So this will be inside the dashboard/medical
+01:49:08 agent/ the ID. Okay. Now in this case
+01:49:13 the ID you'll get it from this result dot data session ID. So that one I'm
+01:49:18 going to pass and that's all. So save it.
+01:49:25 Now once you save we'll test this out and we'll verify that we are jumping to this correct uh screen. Okay. So I will
+01:49:34 add a start new consultation here. We say I have some body p. Obviously you
+01:49:40 can write a long description as well and we'll say next. And once you say next it
+01:49:45 will give you some details. Right now we have an error and it's saying the selected doctor ID is not defined or
+01:49:53 something like that. Yeah. So that's because uh let's go to this suggested doctor card. I will make this an
+01:49:58 optional operate uh operator optional field because sometimes you might not get data
+01:50:05 immediately right. So it's better you can add this optional operator field
+01:50:12 and let's try it now.
+01:50:19 And boom now it's perfect. And now you have option to select any of these. I will select this general physician and
+01:50:26 then I will say start conversation and boom if you see we have this session ID
+01:50:32 and then it jump to this particular page and printing out this session ID. Now if I go back to our database I will just
+01:50:39 refresh this record and here we have this record. Okay. Now not only that but
+01:50:44 if I go to the inspect panel go to the console you will see that record. See?
+01:50:50 Okay. So that's how you need to get the information. Now once you have this uh
+01:50:56 session details right let's say in one state. So I will close this
+01:51:01 and we'll define a state called constant session detail comma set session detail
+01:51:10 is equal to use state. Now obviously we'll define a type for
+01:51:15 this one. So if you see these are some parameter uh is showing. So over here
+01:51:20 we'll say type session detail
+01:51:28 and inside that we'll say ID of type number then notes of type string
+01:51:39 then we have report session ID
+01:51:52 the report will be in the form of JSON. So
+01:51:59 uh then we also have this selected doctor. Okay. So that also we needed
+01:52:09 then created on of type string. Now selected doctor uh
+01:52:16 is of type JSON. And for that one again we have this uh other field. So I think
+01:52:23 it's a medical agent. We name it at some place. I forgot the type. So doctor
+01:52:30 agent sorry. So do doctor agent. Make sure to import that
+01:52:35 and then save it. Now this session detail because that is the type of this
+01:52:41 particular session detail state. And over here we'll set the session detail
+01:52:46 with the result dot data. Okay. And then save it. Now we have some
+01:52:53 basic information. Okay. And session detail information. So if I go to this
+01:52:58 mockup, if you see, we have this doctor image and then we have the uh two text
+01:53:03 the latest text. Obviously you can show more over here. Okay, but I'm going to add some animation kind of thing over
+01:53:09 here. So I just showing the two text and then option to cut the call or start the
+01:53:15 call as well. So let's implement that. Now obviously at the top I'm going to
+01:53:21 show some data. So over here I will add a div inside this div. I will add H2 tag
+01:53:29 and we'll add a circle. I don't know whether that icon is there or not. And
+01:53:34 here we'll say not connected. Obviously this string uh
+01:53:41 or this particular text I'm going to change later on. And then at the right
+01:53:47 I'm going to show a time when it started.
+01:53:58 For this H2 tag, I will add a class name. We'll add a padding to one. Padding X to2. We'll add a border
+01:54:05 rounded to medium. And then save it. Here I will
+01:54:12 make it flex gap of two item to be in the center. And let's add a flex justify between
+01:54:22 and item to be in the center. Okay. So if you see this is how it will look like. Um over here I will add a font
+01:54:30 bold text excel. And then I will make this text gray 400. So a little lighter
+01:54:39 something like this. Okay. Uh over here this circle icon is too big.
+01:54:47 So I give width and height. Perfect. Now at in the center we want to show the
+01:54:53 user image. So we'll add a D. Inside this we want to
+01:54:59 add image tag the source tag. And obviously we have the information. So
+01:55:05 we'll say session detail dot selected doctor dot image
+01:55:15 then inside the tag again I will add session detail dot
+01:55:21 selected doctor dot uh you can add the id not id specialized
+01:55:29 okay otherwise empty string and then in width
+01:55:35 uh I will say 80 height 80 as we are getting this error because uh it's
+01:55:42 saying that session detail might be empty so you can add a condition if session detail and and and the condition
+01:55:50 and then save it and right now if you see it's showing the doctor image now we want that in the
+01:55:58 center of the screen also I will make this height to let's say 100 pixel pixel and width 200 pixel.
+01:56:06 So over here I will just make this 120 because this is this image tag and width hand is very important for the
+01:56:13 optimization purpose. Now over here I will say object cover
+01:56:20 and for this div I will make sure everything in the center of the screen
+01:56:25 make sure this flex column and then give height sorry margin top
+01:56:32 let's say 10 now for this image I will make rounded
+01:56:38 full perfect okay and uh you can add the name
+01:56:45 or specialization. So over here I will say session detail dot selected doctor
+01:56:52 dot specialist. So we'll add some styling margin top to
+01:56:58 one text larger and then save it.
+01:57:05 And in P tag I will say AI medical voice agent.
+01:57:19 After this uh we want to add two text over here. So
+01:57:27 maybe I will add a div. And inside this div we'll add an H2 tag.
+01:57:33 Here we'll say uh consider assistant message. Okay, this is just a demi text
+01:57:39 I'm adding right now. And the another text we'll say for example user message.
+01:57:46 Now obviously the top message uh I'm going to add a gray color little lighter
+01:57:52 and then save it. And we want so we'll add a margin top to
+01:57:58 let's say 32. Perfect. Something like this. See? So,
+01:58:05 one is darker and one is lighter. Maybe we can make this
+01:58:10 uh text larger.
+01:58:16 And I will keep as it is for now. Later on we if you want we can change this. And then we
+01:58:24 want to add a button here. I will say start
+01:58:30 call and here I will add a call button
+01:58:41 something like this. See
+01:58:48 and also here I give some margin top. Right now it looks so simple but once
+01:58:54 you start uh the conversation obviously we'll add some more styling to this one
+01:58:59 but for now we'll keep as it is. Um also we can
+01:59:05 wrap this div we'll add a padding 10 and we'll add a border then we'll make rounded corner to
+01:59:12 two 3xl something like this okay I think this is
+01:59:17 much better here I can make this five only perfect
+01:59:24 and if you want you can also make a text not text the
+01:59:30 background secondary Perfect. So our UI is now ready. Okay.
+01:59:37 Now the next step is uh we need to set up a voice agent. Obviously we need to
+01:59:43 uh use a wy uh the assembly AI in order to bring our agent in live mode. That's
+01:59:50 what we are going to say in the next chapter.
+01:59:57 Now it's time to integrate a voice agent. If you see on this workflow, in
+02:00:03 order to make the any AI voice agent, you have to make sure whatever the uh
+02:00:10 user speak, we need to convert that speech into a text. Then we need to pass
+02:00:15 that text to the LLM model we with the help of our own uh medical agent prompt
+02:00:22 which will process our request and then we will get a text from the LLM model
+02:00:28 and that text we need to convert back into the speech so that user can listen
+02:00:33 and that's how the voice agent works. Along with that one, we want to show the
+02:00:39 text in a live streaming mode. As soon as agent or assistant speak or AI model
+02:00:45 speak or user speak, we want to display that on the screen whatever user speak
+02:00:50 or assistant speak. And that's where this speechtoext live streaming is very
+02:00:56 important which will give you the real uh feel of conversation and it's a both
+02:01:02 way. Okay. Now for this particular part uh to make an uh converting speech to
+02:01:09 text pass that text to the LLM model and then generate text to speech again we
+02:01:15 are going to use a vapy AI. VPY AI is the agent builder which help us to
+02:01:22 create such kind of agent and that's what we are going to see next. And in order to display the text and do the
+02:01:29 streaming on the screen, we are going to use an assembly AI. Now assembly AI one
+02:01:35 of the powerful speechtoext uh AI model. It provide a lot of different feature
+02:01:42 and is free to start also uh is one of the fastest AI model to convert your
+02:01:48 speech to a text. Recently they also providing you the streaming to speech to
+02:01:54 text model where you can uh easily stream your speech to a text in a live
+02:02:01 mode. Also the u latency is very very low just 300 millisecond and accuracy is
+02:02:09 more than 91%. Also is one of the best uh cost effective. So if you see the
+02:02:15 cost just 0.15 per hour is uh no one matching their pricing at all in the
+02:02:22 market right now. As I told you uh is one of the best fastest uh transcription
+02:02:28 provider and if you see the comparison between the deepgram gram and the
+02:02:33 assembly AI you will find the result and in a moment we will see how it might or
+02:02:39 it affect your development as well. If you see this assembly AI universal streaming how efficient it is, how
+02:02:47 accurate it is and there are lot of things a lot of factor affecting uh to
+02:02:53 your application. Okay. Now obviously it is available to a live kit, wap, pipecat
+02:02:58 and many other um agent service provider but right now in this tutorial we are
+02:03:04 going to use assembly AI. So first thing first simply go to the vapid.ai. I will
+02:03:10 put the link in the description also. I will put the assembly link in the description. You can go ahead and visit
+02:03:17 that. Then simply create a new account. Now you might have question whether it's free or not. So yes, it is free. So you
+02:03:25 can make I think 1 th00and minutes of call for free. Okay. Then simply go to
+02:03:30 the dashboard. On the dashboard you will see uh some of the metrics like number
+02:03:38 how many calls you made, average dur duration, what is the total cost and everything.
+02:03:44 You can see the call success and all. On the left hand side you can find the credits you can test the agent uh you
+02:03:51 can get the phone number create an assistant and many other feature you will find with the wappy. Now I don't
+02:03:57 want to go in the deep but let's go to this assistants and here we are going to
+02:04:02 create our own new assistant. So simply click on this create assistant. Now
+02:04:08 inside this we are giving the assistant name. Now for the testing purpose. Now I'm going to use our general physician
+02:04:16 assistant. So I will copy this name over here and we can say blank template. Okay. And
+02:04:22 simply click create assistant. Now once the assistant is created you will see
+02:04:28 this cost okay how much it cost per per minute and then latency as well okay and
+02:04:34 these are very important now these colors show that this is a wy fix cost then this color is a dip gram they are
+02:04:41 using the model and the wy for text to speech model okay but the most
+02:04:48 interesting thing you can change this one now for example obviously we want to use a fast test uh speech to text
+02:04:55 provider for the streaming purpose and for that one if I go to the transcriber I'm going to change this u from deep
+02:05:03 ground to assembly AI because he's very fast and very very cheap you can select the language whichever you want and
+02:05:10 there are more setting about this one and simply click publish once you click
+02:05:15 publish over here now it changed to assembly AI with this particular pricing
+02:05:21 okay how cool not only that but you can even change this AI model provider.
+02:05:26 Let's say you want to select the Google and for the Google, you can select the other model as well. For example, let's
+02:05:33 select this 2.0 flash. I will say publish and then now it changed from 009
+02:05:39 to 008 per minute. Perfect. Right? So that's how you can make the change in
+02:05:45 your model. And with this VP, it's everything is included. So you don't need to add any uh API key over here. So
+02:05:54 uh it's inbuilt all this model. So that's very uh easy for us. Next thing
+02:05:59 you can change this message prompt how they want who will talk first then the
+02:06:04 what will be the first message. So for this one I added this first message and for the system prompt I'm going to use
+02:06:11 our agent prompt. Okay. So it's quite simple. So we'll paste it here.
+02:06:17 And uh you also have some more options. Okay. Obviously if you see the voice
+02:06:22 configuration you can change this this one too but for now I'll keep as it is the transcriber I am going to keep this
+02:06:30 assembly AI only and for other setting I will keep it as default one now simply
+02:06:35 click publish and now your assistant is live okay now you can test this
+02:06:40 assistant as well so here you have option to test this assistant but now we want to integrate this assistant into
+02:06:47 directly in our application Now once the assistant is ready, click
+02:06:53 the link in the description and then jump onto the documentation side. Here
+02:06:58 you will find the all the details how this wise agent works. That what I just
+02:07:03 explained to you. Okay. And then uh we want to integrate in a web. So I will click web integration. Then if you
+02:07:10 scroll down uh you have two option. You can do on the client side or you can do on server side. If you are new and uh to
+02:07:18 this voice agent, I will definitely suggest you to go with this client side voice interfaces. Okay. So in this
+02:07:23 course, we'll go through this client side. But uh it's uh completely free to
+02:07:30 check out this server side uh call management as well. Now the next step is
+02:07:35 to install the VP into your application. So simply copy this command. Go back to your application.
+02:07:41 I will close all of this tab for now. and simply paste this command. Okay,
+02:07:49 next you need to initialize this wappy where you want to use it. Okay, so I will copy this and then we'll go back
+02:07:58 to our session uh medical agent.page.tsx
+02:08:07 and at the top I will just initialize this wppy. Okay. Now, make sure to
+02:08:12 import this wppee. So, I don't think so I'm getting import statement. So, I will copy this import statement and make sure
+02:08:19 it's installed successfully. See, I just imported this WPY as well.
+02:08:26 And here you need to provide voice assistant ID.
+02:08:33 Okay. Now, we need to get public API key and voice assistant ID. So if I go back to our dashboard here at the top you
+02:08:41 will see this voice assistant ID just copy that one go to the file
+02:08:49 and here I will say wappy voice
+02:08:55 assistant ID and then paste this ID. Now make sure as you are using this
+02:09:01 environment variable on the client side. So I'll mark it as a public next public.
+02:09:06 Okay. And in order to get an API key, scroll down and here you'll find an option called API log.
+02:09:15 Uh, okay. So, it's not in API log. Okay. So, over here there will be option
+02:09:20 called WP API key. And if you are using the server side, you have to use private key. If you are using client side, make
+02:09:27 sure to use the public key. Let's copy this key. And then simply we'll say next
+02:09:33 public vapy API key and simply paste
+02:09:38 this key. Once you paste it, I going to use this over here. So here we say process envy
+02:09:49 that API key and then over here as well
+02:09:57 we want to use assistant ID. Okay, as simple as that. Now
+02:10:04 obviously we want to start a wppee only when the start button is called. So over
+02:10:10 here I will write a method called constant start call
+02:10:17 and then we'll call this wy start. Let's go back to the documentation
+02:10:24 again. And here these are some event when the call is started when the call is ended and all of this information.
+02:10:30 These are very important in order to update the status on the UI side. So I
+02:10:36 will paste that two over here and then save it. Now I will define some states
+02:10:42 over here to make sure the call is started or call is ended. Okay, everything. So here we'll say constant
+02:10:48 we say call started comma set call started
+02:10:54 is equal to use state and value will be false initially. Now when the call is
+02:11:00 started I will just wrap this in a curly braces.
+02:11:05 We also console that but I will change this call started to true and whenever
+02:11:10 the call is ended I will change this the call started to
+02:11:17 false okay so which will help us to keep a track whether call started or not and
+02:11:22 as soon as user start speaking you will see the who talk it so message roll will
+02:11:28 give you whether it's a assistant or this a user and the message transanscript will give you the actual
+02:11:35 uh uh streaming. Okay. So text streaming. So that is also very important for us. Now this start call we
+02:11:41 need to call on the click of this button.
+02:11:47 Now whenever the call is started or when call is not started it means we need to
+02:11:52 show a start call button. So over here we'll say call started.
+02:12:00 If call not started obviously we want to show then we want to show this button otherwise we'll show another button and
+02:12:07 here we'll say uh cut call
+02:12:12 we say disconnect maybe that's a good word and here I will say phone call
+02:12:24 I don't know whether call cancel I don't know what is the um icon so I will just
+02:12:29 go to this lucid icon we'll find icon
+02:12:37 so we use this one phone off so we'll say phone off
+02:12:43 okay and for this button I will put a variant as destructive
+02:12:53 and I think I give the wrong curly braces so we need to give the curly braces here
+02:13:00 or here as well and save it. Now if I go back over here we have start call and on
+02:13:07 the click of this it will start the call. Now also make sure uh once the
+02:13:12 call is started it's saying connect. It should say connected. Okay.
+02:13:17 So over here we just change the text
+02:13:23 and that's why this uh call back from the wappy is very important. So if you
+02:13:28 call started we'll say connected otherwise we'll say not connected.
+02:13:38 You can even change this color. Okay. So maybe I will add
+02:13:44 some dynamic styling.
+02:13:50 If started we'll add a background
+02:13:56 green. Otherwise
+02:14:01 I will add background red and here I will make rounded to full and
+02:14:09 then save it. And if you see this is how it's uh looking. Okay. Now I will go to the
+02:14:16 inspect panel go to the console and we'll verify the output. Now I will click on start call
+02:14:23 and obviously it allow asking me whether you want to allow or not. So we'll say hello while visiting this site. Hello
+02:14:30 thank you for connecting. Can you please tell me full name and age? Hey my name
+02:14:36 is Tube Guru G and my age is 28.
+02:14:43 Hello Tube Guruji. It's nice to meet you. How are you feeling today? Is there anything specific I can help you with?
+02:14:49 Can you tell me a bit about Yeah, I have some headache.
+02:14:56 I understand headaches can be really bothersome. When did your headache start? Where do you feel the pain the
+02:15:01 most? Can you describe the pain? Is it throbbing? And that's how cool it is, right? It
+02:15:08 started asking as a real doctor. Not only that but if you see these buttons
+02:15:14 uh you change uh obviously this icon get changed and everything. Okay. Now
+02:15:19 obviously we did not added a logic to disconnect the call. Right now we have the start call, we have end call but we
+02:15:26 have to make sure we should add a call disconnect option. So if you go over
+02:15:32 here and I will select this react type sleep u just scroll down a little bit
+02:15:37 and here you might find an option to uh disconnect the call and that's where this wappy stop method will call okay so
+02:15:45 I will just copy this one and vap provide a complete guide for you okay so I will add that too and I think that's
+02:15:53 good so on uh disconnect we're going to call this method
+02:15:59 perfect Now most important thing if you see whatever we ask whatever the prompt we give it's behaving like that and
+02:16:07 that's what we wanted. Let's try one more time and we'll check whether we can disconnect the call or
+02:16:13 not. Hello thank you for connecting. Can you please tell me full name and age?
+02:16:22 Now right now it's not disconnecting the call because at every instance it uh connecting to this wappy. So better we
+02:16:28 can remove from here and let's put it inside this start call. Okay. Then we'll
+02:16:34 create a wppy instance. So here we'll say wppy instance comma set wy instance
+02:16:41 is equal to use state. And then over here we'll set the wy
+02:16:47 instance as wppy. Then over here let's give a type any
+02:16:59 and then we'll use a wy instance to stop the call.
+02:17:06 Now along with that one you need to add and check inside the end call whether
+02:17:11 this wappy instance uh is available or not. If it's not available then simply return empty. Then you'll stop the wappy
+02:17:19 instance. And then also make sure uh to clear off the call start, call end and
+02:17:25 message call back from this wy instance. Then we want to set this call started to
+02:17:30 false. And then at the last we'll set the wppy instance to null. Setting the wy instance to null is very important.
+02:17:36 So make sure don't forget to update that value. And then save it. And let's test this out. Now I'm going to connect this
+02:17:44 call. So we'll say start call. Hello, thank you for connecting. Can you
+02:17:51 please tell me full name and age and then after disconnecting it
+02:17:57 disconnecting the call. Perfect. Right. And not only that but everywhere it's getting updated. So that's how our agent
+02:18:06 is ready. Now the next step we want to show a uh speech to text streaming uh on
+02:18:14 the screen. So here we want to show assistant message the user message whichever is the latest one it going to
+02:18:20 show u at first and then second. So like that
+02:18:26 now after implementing the AI wise agent it's time to display the streaming uh
+02:18:32 speech to text on the screen and for that one as you know that we are using an assembly but with the web is already
+02:18:40 integrated so they have collaboration with the wppee and the assembly AI so you don't need to uh manually do it
+02:18:46 through the assembly AI now simply go back to your application and very first
+02:18:52 thing that we need to do we we need to add few more callbacks. So over here
+02:18:58 uh if I go to the wy documentation you will also find that. So under this uh
+02:19:04 wise widget implementation you will find more option like when the speech started
+02:19:10 when the speech ended. So I will use that features as well. Okay. Now it
+02:19:15 simply uh enable or trigger it whenever
+02:19:20 the assistant start speaking and when assistant stop uh speaking. So over here
+02:19:27 uh I will go back at the top and we'll define constant
+02:19:34 current role comma set current role is equal to use
+02:19:44 state and it is of type string. Now whenever the users uh assistant speak
+02:19:50 we're going to set the current role to assistant otherwise when the speech end
+02:19:57 it means now user going to talk so we'll set the set current role to user okay as
+02:20:04 simple as that now in order to get a live message so here we have the message
+02:20:09 type transcript right now inside this I'm going to get all the uh fields from
+02:20:17 the message. So we'll dstructure it. So inside the message we have the role, then we have the transcript
+02:20:24 type and then we have the transcript and that everything we're going to get it from the message. Okay. So this
+02:20:31 obviously this particular object is going to return whenever um we have text
+02:20:37 speech to text available. Now once we have this message information
+02:20:43 uh I'm going to define a live transcribe. So we say constant
+02:20:53 transcript comma set transcript
+02:20:59 is equal to your state. It is of type string
+02:21:04 like this. And then we're going to simply set the live transcript
+02:21:11 with the transcript. Okay. And then we can also uh set the
+02:21:18 current role to the role which we have. Okay, whether it's a user or assistant
+02:21:23 because that also return the role as well. Now let's save it. And uh
+02:21:28 obviously uh we're going to add one more condition if transcript type is equal to equal to
+02:21:37 partial because this transcript type will return two value. One is a partial and one is a final. Now final will give
+02:21:44 you the complete output. Okay. Now here I will write something like this. Else
+02:21:49 it will give the final transcript that we'll see in a moment how to save it.
+02:21:55 But first we'll check whether we are displaying the uh or we will display the live transcript. Okay. So over here at
+02:22:02 second place I want to display a live transcript and then we also going to
+02:22:09 show the current role. Okay, something like this. And let's save it. Now, if I
+02:22:16 go back to our application, uh, right now, obviously, it's saying just colon. We'll fix that. But if I
+02:22:22 start the call, we'll see. So, right now, it look like, oh, thank you for connecting. Can you please tell
+02:22:29 me full name and age? So, that's how we are getting the live
+02:22:36 transcript. Okay. Now obviously we need to save the final transcript and obviously we want to save it inside the
+02:22:42 object list so that we can show it um the old previous messages which contain the complete message not just a current
+02:22:49 live stream. So over here I'm going to define a messages comma set messages
+02:22:56 is equal to your state. Okay. And then we need to define a type as well. So
+02:23:02 we'll going to define a type. So here we'll say type message
+02:23:10 is equal to and inside this we'll say ro of type string
+02:23:18 and then text is of type string and then messages type I'm going to define over
+02:23:24 here and it is a list so I'm providing an empty array something like this and save it.
+02:23:31 Now whenever we have the final script we're going to save that one and here also we can add a condition if else if
+02:23:40 transcript type is equal to equal to final. Okay then only we want it to show. So here we'll set the messages.
+02:23:47 Now we have to make sure we want to keep this previous messages as well as the current messages. So we'll say previous
+02:23:53 messages. Then we'll add dot dot dot keep the all the previous messages and then add
+02:24:01 the new value. Okay. So here we'll say text is equal to transcript. As simple
+02:24:06 as that. Now here you can define a messages type as messages.
+02:24:14 Let's define any for now and then save it. Now after this we have to set the
+02:24:19 live transcript to empty and then we'll set the current role
+02:24:25 to null because that's where uh it will stop it right so okay so it's not taking
+02:24:31 null because we are we want just a string so over here for the current role I will also accept the null value and
+02:24:39 then save it now at the bottom make sure whenever we have the live transcript
+02:24:45 then only show this text. So I can make a length. If length is greater than
+02:24:52 zero, then only we want to to show a live
+02:24:57 transcript. Okay. Okay. So it's saying live transcript
+02:25:02 length is possible. Okay. Let's add a condition. And then save it. Now next we wanted to
+02:25:09 show a message list at the top. So over here I will just keep this S2 for now.
+02:25:14 And then we'll define a messages. So we'll say messages dot
+02:25:21 map the message, index and the arrow function. Inside
+02:25:27 this we're going to define a div. And then we'll define this h2 tag
+02:25:36 something like this. Okay. Now obviously we want to replace this our
+02:25:43 all our messages from this messages list and just define a type as messages. So
+02:25:52 here we'll get messages dot text obviously uh I'm also going to define the messages dot ro something like this.
+02:26:02 Then for this div we can provide the key as a okay we even though we don't need
+02:26:07 this div so I will just remove that and for this div we can
+02:26:14 add a maximum height so here we'll say maximum
+02:26:20 or let's make it overflow y at
+02:26:25 we'll see how it looks first okay and then I forgot to add a key as a index and
+02:26:33 then save it. So obviously we need to make some modification but for now let's test this out. So I will start the call.
+02:26:42 Hello thank you for connecting. Can you please tell me it's full name and age?
+02:26:48 So here we have an error called previous is not iterable. Okay, that's because if
+02:26:53 I go to these messages and currently
+02:26:59 the messages uh is not an it not showing as itable because we need to provide an empty
+02:27:05 value when um the messages is not there. Okay. And let's try this out now.
+02:27:14 Hello, thank you for connecting. Can you please tell me full name and age?
+02:27:20 Hey, my name is Rahul and my age is 28.
+02:27:27 Hello Rahul. I'm here to assist you today. How are you feeling? And how cool it is. If you see, we have all the
+02:27:33 messages and the latest message at the bottom, right? And that's what we really
+02:27:40 wanted. Obviously uh you can give some styling to this H2 tag but most
+02:27:47 important we don't want to show all the messages. We just wanted to show uh few
+02:27:52 messages only but before that here I'm going to add some padding. Okay. So it will uh show
+02:28:01 more in a decent way I can say. Now another important point over here we
+02:28:06 only wanted to show last three to four messages and not all the messages but obviously we want to keep everything
+02:28:13 inside the messages but while displaying we want to show only few so we'll just slice this and we'll say minus four so
+02:28:20 last four messages okay from the messages and if I save this one let's test this out so I will start the call
+02:28:25 and we'll verify hello thank you for connecting can you please tell me full name and age Hey, uh
+02:28:35 I am Tube Guru G and my age is 28.
+02:28:41 Hello Tim. I'm glad you reached out. How are you feeling today? Uh is there anything specific on your mind that
+02:28:47 you'd like to discuss? I'm here to listen and help in any way I can. Uh no, I'm good.
+02:28:55 Okay, Sam, that's good to hear. And that's what we wanted. It's showing
+02:29:00 only last four messages. But again here is problem. Obviously currently uh it's
+02:29:06 going out of our uh UI thing because we want everything in the center of the screen and it's going on the left
+02:29:12 because the assistant pick uh a complete big messages. So in order to
+02:29:21 fix this first what I will do I will just give this div and then we'll give a
+02:29:27 padding uh left and right. Let's add a left and
+02:29:34 we'll say 40 pixel maybe 80 pixel and padding right as
+02:29:41 well. 80 pixel. Okay, because we want uh kind
+02:29:46 of in the center and that's the reason we need to give the padding. Okay. Uh
+02:29:53 also if possible let's try to add flex here. We'll say flex direction
+02:30:01 as column and these are some of the uh option I
+02:30:07 applied. If you see I make the flex direction column align item in the center as well.
+02:30:13 Um if I make the justify content in the center instead of align item uh it
+02:30:18 doesn't affect anything but I think this is the good way that we can display on the screen. Okay, instead of on the left
+02:30:25 align because everything is in the center of the screen. So for this one I will make flex flex
+02:30:33 column item to mean the center. Okay. And obviously uh when the screen size is
+02:30:40 medium or let's make padding x to 10. But when the screen size is medium we'll give padding x to 28. On large screen we
+02:30:48 can give padding x to 52 and extra large can give padding x to let's
+02:30:55 think this time is more perfect way. Hello thank you for connecting. Can you
+02:31:02 please tell me full name and age? Hey, I'm Rahul and my age is 28.
+02:31:12 Hi Rahul. That's quite a unique age. Let's clarify. Are you 20 or 28?
+02:31:18 It's 28. Thanks for clarifying, Rahul. So you're
+02:31:25 28. How are you feeling today? Is there anything specific you'd like to talk about or any symptoms you're
+02:31:30 experiencing? I'm here to listen and help in any way I can.
+02:31:36 Uh actually I have some headaches so I don't know what to do.
+02:31:42 I understand headaches can be really disruptive. Uh first can you describe
+02:31:47 and how beautiful it's showing right now if you think the padding is more you can
+02:31:52 just margin from the top is more you can just remove that um because I feel it's
+02:31:59 little large so I just remove that one. And now from here it will uh show your
+02:32:05 message list as well. Okay. So that's how guys you need to display a live
+02:32:10 streaming with the help of assembly universal streaming feature. Okay. which
+02:32:17 is one of the best which I told you as this is the universal streaming provided by assembly AI the most important very
+02:32:24 cheap in the market and the latency is the minimist uh no one can uh have below
+02:32:30 this 300 millisecond latency that's what assembly AI's universal streaming
+02:32:36 provide you and that's the reason I use the best product in our uh SAS
+02:32:41 application
+02:32:46 Currently our voice agent is only enable the single uh or act as a single voice
+02:32:54 agent because we provided this voice assistant ID which is driving from the
+02:32:59 wappy dashboard because inside the wappy we simply created one voice agent with
+02:33:05 the all the settings and we also provided that single prompt. So if I go
+02:33:10 to this assistant and the general physician that's where we provided this prompt and which act everything for us
+02:33:17 right but that's not what we want because inside our application
+02:33:25 uh we have a different kind of agents right for the uh let me go to the
+02:33:30 dashboard. So over here we'll go to the dashboard
+02:33:36 and if you see we have general physician, pediatrician, psychologist, nutritionist and many others. Each agent
+02:33:44 had their own unique identification right and we need to make sure depends
+02:33:49 on the user selection or even though from the start consultation we are getting a suggestion whenever user
+02:33:55 select any of the agent whether it's a male or female we need to make sure we going to provide a specific prompt to
+02:34:01 the agent so that it will act accordingly and it will give you the response accordingly but with the WP
+02:34:08 assistant ID it's not helpful for us so the question is how can we modify this and it's very very easy. Okay. Now
+02:34:15 obviously we don't need to provide this assistant ID over here. Rather we going
+02:34:20 to create a configuration and that configuration is different for every time. But the easiest way to do this uh
+02:34:28 is to add a wic configuration that's what going we are going to see next. But
+02:34:33 before that for each of these agent we wanted to add a unique voice ID. Okay.
+02:34:40 Now in order to generate this wise ID you can simply go to the WPY dashboard
+02:34:48 and inside the WPY dashboard uh if you scroll down a little bit over here we
+02:34:54 have the wise configuration and currently the provider the default provider is WPY but over here you can
+02:35:01 change for example let's say play HD now play HD has the different voice and the
+02:35:06 name if you see these are the name they provided now you can take any names and you can uh add
+02:35:13 to the uh to your each of these agent. Okay. So for example
+02:35:19 in this case let's say I will add the
+02:35:25 let's add a crease. Okay. So for this because this is a male so I will add it
+02:35:30 as a crease. Okay for this pedestation if you see if I go back to our application this pedestation is again a
+02:35:37 male. So you can add some different voice ID for that.
+02:35:43 So for example from here I will select this Oliver. So let's say Oliver
+02:35:58 and so on. Okay. Obviously I'm going to share this link with you sorry this file with you so that you can verify. So in
+02:36:04 meantime I will just uh add for all other here I added for the remaining
+02:36:10 one. Okay. So make sure to add it add that from your side as well. And now go
+02:36:15 to the page.tsx file and inside here we're going to create a configuration. So we'll say constant wappy agent config
+02:36:25 and then arrow function. Now inside here you can provide a name. So I will say AI
+02:36:31 voice or medical wise agent doctor wise agent. Okay. Then you can
+02:36:38 provide your own first message as well. So over here you can provide own
+02:36:44 message. So I'm just going to copy this one. Okay. Then you need to provide a
+02:36:50 transcriber. Now inside the transcriber you need to
+02:36:56 provide a provider. And this in this case the provider will be assembly
+02:37:02 AI. So this is very important. Make sure not uh um misspail any text. And then
+02:37:11 you need to provide a language and language will be the English. After
+02:37:17 this you need to provide a voice. Now for the voice
+02:37:24 you can take the any provider. So if I go to this vap dashboard you will see
+02:37:29 this provider name right. So in my case I'm going to use this play ht as a
+02:37:35 default provider and then the wise id
+02:37:42 in this case is we are getting whatever the uh y uh user session from the session detail we'll get that voice id.
+02:37:49 So here we'll say uh I think we don't have the voice ID
+02:37:54 for this type. So we'll say voice id of type string.
+02:38:01 Okay. So that we can easily fetch it.
+02:38:07 So session detail dot voice ID.
+02:38:14 Oh, make sure uh not here. So inside the doctor agent we wanted to show
+02:38:20 the voice ID. Okay, because uh that's where we are saving everything. So it
+02:38:28 need to be on doctor selecting doctor dot voice id. Now once you provide the
+02:38:35 voice you can add a model. Now I will provide
+02:38:40 a model as the let's say provider as open AI. Then the model in this case
+02:38:48 we'll say GPT 4 and the messages
+02:38:55 you can provide the role as system
+02:39:02 and the content is nothing but the prompt. Okay. Now this prompt we'll get
+02:39:08 it from the session detail dot selected doctor dot
+02:39:14 as I think that's agent prompt okay so that agent prompt we need to provide and
+02:39:19 that's all we needed and our agent config is now ready how simple it is right obviously you can customize and
+02:39:26 you have complete control on your agent now now inside the wy start we simply
+02:39:32 need to provide this wy agent config Okay.
+02:39:37 So maybe something like this. I'm not sure why we are getting this error.
+02:39:46 Okay. Let's ignore this. So over here I will add ts ignore. Okay. And then save
+02:39:53 it. Now uh I just found one thing that uh I uh wrongly renamed this voice ID.
+02:40:00 So I just updated to will now. And if I start conversation as I selected gender physician and then you will see the
+02:40:08 result. Hi there. I'm your AI medical assistant. I'm here to help you with any health questions or concerns you might
+02:40:15 have today. How are you feeling?
+02:40:20 How cool it is right? So it's not only uh for this particular user but you can
+02:40:26 if you select any of these doctor it will act like in a such a way that it's
+02:40:32 a completely different uh doctor AI voice assistant or a voice agent. Okay.
+02:40:38 So that's how guys you need to provide a configuration.
+02:40:46 Now once user disconnect the call at that time we want to generate a detailed
+02:40:51 report and that report we are going to generate with the help of LLM model
+02:40:57 here if you see once we have the conversation right and on the click of disconnect all the messages which we are
+02:41:03 going to pass to the AI LLM model with the help of our own prompt and then it
+02:41:08 will generate a detailed report if you see this is the prompt which I created and I'm making sure that is available to
+02:41:14 you for a free uh we will find inside this eraser doc. I will put the link in the description. Now this particular um
+02:41:23 prompt will help us to get the um complete report in the form of JSON. And
+02:41:28 these are some field which we are getting and at the last we are going to display that on the screen as simple as
+02:41:33 that. Okay. So first thing first let's go back to our application.
+02:41:40 I will uh just close this one.
+02:41:46 And in that inside this page.tsx we can create a method called constant
+02:41:53 generate report.
+02:41:58 Okay. Now inside the generate report we need to uh make an API call to generate an actual report because we have all the
+02:42:05 messages. So here we'll say constant result is equal to await axios.post post
+02:42:11 and we are going to create an endpoint called medical report. Okay. Now
+02:42:17 obviously this endpoint we need to create but to this endpoint we need to pass a messages. Okay. So whatever the
+02:42:24 messages list we have that we need to pass. Then we also need to pass a
+02:42:30 session details. So sorry. So over here we're going to add session detail as
+02:42:37 session detail and then the session id because that's where we want to update our report as
+02:42:44 well. So this much information we need to pass over here we'll make this as a sync and then once we get the data here
+02:42:51 we'll say result dot data and then we'll return result do data just uh for
+02:42:58 testing purpose. Now on the click of this generate sorry this particular
+02:43:03 generate report method we we are going to call when user cut the call. So over
+02:43:09 here um first when user cut the call I will
+02:43:15 set the loading as a true and when it's cut it so here I
+02:43:22 will just use the result is equal to await generate report method okay and
+02:43:29 then we'll set loading as a false only when we have the result okay here I will
+02:43:35 make this as a async and obviously it will wait to get the response and mean meantime it will show a loading so for
+02:43:42 the disconnect as well similar like this one I'm going to add
+02:43:48 a loading state okay so it will show a loader uh and in in that time I will
+02:43:53 also disable the button as simple as that now we need to create
+02:43:59 an API endpoint called medical report so go to the API folder and inside this we'll create a new folder or new
+02:44:06 endpoint called medical report inside this we'll create a route.tsx tsx file
+02:44:12 we'll say export a sync function
+02:44:18 and this will be the post request and here I will make this as a next
+02:44:24 request make sure the capital post I will add then inside this we need to get
+02:44:30 a session id then a session detail and
+02:44:35 the last we need to get a messages is equal to await
+02:44:43 request dot json. Then I will add a try catch block
+02:44:51 with the exception e. Now similar like this suggested doctor
+02:44:56 we need this line of code. So I will copy as it is and then we need to get a JSON response. So I will copy this line
+02:45:02 as well and then I will paste it here. Okay. Now make sure to import this open
+02:45:09 AI. Okay. Then you need to add a model name and the most important you need to
+02:45:15 add the prompt as well. Okay. So over here u whatever the session messages we
+02:45:23 have not messages but whatever the prompt we have we need to pass that prompt. So here I will just remove that
+02:45:30 and uh basically I will write constant
+02:45:37 report generation prompt at the top
+02:45:42 and I will just copy this one something like this. See
+02:45:49 and now uh I will save this one. And if I go over here, here we need to add
+02:45:55 agent not agent but report generation prompt. Now to this
+02:46:01 user I will just we need to just add a content. So let me remove this
+02:46:11 and here I will say let's add me here constant user
+02:46:18 input and to this user input I will say JSON dot stringify
+02:46:25 the session uh let's add a session detail
+02:46:32 here we'll say doctor info
+02:46:38 AI doctor agent info I will say okay
+02:46:46 so here we just need to structurize according to our requirements then we
+02:46:51 want to add conversation
+02:46:57 and then inside the conversation we'll again stringify the messages because it's a list of object right it is in the
+02:47:03 form of JSON And then once we have the user input, we'll pass it. Now at the end of this
+02:47:10 particular prompt here, we'll say depends on Dr. AI agent info. AI agent
+02:47:18 info and uh conversation between
+02:47:25 AI doctor I will say medical agent and user.
+02:47:34 So this particular line maybe we can call at the top.
+02:47:43 So based on maybe
+02:47:53 Okay, I think this is pretty good now. Okay, so just modify according to your requirements. So I added that line at
+02:48:00 the top and then we are passing to this content and then we'll get the uh response. this
+02:48:06 response we need to return it as JSON response and if we have any
+02:48:14 error then we'll just return the error E. Now another important thing over here
+02:48:20 once we get the JSON rep uh response we need to save to database. Okay. So over
+02:48:27 here I will just add constant result is equal to await db
+02:48:35 dot insert. Then here we have session chart table dot values and inside this we need to
+02:48:43 add the report. Now this report nothing but the JSON response. Whatever JSON response we'll get it. And then here we
+02:48:51 need to add a condition because we need to only update that particular record. So here we say dot
+02:48:58 right. So it's not insert it need to be update actually because we want to update the record. So here we'll say set
+02:49:04 and then we say where so we want to update the existing record. So here we'll say equal to
+02:49:12 session chart table dot session ID matches with our session ID which we are
+02:49:19 getting. As simple as that. And then it will update the record. Okay. And then save it. Now let's test this out. Okay,
+02:49:27 if you get any error, we'll find it inside the console. So don't worry. So I will just uh pause the video and I will
+02:49:33 record a few things over here. So I will start the call and then I will pause the video.
+02:49:40 Hi there, I'm your AI medical assistant. I'm here to help you with any health questions or concerns you might have
+02:49:46 today. How are you feeling? I have some headache uh from the morning. So, can
+02:49:52 you please suggest some medicines?
+02:49:57 I'm sorry to hear you're dealing with a headache. It can really throw off your day. Let's take things step by step
+02:50:03 first so I can help you stress or dehydration. Here I disconnect the call and waiting for AI response. And after
+02:50:10 disconnecting the call, you will see inside our response, we got the agent name, complaint, duration and all the
+02:50:18 details. Now obviously over here uh I just tested with a small data. So it's
+02:50:23 saying that user did not clarify and state the complaint duration not specified cellularity not specified.
+02:50:29 Okay. If user don't have or AI model don't have a proper information it will return this particular text and that's
+02:50:35 make a lot of sense. Okay. But if you have proper result then it will return a
+02:50:41 complete uh report for you. And if you see I tried one more and in this case we
+02:50:47 have all this uh information like medical medication mention recommendation and all the details not
+02:50:54 only that but it is saved into our database. So if I refresh it you will see it will it's going to update and
+02:51:02 save all the information. Perfect. Right. So that's how you need to generate the report. Now make sure uh
+02:51:08 inside the conversation you can also update the conversation because that is very important. So simply inside the
+02:51:16 page dot or not page but inside the route along with
+02:51:22 um so maybe inside the route that's where we updated I think go to the
+02:51:29 medical report. So we were in wrong one. So over here I will also update the
+02:51:34 conversation with our messages list. Okay, because we already have the
+02:51:41 messages list and that's what we want to update and let's save this one. So next time it will also update the report and
+02:51:46 the conversation. So if you have any question, any doubt regarding to generate the report, let me
+02:51:53 know in the comment section because later on we want to display that report on the screen along with uh all the
+02:52:00 details. So if I go back to our home screen now we have the uh some
+02:52:05 consultation. So instead of this empty screen we wanted to show an actual uh previous history and from that history
+02:52:12 user can access the report as well. Now when user end the call so over here
+02:52:20 inside the page.tsx right at this point we can redirect user to the home screen.
+02:52:28 So over here we will say constant router comma set router is equal to use state
+02:52:37 oh not use state sorry my bad we want to define a router hook so we'll say use
+02:52:42 router from the next /navigation and then simply we are going to route it
+02:52:48 so we'll say router dot replace and then we'll say slash
+02:52:55 dashboard as simple as that Okay, perfect. And then save it. Now you can
+02:53:00 even show a tosh message saying your report is generated and available to view. Now in order to show such kind of
+02:53:08 uh notification or to message simply uh we'll go to the shad CN
+02:53:15 and inside the shad CN component search for the sonar component. So it also have toast component but sonar is also an
+02:53:22 easiest way to add a toast message. So simply first you need to install this sonar component
+02:53:32 and then you need to add a toaster component inside the root layout.
+02:53:40 So we'll go to the layout file which is a root layout and just below this one
+02:53:45 we'll add a toaster component. Now make sure you'll import this toaster component from the UI sonar and wherever
+02:53:51 you want to use this toaster you can add that. So here we'll say toast
+02:53:57 dot success your report is generated
+02:54:04 and then it will navigate to the dashboard as simple as that. Okay. So guys uh I hope you understand this
+02:54:10 particular report generation uh example how we easily generate the report with the help of a llm model.
+02:54:20 Now we want to show the previous history uh which we consult with the doctor right as we already saving into our
+02:54:27 database. We just need to fetch it and display it on the screen and from there
+02:54:32 user can view the report as well in the detail. So first thing first let's fetch it and display it on the screen as we
+02:54:39 already have the component uh to display this history. So if you see we have this history list and currently if the
+02:54:46 history list is empty then we are showing this empty state. Now here we
+02:54:51 need to write a method called constant get history
+02:54:59 list and the arrow function inside this we'll say we can make API call. So, Exio.get
+02:55:08 as this is a get call. So, we'll say / API/ medical report. We already have the
+02:55:15 endpoint called medical report or you can even fetch it from the session chart as well because in session chart we
+02:55:21 already have the get u method. So here we'll just say session
+02:55:28 chart and inside the question mark because uh session chart will take the session ID right but over here we'll say
+02:55:35 session id is equal to all because we want to fetch all the sessions
+02:55:42 once we have this I will make this as a sync and inside the result I will just
+02:55:48 console the result as well we say result dot data
+02:55:53 and Then we'll set the history list with result dot data.
+02:55:59 Now this get history list we need to call inside the use effect whenever this component get load. So over here I just
+02:56:08 call this get history list and then we'll get the list. Now simply go to the
+02:56:15 session chart API endpoint and here we need to check. Okay. Okay. So here we'll say if session id is is equal to equal
+02:56:24 to all okay then we need to make a different API call otherwise in the else
+02:56:30 we'll keep this particular result. So something like this okay but
+02:56:36 for all we just need to uh remove this where condition not where but here we
+02:56:42 just need to pass the user email. So over here we'll say session chart table
+02:56:47 dot created by and then we need to pass a user
+02:56:52 information. So we'll say user dot primary email address dot email address because we don't need to pass a session
+02:56:58 ID because we want to fetch all the session depends on
+02:57:03 uh user's email or who created that particular session. Also make sure you'll get the result in order by we'll
+02:57:11 say descending because we want to fetch the first element at the top or the latest element at the top. So over here
+02:57:18 we say session chart table dot id. So depends on the ID it will fetch it and
+02:57:25 then save everything. Now let's go to this history list and I will just refresh this screen inside the inspect
+02:57:31 panel. If I go to the console, if you see now we get we got the list
+02:57:37 and here. So I think that's history list. So even
+02:57:43 inside the history if you see we have only one result. Okay. So that's because
+02:57:48 um let me go back. We need we are supposed to get the list. But here we are just deleting the first item. So I
+02:57:54 will remove that. And now if I refresh this screen, we'll get the two uh record
+02:58:01 because inside the database we only have the two record. Okay, perfect.
+02:58:07 Now once you have this list of history, we just need to iterate it and display it on the screen. So now in order to
+02:58:16 display it, uh we'll create a new component for the history table. So I'm
+02:58:21 going to use the sharian table component. So make sure to import that first and then copy this import
+02:58:27 statement. Um under this component folder we'll call history
+02:58:32 table.tsx error default template and make sure to
+02:58:37 import this also. I will copy this example
+02:58:44 and we'll paste it here. Now obviously you can update this. So over here we'll say previous
+02:58:51 consultation reports. Then you can change the uh table rows.
+02:58:58 So in this case I want to add a column as um
+02:59:03 AI medical specialist.
+02:59:09 Then the another is description
+02:59:16 date and then action. Okay, obviously uh
+02:59:22 here we need to show actual our actual record. But for now let's save this one and make simply add this history table
+02:59:33 component. Okay, if I go back to our application, you will see this example.
+02:59:38 Perfect. Right now, obviously inside that, we need to provide an actual information. So, I also added the
+02:59:46 history list with a type session detail. Okay? Because we already have this session detail and I exported this one
+02:59:52 so that we can use that and make sure it's a list. Now, simply pass this
+02:59:59 session. Sorry, uh what is the name? It's a s history history list. Okay. So, I will
+03:00:05 pass it as a history list only. And inside the history table, I will
+03:00:11 create a type props is equal to history list
+03:00:19 as session detail
+03:00:26 and here I will get it as a history list with props.
+03:00:34 Perfect. And then save it. Okay. Okay, so this need to be a list. So make sure it's a list. Okay,
+03:00:43 now you don't have that error. Now once we have the history list, we just need to iterate that. So inside the
+03:00:51 table row over here, we'll simply add history list dot map record. So for the
+03:00:59 record, I will add a session detail.
+03:01:06 and index is of type number and the arrow function
+03:01:12 inside this I'm going to simply define this table row now the first column is
+03:01:18 record we'll say record dot uh notes so whatever user entered not user enter but
+03:01:24 I think here I wanted to add a selected doctor dot specialist name
+03:01:30 then we'll say record dot nodes
+03:01:35 over here we'll add a date. So we'll say record
+03:01:40 dot created on and then for action here I'm going to
+03:01:46 simply add a button. We'll say view report. Now for this button I will add a
+03:01:53 class name not class name but let's add a variant actually variant as a outline
+03:01:59 or maybe we can make it ghost. And I will also change the size to
+03:02:05 small. And if you see we have this view report option uh let's change this tool say
+03:02:12 let's say link and let's see how it looks perfect that is also good okay so
+03:02:18 here we have general specialist name description and the date u over here if you see we have the width so I will
+03:02:24 change this to let's say 300 and then we have the description for the
+03:02:30 description as well I will give some specific width make it 200 actually and
+03:02:37 the date. What if we remove this one and let's see
+03:02:44 how it looks. I think this is also good. Okay. So, depends on the size it automatically um
+03:02:50 check it. Anyway, so now we have the uh list as well. Okay. And we want to
+03:02:57 format this date. So in order to format the date in a specific format first
+03:03:05 make sure to install this moment uh JavaScript library which is very powerful library. Let me show you that.
+03:03:11 So moment JS is a uh date formatting library which you can format any date
+03:03:18 and any type. So in our case we want to format the
+03:03:24 record. So over here first we'll add a moment
+03:03:29 library. So if it's not get imported automatically make sure to import it
+03:03:34 manually and then I will add the moment inside
+03:03:40 this we'll say new date and for inside this new date we need to pass this
+03:03:45 string okay because this created is in the form of string
+03:03:50 and then we'll save from now and then save it now if I go over here if you see
+03:03:58 we got 32 minutes ago, 2 hours ago and like that. How cool. So that's how we
+03:04:04 need to uh update and for and uh display it on
+03:04:09 the screen. Now next part what we want to do do is on the click of this view
+03:04:15 report we want to open a dialogue or maybe we can open a sidebar and on the sidebar we wanted to show an actual
+03:04:22 report information because we are already saving that we just wanted to display it on the screen.
+03:04:30 On the click of this view report, we wanted to open the report in the form of dialogue. So simply we are going to use
+03:04:36 a shad CN dialog component. So first let me close all of this tab and inside this
+03:04:43 component we'll create a new component called view report dialogue.tsx.
+03:04:50 Add a default template and then save it. Now inside this view report uh we'll
+03:04:57 import the dialogue component. So we already have this dialog component installed. So you don't need to install
+03:05:03 it again. Just import the all the uh statements and then this example and
+03:05:10 save it. Now over here we'll use the same view report button. Okay. So
+03:05:17 whichever button we use. So I will just cut it from here and then we'll paste it inside this dialogue trigger
+03:05:26 also to this one we'll say view report
+03:05:32 dialogue and then save it. Okay. Now if I go back to our application if I click
+03:05:38 on this one let me refresh the screen once and then when we click on this see
+03:05:44 the dialogue is getting open. Perfect. Now on this view report okay we need to
+03:05:50 accept the prop from this view report. So
+03:05:55 depends on this record we need that. So here we will pass it as a record only
+03:06:01 and over here I will accept as a record. Here I will add a type props. I will say
+03:06:10 for record I will say session detail and then here I will pass as a props.
+03:06:18 Okay. Now once we have the record information and let's update the title. So over here
+03:06:26 I will add a H2 tag. We'll say medical AI wise agent report.
+03:06:35 I will say class name text to be in the center text to excel and save it. For
+03:06:42 this title dialog title I will mark this as a as a child. I will just make sure
+03:06:48 let's refresh the screen and it's showing correctly or not. So I will say clip view report. And if you see we have
+03:06:54 this beautiful text in the center of the screen. I will just make it little bigger. Then for the description let's
+03:07:00 add a div first. Here I will mark as a child and inside this uh very first
+03:07:08 thing that we wanted to show uh some uh doctor information we can
+03:07:13 say. So over here we'll say s2 tag visit info.
+03:07:22 I'll add a font bold text
+03:07:27 uh maybe we can color this to blue and text larger.
+03:07:36 Uh over here I will add a margin top to 10. So some space
+03:07:43 now below that we'll add a div. I will make the sure to
+03:07:49 add grid grid column two. Okay. Inside this
+03:07:58 we'll add a div again. We'll add a H2 tag. We'll say doctor
+03:08:05 specialization. And then we wanted to show the doctor
+03:08:10 specialization here. So we have the record dot selected doctor dot
+03:08:16 specialist. Okay, something like this. Uh, then
+03:08:22 we wanted to show a vidget date or maybe we can show the description
+03:08:28 first. Description
+03:08:33 or that's fine. I think we don't need a description. We'll just keep it like something like this. And another text on
+03:08:40 the right hand side we can show which is the visit date
+03:08:46 or consultant date consult consultant date
+03:08:51 I don't know what it's called but let's say consult date here we'll say record dot created on now obviously here we'll
+03:08:59 format this one so we'll say new
+03:09:05 date they created on dot from now. Okay.
+03:09:14 Now even though if you don't need this, you can just remove that and we'll keep only this H2 tag. See? Okay. So we have
+03:09:21 general physician and our ago. Uh you can wrap this in a span tag.
+03:09:40 And maybe you can add a class name font bold. Okay, I think that's look much
+03:09:46 better. Now I will just pause the video and I will finish the all the other remaining
+03:09:52 uh implementation for this report because it will take some time to show it one by one but I will make sure to
+03:09:58 available uh this in the source code so that you can access it and after I pause
+03:10:03 the video I will implement it and then I will show you the end result. And here is the final result where you will see
+03:10:10 the session info, the chief complaint, the summary of your our conversation,
+03:10:15 the symptoms, what is the actual symptoms, the duration for that and the most important the medication mentioned.
+03:10:22 So uh this AI agent suggested that okay you can take ibuprofen and the another
+03:10:27 medicine as well and then if you have any other recommendation that recommendation too at the bottom I just
+03:10:33 make sure that okay this report was generated by AI and you can take reference of actual uh doctors as well
+03:10:40 and that's how guys you can generate the and display the report to the user how
+03:10:46 easy it is right now second important thing once user click on this history
+03:10:52 tab we also wanted to show a same uh screen okay so simply
+03:10:58 before moving to the next chapter I'm going to create a new route under the dashboard called history and inside this
+03:11:06 history we'll create a page tsx file add a default template here we'll say
+03:11:11 history only and simply you can add a history list component okay now
+03:11:21 uh to this app header. So make sure you have the correct route. So we'll say
+03:11:26 dashboard/ history.
+03:11:31 And now if I go to this history, you will see the only history which you have. And obviously here also you can
+03:11:38 see the report. Okay. Uh if I go to this home screen again, then you can able to
+03:11:44 see all your uh dashboard information. So from home I will just make sure the
+03:11:50 path is correct which is a dashboard. Um I just remember that uh we did not
+03:11:57 added the link tag over here because we wanted to navigate right. So over here I
+03:12:04 will add h reference with options dot path. So it will navigate to that
+03:12:10 particular path. Okay. So if I click history, if I click home, boom, you will navigate to that
+03:12:16 page. And again if you start a consultation start some basic info and then it will start it again.
+03:12:25 As we are building a SAS application and we want to add a billing a subscription
+03:12:31 model into our app. Now whenever user come to our application and if he's a
+03:12:37 free user and did not subscribe to our uh paid plan then user will have access
+03:12:44 to only general physician and then he can only consult once. Okay. But if you
+03:12:50 want to continue uh with our platform then you have to subscribe to our pricing model and that's where the
+03:12:58 subscription uh pricing is very important and adding a payment gateway
+03:13:03 is a big headache to any web or mobile application but it's no longer a
+03:13:10 headache to your head because uh recently clerk introduced an all new
+03:13:16 feature called subscription billing subscription billing with the help of clerk is very easy to integrate just one
+03:13:23 line of code. It connected to a stripe payment gateway which help us to
+03:13:29 integrate stripe directly to your application with a just one line of code
+03:13:35 with the help of clerk billing model and today in this particular project we are going to integrate this clerk billing
+03:13:42 feature into our application. Currently they provide a subscription pricing model and that's what we are going to
+03:13:48 see. Now simply go to your dashboard as we already use this clerk authentication
+03:13:54 and on this dashboard you will see now there are new there is a new option called subscription just click on this
+03:14:01 one and right now just get started just enable this now I will say get started
+03:14:07 now here right now uh we need to create few plans whether it's a paid plan or
+03:14:13 pro monthly like that okay now in the free plan if you see uh obviously You
+03:14:19 have option to add more plan but in the free plan you can just click on it and
+03:14:24 then you can provide some description. It's a free so and it's publicly uh
+03:14:30 available. Now here you can add a feature. So we'll say uh one consult
+03:14:40 say one free medical consultation
+03:14:49 then I will say uh free medical report
+03:14:56 and like that you can create a multiple one. Okay. So I think for now as free uh we don't
+03:15:03 want to give much and simply save it. But now if I go back to this plan
+03:15:08 screen. Now we can add a paid plan. So I'll click on add a plan and give the plan name. So here we say uh pro.
+03:15:17 Inside the pro plan you can mention the pricing. Okay. Now you can even enable the annual discount as well. So for
+03:15:23 example for annual I will give $6.99 and for monthly you can you can give it as a
+03:15:29 $7.99. Then you can add a feature. So you can add from the existing one. Okay.
+03:15:36 Or you can even uh create new one. So here we'll say uh 20
+03:15:45 um medical
+03:15:51 consultant per month. You can write like this maybe.
+03:15:58 Then you can add a description if you want. Um
+03:16:03 uh here we say unlimited reports.
+03:16:16 Then I will add um email support,
+03:16:23 priority support
+03:16:29 and many other options you can add that okay and simply save it. Now we have two
+03:16:35 um plans. One for one is free and one is a pro. Now once you create that here
+03:16:42 make sure to enable the billing. Okay. Now currently remember that we are in the development mode. Okay. So right now
+03:16:49 uh clerk automatically use the uh development credential for the stripe
+03:16:56 payment gateway. But once you are moved to the production then you have to connect your own stripe payment gateway.
+03:17:02 Okay. So that you'll get the money otherwise you will not get it. Okay. Now once the payment is enabled simply click
+03:17:08 on the read billing guide and here click on this B2C SAS. Now just scroll down
+03:17:15 and in order to show the pricing you just need to import this pricing table option. So we'll go back to our
+03:17:20 application here. We want to create brand new screen or brand new route inside the dashboard
+03:17:26 and we can call it as a billing. So we'll say
+03:17:32 billing. Inside this we'll add route or sorry page.
+03:17:37 TSX add a default template
+03:17:43 and then we'll rename this to billing. Now inside here we'll add this pricing
+03:17:49 model. I will add H2 tag. We'll say select
+03:17:55 or join the subscription. We can call it as join
+03:18:01 subscription. Over here we'll add a font
+03:18:08 bold text 3 XL. Now once you add this pricing model make sure to import it
+03:18:13 from the cler neck.js and then save it. Now if I go back to our application
+03:18:20 so over here we have / billing screen that we added and then you will see the
+03:18:26 magic. Boom. It has this pricing model get added automatically. Obviously, it's
+03:18:32 matching our theme. So, you don't need to make any modification. But most important thing, we have this beautiful
+03:18:38 uh pricing tables. Now, over here, I will add some styling. So, we'll say
+03:18:43 padding x to 10. On medium screen, we'll give padding x to uh 24. On large
+03:18:49 screen, we'll give padding x to 48. And extra large, we'll give padding x to 64. Okay. So, I think
+03:18:59 that's too small. Let me remove this. I think this is much better. Now
+03:19:06 I will give margin bottom to 10. And then uh when you click subscribe, it
+03:19:13 will open Stripe payment gateway inside your application. You don't need to jump
+03:19:19 uh on a third party URL. Here you will find all the details. Okay. If you
+03:19:24 selected the bill manually or monthly depends on that one, it will change the value. Whatever the features we added or
+03:19:30 plan information we added is showing on the screen and here you have option to add a card number and everything. Now
+03:19:36 you have option pay with the test card and once you paid it's saying payment is successful.
+03:19:42 And if I go to this pricing again. So we'll go to the dashboard
+03:19:48 slash billing then you will see now this
+03:19:53 particular uh pricing is active one means you join this pro membership.
+03:19:58 Okay. So that's how you need to implement it. Now the question is how can we detect
+03:20:04 whether user is join or not? If you want to cancel later on you can cancel it.
+03:20:09 Simply go to this manage account inside the clerk and then you will find this option called billing. Inside this
+03:20:15 billing now you will see your subscription. You can check all your statement, the previous payment history,
+03:20:21 your payment card and if you want to cancel any of them you have option to cancel this subscription as well from
+03:20:27 this clerk uh component. That's why we are using the clerk authentication and
+03:20:33 clerk uh billing subscription uh feature. Now moving back to our
+03:20:38 application here. Now we have to make sure if user is not subscribed then we
+03:20:43 wanted to show some kind of premium. Okay. So this of the doctor is premium. We have to show that. So let's go to
+03:20:50 this list.tsx and to this AI doctor agent I added a new field called
+03:20:56 subscription required. Now for the first one is false but for all others the subscription is required. So now what we
+03:21:04 are I'm going to do I'm going to add a badge. So simply go to the chaten make
+03:21:09 sure to install this badge component. So this is how it will look like. Okay. So
+03:21:14 I just copy this and make sure to install this. Once it
+03:21:20 is installed I will go to the
+03:21:25 uh let's go to this page.tsx tsx where we have this doctor agent list and inside the agent card
+03:21:33 we'll verify it. Now
+03:21:38 here I will add this badge
+03:21:43 component and inside this we'll say
+03:21:48 premium. Okay as a premium text that's all. And then save it. And if you see
+03:21:54 the text is showing on the screen but we want it to show on the top of uh image.
+03:22:01 So let's add a class name and we'll make this absolute. So it will be in the inside. Now we'll give padding a to two
+03:22:09 and we'll say write zero. Oops, sorry. So over here I will mark
+03:22:14 this as a relative as well. And give more padding. Let's say padding
+03:22:21 three. Oh,
+03:22:29 I think this is much better. Maybe we can add a margin one
+03:22:35 or let's make this to two. Perfect. Okay. So now it's showing it as
+03:22:41 a premium. But we wanted to show batch only when the
+03:22:46 So first I will add doctor agent dot I I don't know why it's not showing but
+03:22:54 if I go to this uh list
+03:22:59 we have this subscription required option right so I I will make sure I
+03:23:04 will add this field so that we can get from on this doctor
+03:23:12 agent. So we'll say doctor agent dot subscription required. If it's true then
+03:23:18 only show it. See now for this one is not showing but for all other it's showing.
+03:23:26 Now another important thing we need to verify if user is uh join as a paid
+03:23:32 member. Okay then only we want to enable this button otherwise we want to disable it. So from the documentation you will
+03:23:37 find it has a method called has premium access. Okay. So uh you can get this
+03:23:45 value if you are using server side you have to use use o otherwise sorry you have to use this await o otherwise you
+03:23:51 can use use o as well. So let me show you how you can do it. So over here
+03:23:56 we'll use use o method which you can use on the client side and it has a method
+03:24:02 called has. Okay. Now here we'll say constant paid user is equal to as dot.
+03:24:12 So let me get back here. So here this is how we need to add we needed to check if
+03:24:18 user is joined as a paid user or not. And then we need to provide a plan name.
+03:24:26 Now simply go to this subscription uh maybe go to the configuration under this
+03:24:32 billing setting. or maybe inside the uh if I scroll down
+03:24:39 subscription go to subscription plan go to the pro and this slug name we have to use to refer attach over here okay so
+03:24:48 right now uh it's saying is possibly undefined so here we'll say has has I don't know or maybe
+03:24:56 you can just ignore this now if user is uh a paid user Okay. Then
+03:25:03 simply if it is not paid user then we have to disable this button. So we'll say
+03:25:09 disable if it is not the paid user
+03:25:17 and an doctor agent dot subscription required.
+03:25:25 So let's save this one. Go back to your application. So we have this dehydration
+03:25:30 error. So that's weird. So okay. So over here we need to mark this as a client one.
+03:25:39 So that's what the error was. Okay. We have one more error. So it's saying has is not a function.
+03:25:47 So let's see why. So here uh I'm going to check if has is there then only check
+03:25:54 it. Okay. And maybe we can console.log with a paid user. So I think it will
+03:26:00 just return true or false. So if I go to the console if you see is returning true
+03:26:05 it means it's a paid user and obviously you have option to connect it.
+03:26:11 Also we have to make sure user will not click on the start consultation button if user already have more than one uh uh
+03:26:20 what we call it as a consultation already. I had a made conversation with the AI agent. So for that one I will go
+03:26:29 to the let's go to the page.tsx because inside the page.tx we have this add new session
+03:26:35 dialogue right. So click on this add new session dialogue and here similar like
+03:26:42 this has method. So I will copy this as it is inside this add new session
+03:26:48 dialogue. Make sure to import this use o
+03:26:55 and here I will verify first. Okay, obviously user cannot create if user already
+03:27:01 created more than one. So maybe we can disable this button
+03:27:14 paid user if it's not paid user and and
+03:27:21 user has more than uh or let's let's do one thing.
+03:27:28 For now I will just keep it as the same condition if not paid user. Okay. Right
+03:27:34 now if user is paid user obviously you have option to do it. Okay. So it's working as expected
+03:27:40 but if you already have then this information you need to pass to this particular session dialogue. So the way
+03:27:48 that you can do it. So if I go to the
+03:27:54 page.tsx where we have this history lead from the history you need to pass it.
+03:28:02 So I will say set history
+03:28:08 list record to result dot data and this one I'm going to return back
+03:28:16 I will put the type any then inside the page.tsx TSX.
+03:28:24 I will accept that. Maybe I will just undo everything
+03:28:33 and I will not pass. So I will undo here as well. Better we can directly call this inside
+03:28:41 our add new session dialog.
+03:28:54 So we'll import the use effect. Then we have get list here. Uh maybe we can define the
+03:29:02 constant history list, set history
+03:29:09 list is equal to use state
+03:29:17 and obviously we need to provide a type. So I will copy this use state as it is.
+03:29:24 Make sure to import this session details. So we can save that
+03:29:32 and if history list.length is greater then we don't want to show. So here we'll add a condition if history list
+03:29:39 dot length is greater than equal to 1 and not a pay
+03:29:45 paid user then it should disable it. Okay. So right now it's enabled because
+03:29:50 it's a paid user. But once user is unpaid. So make sure to test that scenario as well. Okay. So just sign in
+03:29:58 with a different account and then you can able to test that scenario too. Okay. So that's all for this particular
+03:30:05 uh chapter. If you have any question, any doubt, let me know in the comment section. Also don't forget to connect
+03:30:11 this pricing uh option. So I will go to this app header where we have this
+03:30:18 pricing or not pricing but it should be a billing. So we'll say dashboard slash billing.
+03:30:26 Okay. So now if I go back click on pricing and then it jump to this pricing
+03:30:31 model. Perfect. Now I just sign out and sign in with a all new user which is not
+03:30:36 subscribed. And if you see currently uh the button are disabled also I don't have any record. So I can create one
+03:30:43 consultation for free but only this start consultation with this general physician is enabled. Now when you just
+03:30:50 click on any of these option right we want to navigate to this conversation screen obviously we need to create a new
+03:30:57 record uh with an session chart ID similar like the way which we are doing
+03:31:03 over here only thing that we need don't need to add is this particular note section okay but here user can directly
+03:31:10 talk without providing the any basic input so to do that simply we're going
+03:31:16 to uh copy the same code which we use it initially. So for now we'll go to the
+03:31:22 routes. Inside this uh we have this doctor agent list and inside the doctor
+03:31:29 agent card that's where we need to create a method. So we'll say constant
+03:31:34 or maybe we can reuse the existing one. So from the add new session dialogue. So
+03:31:41 here we have this onstart consultation. I will copy as it is. Uh I will paste it
+03:31:47 here. So here we have the set loading and
+03:31:55 state. So I will just copy this state as well.
+03:32:01 Make sure to import this use state. Then make sure to add this exio. Now for the
+03:32:06 node you can add new uh query or new conversation whatever you want to add.
+03:32:13 For the selected doctor, I'm going to put a doctor agent a as it is because inside the doctor agent, we have that
+03:32:19 selected doctor. And once we have the data, we want to navigate it. So we'll
+03:32:24 say constant router is equal to use router and then
+03:32:31 it will navigate to that particular uh session ID. Okay. Now whenever there is
+03:32:36 a loading is true we can show a loading indicator.
+03:32:43 So here we'll say if loading then we can show a loader icon otherwise
+03:32:50 we can show this arrow right icon
+03:32:56 here I will add animate spin and then save it. Okay as simple as
+03:33:02 that. Now if I click on this start consultation.
+03:33:08 Uh okay. So it look like nothing's happening. Let me refresh this screen once and click on start consultation.
+03:33:15 Uh it look like we might have error. If I go to the console.
+03:33:20 I don't see any error. Uh let's go over here check if new record get added or
+03:33:27 not. I don't think so. Okay. So the reason that is not working because we are we
+03:33:33 did not attach this method to the button. Okay. So on the click of this
+03:33:40 start consultation we need to call this method. Now if I click on start
+03:33:45 consultation you will see this loading icon and it's redirected to this consultations page where now you can
+03:33:52 start the conversation. Pretty good right? So that's how guys you have to uh
+03:33:58 work around uh this is very simple just follow the step right now obviously uh
+03:34:04 you have one consultation in the view report you will not see anything because that we you did not had a conversation
+03:34:10 right but over here if you see it's disabled the start consultation is disabled because you have only one query
+03:34:16 and sorry one consultation for free which you already use it so that's uh
+03:34:22 how you have to implement the logic for the pricing
+03:34:29 Now it's time to deploy our application on the cloud and uh obviously once you
+03:34:35 push this application to a production you can share this with your friends and family. Obviously you can start earning
+03:34:41 money with this application because this is the SAS application uh we build it
+03:34:47 and this is this is the application which we build completely from the scratch. Now first thing first we are
+03:34:52 going to push our complete code on a GitHub. So uh we'll go to the GitHub and
+03:35:00 then we'll create a new repo. So once we connect push our changes to GitHub
+03:35:05 simply we're going to connect to our give the repo name. So we'll say AI medical voice agent
+03:35:14 then we can make it this public or private it's up to you and then simply create the repo. Once you create a repo,
+03:35:20 you have to set the remote origin. So we'll initialize this G first. So here I
+03:35:26 will clear everything and then we'll say get in it to initialize the G. Then set the rem uh
+03:35:33 remote origin and then we have to stage all the files. So we'll add a command
+03:35:38 get add dot. Then we'll commit the changes. We'll say get commit- m initial
+03:35:44 commit as a message. And then we'll push the changes. If you are pushing first time, make sure to push with this
+03:35:50 command and then it will push all your changes to the GitHub repo. Now we'll go
+03:35:56 back to the GitHub repo and we'll refresh this window. And here you will see just now we push all these changes.
+03:36:04 Okay. Now let's jump onto the versel.com where you can deploy your uh NexJS
+03:36:10 project completely for free. Uh simply add a new project. If you don't have a
+03:36:15 GitHub account connected, make sure to connect and then you will see your project name. Click import. Then here uh
+03:36:22 it automatically detect the project framework. So in this case is a NexJS. But you can see there are other options
+03:36:28 as well. Then you will find the project name as well. You can update that if you want add this environment variable. So
+03:36:35 expand it. You have to add this all the environment variables. So I will go back to env file and simply copy all these
+03:36:44 environment variables and then paste it here. It will automatically assign the key and their
+03:36:50 respective value for this environment variable and keys. And then the last step is to deploy your application by
+03:36:56 pressing the deploy button. Once the deployment started, you will see it will
+03:37:01 build your project, install the dependencies and then uh it will assign a domain where you will find your
+03:37:09 project. If you have any error while building this project, you can simply go to the build logs and check the error.
+03:37:17 If you have any error, okay, and then fix that and push the changes again. As
+03:37:23 simple as that. It will automatically trigger the versel project build deployment. Now if I open this project
+03:37:29 you will see uh it asking me to sign in first. That's because I think we did not
+03:37:35 added the landing or home screen as a public route. And if I go to the middleware you will find over here we
+03:37:42 need to add a slash as a public route. It means the default page or landing screen will be now a public route. Now
+03:37:48 once you make the changes simply push the changes we'll add add it then we'll
+03:37:54 uh commit it and then we'll push these changes. Now it automatically trigger the deployment. So you don't need to do
+03:38:00 anything guys because we connected GitHub to the versel. So you don't need to manually trigger every time. Okay.
+03:38:06 Now once you sign in your application, we'll go to the dashboard and boom, our application is now live on the actual
+03:38:14 domain and everything will work as expected. How cool, right? So that's how guys you can deploy your application on
+03:38:21 the cloud. Now uh if you have any question any doubt you can ask me on my
+03:38:26 discord channel or you can ask uh or drop a comment under this video. Also if
+03:38:32 you did not subscribe to our channel please do subscribe press notification bell icon so that you will not miss any
+03:38:37 update and press like button. We'll see you in next video.

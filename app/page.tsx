@@ -1,65 +1,106 @@
-import Image from "next/image";
+// askes-ai/app/page.tsx
+"use client";
 
-export default function Home() {
+import React from 'react';
+import { WavyBackground } from "@/components/ui/wavy-background";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { MessageSquare, Phone, BrainCircuit } from 'lucide-react';
+import { Navbar } from './_component/Navbar'; // Import Navbar
+
+export default function LandingPage() {
+  const features = [
+    {
+      title: "Chat Teks & Foto",
+      description: "Diskusikan gejala Anda melalui teks dan unggah gambar untuk analisis yang lebih akurat.",
+      icon: <MessageSquare />,
+    },
+    {
+      title: "Percakapan Suara",
+      description: "Berbicara langsung dengan agen AI kami untuk pengalaman konsultasi yang lebih natural.",
+      icon: <Phone />,
+    },
+    {
+      title: "Analisis Cerdas",
+      description: "Dapatkan saran dan laporan kesehatan yang dihasilkan oleh model AI terdepan dari Google.",
+      icon: <BrainCircuit />,
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="w-full bg-background text-foreground min-h-screen"> {/* Added min-h-screen */}
+      <Navbar /> {/* Render Navbar */}
+      {/* Hero Section */}
+      <div className="h-screen w-full">
+        <WavyBackground speed="fast" className="flex items-center justify-center text-center">
+          <div className="z-10 flex flex-col items-center p-4">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 mb-4"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              Asisten Kesehatan Virtual Anda
+            </motion.h1>
+            
+            <TextGenerateEffect 
+              words="Askes AI siap membantu memahami gejala, menganalisis gambar, mendapatkan informasi, dan terhubung dengan agen AI spesialis kapan saja, di mana saja."
+              className="max-w-2xl"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 3 }} // Delayed to appear after text generation
+            >
+              <Link href="/sign-in" className="mt-8 inline-block">
+                <button className="px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105">
+                  Mulai Konsultasi Gratis
+                </button>
+              </Link>
+            </motion.div>
+          </div>
+        </WavyBackground>
+      </div>
+
+      {/* Features Section */}
+      <section className="py-20 px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Fitur Unggulan</h2>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="p-6 bg-card border border-border rounded-lg text-center"
+            >
+              <div className="flex justify-center mb-4 text-primary">
+                {React.cloneElement(feature.icon, { className: "w-12 h-12" })}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 bg-card border-t border-border px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Siap Mencoba?</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Dapatkan akses instan ke asisten kesehatan AI Anda. Gratis, cepat, dan rahasia. Mulai percakapan pertama Anda sekarang.
+          </p>
+          <Link href="/sign-in">
+            <button className="px-10 py-4 bg-primary text-primary-foreground font-semibold rounded-lg shadow-lg hover:bg-primary/90 transition-transform transform hover:scale-105">
+              Mulai Konsultasi
+            </button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

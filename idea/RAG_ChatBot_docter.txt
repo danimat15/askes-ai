@@ -1,0 +1,1494 @@
+00:00:21 Yeah. So hello everyone, welcome to the project. So in this session we'll be developing
+00:00:27 one amazing end to end yeah so medical chatbot uh with the help of large language model
+00:00:34 langchen pine cone flask and AWS. So these kinds of implementation I'll be
+00:00:41 bringing in my channel uh frequently. So many of you have already requested me
+00:00:46 for that sir try to bring different different project implementation uh series on the channel so that we can
+00:00:53 learn right. So uh uh just to tell you guys I also implemented or recorded one
+00:01:00 medical chatbot video uh but it was like uh little bit older implementation. So
+00:01:06 there uh many things has been updated and because of that uh there are many people actually they are having issue
+00:01:12 with the setup. So they requested me personally sir u I'm not able to execute
+00:01:17 your medical chatbot project because pine cone is uh giving this kinds of error. Okay. So how we can uh resolve
+00:01:24 that because if you see the pine cone environment so they have updated their uh like code base. Okay. So right now uh
+00:01:32 uh let's say if you want to use the pine cone you have to use a you have to use it in a different way okay but
+00:01:37 previously it was uh in a different way right so that's why I decided to reimplement this medical chatbot uh with
+00:01:44 the updated let's say code uh so that you won't be facing any kinds of issue okay so in this session I'm going to
+00:01:51 show you how we can uh implement completely end to end this medical
+00:01:57 chatbot with the help of large language model and uh for the orchestration
+00:02:02 framework I'm going to use the langin and uh vector database wise I'm going to use the pine cone and uh for the
+00:02:10 front-end development I'll be using flask and uh this one uh for for the
+00:02:16 deployment actually I'm going to use the AWS services okay uh with the combination of all the tool we'll try to
+00:02:22 implement the entire projects as an end to end okay so this is the idea
+00:02:30 Yeah. So, uh I think guys my voice is audible to all of you. Let me know. Uh
+00:02:36 yeah. So, my voice is audible guys. Let me know. And and if you have any question, please
+00:02:41 let me know in the chat. Yeah. And and uh you can ask me why I started this uh
+00:02:47 like implementation as live because what I feel like live coding, live coding is always fun. So here uh we'll try to
+00:02:54 implement everything in a live mode. You can also bring your system. You can also
+00:02:59 uh do the code with me. Right? So that's how uh uh we can uh get together and we
+00:03:05 can implement this kinds of projects. Okay. Instead of recording the video, I think that would be fine. Right? Yeah.
+00:03:11 So this is my request guys. So whenever let's say I'm going to uh schedule the next session for the development, make
+00:03:18 sure you uh you you just uh connect with your laptop or desktop. Okay? instead of joining from your mobile phone. So um uh
+00:03:25 I I want you to join with your system because we'll implement together. Okay. We'll implement together so that uh it
+00:03:31 would be a kinds of fun. Okay. Yeah. Yeah guys. And uh there is another
+00:03:36 confirmation the computer vision playlist I started it will uh recontinue. No need to worry. So I'll
+00:03:42 try to complete each and everything whatever things uh are left. Okay. So far I'll try to complete them also. So
+00:03:49 uh we'll also continue this project implementation. We'll also try to continue the computer vision playlist.
+00:03:54 Okay. Both we'll try to complete. Yeah. So uh let's uh start the implementation
+00:04:00 guys. But before the implementation, first of all, I want to give you the idea about medical chatbot and uh uh and
+00:04:08 like the architecture of the chatbot like how we're going to develop that and definitely I'm also going to uh uh talk
+00:04:16 about the technology and tools stack actually we'll be using to develop the entire system. Okay, then after that we
+00:04:23 can start the development. Okay, so this session will take time guys. Okay. So,
+00:04:28 uh make sure you uh sit uh uh with me and try to complete the entire let's
+00:04:35 implementation because here we are not going to implement only one component. We'll be implementing till deployment.
+00:04:40 Okay. So definitely this session will take some time. So I want you to just sit with me and try to complete the
+00:04:46 entire playlist guys. Okay. And if you're busy right now if you can't join no need to worry. I think this recording
+00:04:52 would be available on my channel. So anytime you can open it up and you can start the implementation and all the
+00:04:58 code materials everything I'm going to share in the description even I'm also going to share my GitHub link with you.
+00:05:04 Okay. So that you can also get the code from there. Start agents playlist. Yeah.
+00:05:10 So in this playlist only we'll be continuing with the agents implementation as well Shiva. Okay.
+00:05:15 Yeah. So this is this is the like let me show you. I I created a playlist. Uh you
+00:05:20 can see I created a playlist called end to end generative vi projects. Okay. So if you open it up so here uh this is the
+00:05:27 uh playlist and here I already uploaded one video. Uh you can see build gener generative vi powered job recommenered
+00:05:34 system with MCP. Okay. So u this is the first video guys I uploaded in this
+00:05:39 playlist and this is the second one actually uh today we are doing. Okay. And today we'll be implementing the
+00:05:44 medical chatbot because uh what I can say this this is a good project and even you can also
+00:05:50 mention this project in your resume. Okay. So this is a like amazing project from the healthcare site. You can also
+00:05:56 watch this one uh if you want. Okay. So in this playlist only I'll keep on adding the new projects. Okay. The new
+00:06:02 projects actually I'm going to teach you. So whether it's a AI agents, whether it's a MCP, whether it's a any
+00:06:08 kinds of ragbased system. Okay. Everything will update in this particular playlist itself. Okay. Yeah,
+00:06:14 fine. And one more request guys. So, please
+00:06:20 try to hit the like. All of you just hit the like and if you are new to my channel, if you haven't subscribed yet,
+00:06:26 so please try to subscribe to my channel guys. Let's hit 50k subscriber as soon as possible guys. Only I just need your
+00:06:32 support. Uh and uh I promise uh everything I will provide. Okay.
+00:06:37 Whatever you need from my end, I'll try to provide in my channel. Yeah.
+00:06:42 Fine guys. So uh let's start the discussion. So I think guys you already
+00:06:48 know about medical chatbot. Okay. What is medical chatbot? I think all of you are familiar with chatbot. Like what is
+00:06:53 chatbot exactly, right? So I don't need to explain about the chatbot.
+00:06:59 So this is medical chatbot right? Chatbot. So what is
+00:07:08 chatbot exactly? chatbot pins let's say this is a conversational uh conversational actually
+00:07:15 uh system so here you can do the conversation okay regarding uh any kinds of topic but here the main focus is to
+00:07:23 create the chatbot to the medical domain let's say uh I think you know that guys
+00:07:29 uh we we we need a doctor right let's say if we if we are suffering with any kinds of disease if we need any kinds of
+00:07:35 help uh related our health okay so definitely We we need the uh we need the
+00:07:40 let's say help from the doctor's side and it is not possible to actually go to
+00:07:47 the doctor actually anytime okay it's not possible if you are going to the doctor so you have to book the
+00:07:53 appointment then you have to wait for the date okay then you'll be able to meet the doctor so what we can do we can
+00:08:00 u uh create a kinds of assistant system okay medical assistant system uh we can
+00:08:06 uh use some sort of data okay to let's say give some knowledge to the uh
+00:08:12 chatbot so that uh if you are suffering with any kinds of disease if you are suffering with with any kinds of problem
+00:08:19 you can open your bot and you can ask like I'm suffering this particular issue or let's say I'm having uh this issue so
+00:08:26 what uh your chatbot will do instantly it will give you some suggestion it will give you some feedback what you need to
+00:08:31 do exactly right so with that what is happening you don't need to book the appointment u uh like uh with the
+00:08:38 doctor. So instantly you can get the feedback instantly you can get the suggestion and if there is a urgent
+00:08:44 requirement okay you need a physical doctor definitely you can visit that time let's say uh this is this is the
+00:08:50 night time let's say currently uh the the time is let's say 12 uh 12 a.m.
+00:08:56 Okay. And it is not possible uh to go to the doctor at this at this time. So what I can do? I can open up my medical
+00:09:02 chatbot and I I I can uh let's say give my concern. So definitely I will get some feedback with respect to that.
+00:09:08 Maybe I can take some step right. So yeah. So these kinds of let's say chatbot these kinds of agents are
+00:09:13 automating today's industry today's actually generation. So people are not depending on the uh let's say person
+00:09:21 anymore. So they they're creating this kinds of automated system, automated platform and definitely they're let's
+00:09:27 say getting lots of help from that right. So you have to also think in that way. So whatever domain you are working
+00:09:32 it doesn't matter just try to figure the problem statement how you can automate this let's say problem statement with a
+00:09:39 specific solution. So this is what at the end my uh objective is to show you whatever project let's say I'll try to
+00:09:46 build up definitely there would be a use case okay there would be let's say some sort of domain okay a domain let's say
+00:09:53 specification so with respect to that we'll try to develop a projects and definitely we'll be getting some idea
+00:09:59 how you can utilize this kinds of jai these kinds of large language model whatever lang chain tool whatever let's
+00:10:05 say vector database tool you have learned how you can apply in the real world let's say project implementation.
+00:10:11 Okay. So each and everything I'm going to show you with a practical example with a practical development so that
+00:10:17 your understanding would be more clear and if you if you are if you want to create anything else guys you can easily
+00:10:23 do that. Okay. So this is my main intention to start this particular playlist because what I believe uh if
+00:10:29 you are learning anything so unless and until you are not developing anything uh real time so definitely uh this
+00:10:36 learning won't make sense. Okay. So that's why it is always important to develop something from your end. Okay.
+00:10:42 Yeah. Because I I got like really good feedback uh of this project like medical chatbot. I think remember when I
+00:10:48 published my first let's generate uh course on the YouTube channel. So this was the main project there like medical
+00:10:55 chatbot and I got like lots of feedback from the uh people's side like this is a really good projects and I want to add
+00:11:01 this project in my resume. I want to let's say add this project in my college uh project let's say submission. So I
+00:11:08 got lots of feedback. So that's why I thought let's recreate this project with a new domain. Oh sorry with a new tool
+00:11:13 with an updated code. Okay. So that you won't be having any kinds of issue. Okay. During executing the project this
+00:11:19 is the main idea. Yeah. Yeah. This is for the beginner as well. You can also watch that. But uh to
+00:11:26 understand this in detail you have to know about generative. Okay. Yeah. Manam
+00:11:31 Sanjay what are the prerequisite to make this project? Prerequisite wise at least you
+00:11:38 should familiar with generative VII concept. Okay. Yeah. And uh and some tools like langen
+00:11:47 fine guys. So yeah we can start. So I think guys you already got the problem
+00:11:53 statement. The problem statement we're going to develop. Now let's try to understand the architecture. Okay. How
+00:11:58 we we are going to develop the project. Because if you see uh the large language model okay
+00:12:04 LLM so there are like so many LLMs right now available in the market okay if you
+00:12:10 open the internet and if you search a list of the large language model you will see like GPT is there okay you will
+00:12:17 see like llama is there you will see like Mistral is there okay you will see
+00:12:24 see like Gemma is there I think recently JMA has published Gemma 3 I think okay
+00:12:29 Then uh there are like so many models are available. Okay. So many models are available and uh if you want to use this
+00:12:37 model uh what you can do you can use this model in a three way. Okay. Either you can only do the inference let's say
+00:12:45 you are taking this GPT model. Okay GPT model and what you are doing you are giving a prompt okay you are giving a
+00:12:53 prompt and here you are getting a response. Okay response because this model has
+00:12:59 trained with some specific data. So if I if I talk about GPT let's say I'm using
+00:13:04 GPT4. So if you open the OpenAI website so you'll see that GPT4 has been trained
+00:13:10 on uh train or trained on the entire internet data set till October. Okay
+00:13:16 October 2023. So I'm not sure let me let me check
+00:13:22 this. So if I open the open AI open AI models. Okay. So let's open the first
+00:13:29 website. Uh, pine cone is free or paid. Uh, pine
+00:13:36 cone is paid but uh, initially it will give you some free credits. Okay, Shiba.
+00:13:42 So maybe you can create one to two cluster and uh, you will be getting 1 GB of space. Okay, so there uh, you can
+00:13:48 store your vector and you can perform the operations. But uh, if you if you want to store more more than that you
+00:13:55 have to purchase their premium subscription. But uh mostly we'll be using the free services, okay? Not the
+00:14:01 paid one. So here you can see guys this is the openi website and here we are having lots of model. Okay. Now let's
+00:14:08 try to open up the GPT4 model. So I think GPT4 is there somewhere. Uhhuh. So
+00:14:14 GPT4. Yeah. So you can see GPT4 is there. So if I open the GPT4, so here you can see uh the knowledge base of the
+00:14:21 GPT4 the knowledge cutff. Sorry, it was not October. It was December December 1, 2023. Okay. So, let me just
+00:14:29 uh rub it. So, this is
+00:14:35 uh December, right? Yeah. So, December 1.
+00:14:43 December. Okay. December 1, 2023.
+00:14:51 Okay. So, this is the knowledge cut off of of GPT4. So that's how if you open any kinds of model whether it's llama
+00:14:58 whether it's a mistral whether it's a gymma all the model has their uh knowledge cutoff okay knowledge cutoff
+00:15:05 means uh the data they are using for the training purpose for the training
+00:15:10 purpose of this model some specific duration data okay so that means uh till
+00:15:18 December 1 2023 whatever information you have in the internet whatever data you have in the
+00:15:25 internet this model knows everything that means you can easily give any kinds of prompt and you can get the response
+00:15:31 okay because the this kinds of LLM is a multitasking model you can perform all possible task right yeah but uh here
+00:15:40 let's say your requirement is to create a specific application which will do
+00:15:46 some specific work so for this what we can do guys I think you know that we can
+00:15:51 uh give some prompt template we can mention the LLM like you are a assistant your task is that only right
+00:15:58 if you are getting any other let's say command from the uh user you don't need to supposed to do that so that's how we
+00:16:04 can also tweak the model and we can perform the task right but let's say you you have some custom data and you want
+00:16:10 to utilize that you don't want to use the raw model you want to use the pre-teen model you you have some custom
+00:16:17 data okay you want to utilize that so you can use your custom data in a two
+00:16:22 different way either you can create a rag based system okay rag rag either you
+00:16:28 can do the finetuning operation okay finetuning operation now all of you
+00:16:34 already know that finetuning is not an easy task yes or no guys finetuning is not an easy task to do the finetuning
+00:16:42 here you need lots of data okay the first thing you need lots of data data
+00:16:49 the second thing you need the computational power. Okay, compute
+00:16:54 power. So, compute power means you need a high configuration graphics card GPU.
+00:17:00 Okay, and definitely you need some cost. Okay, what is the cost? Because if you're using your custom data, you have
+00:17:07 to annotate those data. Okay, and GPU for GPU also you have to pay pay cost.
+00:17:13 So that's why whenever I'm talking about the finetuning so here three things is involvement data the computational cost
+00:17:22 so computational power and the cost okay so that's why finetuning is not an easy
+00:17:27 task so it's not easy for us to do the finetuning as a developer okay it is
+00:17:33 easy for like those company who has actually lots of budget so currently if I'm talking about big tech companies
+00:17:39 they're having lots of budget they're having lots of money they're having a great infrastructure, they're having a
+00:17:45 great let's say uh office, they're having some amazing employees. So they can easily do this kinds of finetuning
+00:17:52 operations with a a specific large language model and that that is what they are doing. So every let's say uh uh
+00:17:58 uh every 3 month, every 6 month they're bringing new new model to us, right? So this is what actually they are doing.
+00:18:05 But as a developer, this is not easy for us to do the finetuning operations, right? So that's why mostly people will
+00:18:13 be using the rag based approach. Okay. So ragbased approach. So in rag what we do let's say we have some custom data.
+00:18:18 Okay. We have some custom data with the custom data we create something called knowledge base. Okay. Knowledge
+00:18:27 knowledge base knowledge base and we connect our large language model LLM to
+00:18:33 the knowledge base. Okay. So this is the idea. Got it? So here the approach will
+00:18:39 be using rag approach. Okay, rag approach to implement the entire project because here the custom data I want to
+00:18:46 use. Okay, so this is my own data. Okay, this is my own data and I want to use I
+00:18:52 want to utilize this data to implement the entire system because I'm not satisfied with the pretend model
+00:18:59 response. Okay, so let's say the medical chatbot I want I'm not satisfying with the pretend model response. So what I do
+00:19:06 what I want to do I want to add some more information on top of that. Okay this model is already powerful but I
+00:19:12 want to add some more information on top of that. So for this either you can use the finetuning approach either you can
+00:19:18 use the rag approach but we are not going to use the finetuning approach because we don't have this many of
+00:19:23 resources. Okay. So that's why the easyuh easy let's say approach would be the re approach. Okay. We'll be creating
+00:19:29 a rag based system. So here we'll be utilizing our custom data. We'll try to create a knowledge base with the help of
+00:19:35 vector database and the orchestration framework wise we'll be using langen and we'll be connecting our large language
+00:19:41 model to the knowledge base and if you are asking anything with respect to the medical domain definitely your uh
+00:19:48 chatbot will able to give you the response in a good way okay and I can use this uh chatbot for my personal
+00:19:55 assistant even I can also do the business okay with this particular application maybe I can host this chat
+00:20:01 chatbot for for the entire ired let's say user entire people so what they can do they can also come to my platform
+00:20:08 they can also do the signup operations and they can take the help from my chatbot okay that's how you can also you
+00:20:14 can do the business okay this is the idea now the uh custom data wise guys I am having an amazing book with me okay
+00:20:21 so this book uh you can see he this book is having 637 pages okay this is like
+00:20:26 very huge book and this book name is the gale uh inside uh opedia of medicine
+00:20:34 second edition. Okay. So those who have studied uh let's say medical science I
+00:20:40 think they are already familiar with this particular books. Okay. So these books is having uh almost all kinds of
+00:20:46 let's say disease uh their diagnosis technique and the medicine. Okay. So if
+00:20:51 you if you open the book so it is having lots of chapter. Okay. It is having lots of chapter. Okay. So let me show you
+00:20:58 some glimpse of that. So if I open some of the page. So see guys.
+00:21:05 So see uh here. Okay.
+00:21:11 So ab abdominal wall defect. So this is one kinds of disease. So all the
+00:21:18 information they have written about the disease. Okay. Uh then the prevention technique as well. That means the
+00:21:24 diagnosis technique even uh see diagnostic technique even the treatment as well as it is also having some
+00:21:30 medicine them okay like you can use this medicine to uh to let's say do the
+00:21:35 treatment of this particular disease okay so that's how it is having almost all possible okay all possible disease
+00:21:42 okay let's say abion uh abortion we have then we have something called uh see
+00:21:48 this is another abortion abortion therap theraputic Then we have see also the diagram is
+00:21:56 also having the visualization diagram like what it is exactly. Then uh you can
+00:22:02 see some other disease as well like abs absess this is one of the disease.
+00:22:10 Then you have uh see absess incision
+00:22:15 and drainage. Okay. Then you have abuse.
+00:22:21 So that's how if you if you see the book if you go through the entire book so all possible disease you will be able to see
+00:22:26 see this is another disease okay even you can also search some kinds of disease see this is I think acne okay
+00:22:34 acne okay so most of the uh person h has this po problem right acne problem and
+00:22:40 why acne happens and uh what is the diagnosis technique okay each and everything they have already written
+00:22:47 okay even the medicine you can use for this acne so yeah so I I can say this is a amazing book. Okay, I can say this is
+00:22:54 the amazing book which is uh let's say uh I can utilize for my chatbot okay as
+00:23:00 a knowledge base because if you want to be a doctor so what you have to do guys if you want to be a doctor so definitely
+00:23:07 you have to gain lots of knowledge on on on this particular medical science and definitely you have to read a lots of
+00:23:13 books you have to get the training then you'll be able to become a good doctor right because you know you know
+00:23:20 everything about the disease you know everything about the treatment. So that's how we are becoming a doctor. So
+00:23:26 we are following the same strategy that means we we are taking a model and and
+00:23:32 we are giving some sort of data. We we're uh let's say giving some information uh to the model so that my
+00:23:39 model model has all of the information regarding the medical science and later on if I'm asking anything definitely my
+00:23:45 model will be g give something from that right. So this is what actually we are doing. So uh as a custom data wise we'll
+00:23:52 be using the entire books. Okay we'll try to extract all of the uh content from the books and we'll try to create a
+00:23:58 knowledge base. Okay this is the main idea. Got it? And with the help of that we'll try to create a RG system that
+00:24:05 means rag system retable augmented generations. Okay. So those who have already studied generative AI I think
+00:24:10 you know what is R. So if you are not familiar with geni guys so what I will suggest I will suggest you to watch my
+00:24:16 generative playlist. So here is my playlist guys. Generative mastery full course. Okay. So here you will be
+00:24:22 getting two parts the part one and the part two. Just try to complete the generative course. So it would be easy
+00:24:28 for you to implement these kinds of projects. Okay. In a good way. Fine. So
+00:24:33 this is what actually we'll be doing. Now let me show you the process. Okay. The process we'll be following the architecture will be following to
+00:24:39 develop the entire projects. So here let's say we are having a books.
+00:24:44 Okay. Here we are having a books medical book I can write a medical book
+00:24:56 medical book and the book format is PDF okay PDF now it can be anything it can
+00:25:03 be also docs it can be also txt it doesn't matter you can load any kinds of let's say file with the help of langen
+00:25:10 okay I I'll show you how we can use the langen to load these kinds of documents so the First task is to extract all of
+00:25:16 the content from these books. Okay. So here I'll try to write extract
+00:25:23 extract uh the documents documents uh of the book.
+00:25:33 Okay book. So after extracting what we have to do
+00:25:38 guys we have to perform the chunking. CH
+00:25:46 chunking okay chunking so why chunking is required because if you see um the
+00:25:53 model let's say if I open the GPT4 model only so what is the context window of this model guys just try to see here so
+00:26:00 it is uh uh uh the GPT4 context window is 8,192
+00:26:06 tokens okay so that means it can take take 800 8,192
+00:26:11 tokens okay as an input. Okay, highest input. If you're giving more than that,
+00:26:16 so this this model won't be working. So this will give you the error. But if you see this documents, okay, the documents
+00:26:22 we have, the books we have, if you extract all of the data, okay, so you you can consider each and every words,
+00:26:28 it's a token. And if you count the token from the entire books, so definitely it would be more than okay. It would be
+00:26:34 more than your uh 8,000. Okay. More than it would be 8,000. Definitely it would
+00:26:40 be more than 8,000. Okay. So that time can I pass the uh entire let's say book
+00:26:46 books data to the model to the LLM? Possible. Let's say if I'm using GPT4 that time is it possible guys? Tell me
+00:26:53 definitely not possible because we can see the context window 8,192.
+00:26:58 Okay. But if we if we use the entire books and if you if you see the uh token size it is like very huge. Okay. Which
+00:27:06 is over capping over over let's say coming my context window. So that's why instead of giving the all of the
+00:27:12 informations to the model at a one time what we'll be doing is we'll be creating a chunks. Chunks means the small small
+00:27:18 part of the data. Okay. So there is a parameter called chunk size and chunks overlap. So based on that we'll try to
+00:27:26 do the chunking. Let's say if chunk size is 1,000. So what will happen? It will try to count 1,000 tokens and it will
+00:27:33 create a one chunk. Okay. Then again it will count 1,000 tokens and it will count another chunk. So that's how we'll
+00:27:39 be creating multiple chunks. Okay, small small part. Let's say here I can draw. So here I can draw. Let's say this is
+00:27:45 the entire documents you have. Okay, this is the entire documents you have.
+00:27:51 Okay, now chunking means here it will create a small small part. So this will become your first chunks. This will
+00:27:57 become your second chunks. This will become your third chunks. Okay. And
+00:28:03 these are the chunks we'll try to use. Okay. Now we'll try to send this data to the LLM. Okay. To the LLM. Now if you if
+00:28:11 you see the context window, let's say chunk size is 1,000. Okay. So each each and every chunks is having 1,000 token.
+00:28:18 That means if my model uh model let's say input size is 8,000. Okay. So here
+00:28:23 we are sending 1,000 token to the model. That means there is no problem with the input. Okay. So that that time actually
+00:28:29 it will not throw any kinds of error. So this is the idea of using the chunking
+00:28:34 approach guys in RG. So this is the main component of RG. So definitely you'll be learning whenever you will go through
+00:28:40 the generative course. Okay. Each and everything I already explained in detail. Okay. So how things are working.
+00:28:45 So mostly this is a practical implementation series. So I'm not going to go into the theory theory uh theory
+00:28:50 into that. Okay. This is the idea. So here uh we'll do the chunking. So after the chunking guys what I will do I will
+00:28:57 use a embedding model because this is a raw text right and we
+00:29:04 can pass the raw text to the model for this we have to convert convert them to the numbers that means vectors. So for
+00:29:10 vectors we use something called embeddings okay embedding model okay embedding model. So there are some
+00:29:16 embedding models are available. Uh either you can uh use some paid embedding model. I can you either I can
+00:29:24 uh either you can use some uh free embedding model which is available on the hugging face platform. So in this uh
+00:29:29 demo guys I'm going to use uh open source embedding model from the hugging face called sentence transformer. Okay.
+00:29:37 And if you want to use openi hugging face embedding uh sorry openi embedding model you can use that. Okay. It's up to
+00:29:42 you. So once I I get the embedding model. So what I will do guys, I'll try to create the vector embedding.
+00:29:50 Vector embedding.
+00:29:56 Okay, vector embedding. So this this will return you the uh vectors of the text you are having. So let's say here
+00:30:02 we are having a text, right? And we can't pass this raw text to the model. So we have to convert them to the
+00:30:08 numbers. And this number is called vector embeddings. And we have to store this embeddings in a database. And we
+00:30:14 call it as a vector database. So here we'll try to use pine cone. Okay. Pine cone vector
+00:30:23 DB. Okay. Pine cone is a vector DB. It is running on cloud. Okay. So this is
+00:30:28 this will become my knowledge base KB. Okay. KB means knowledge base. So here
+00:30:34 all of the vector will try to store because why I'm using vector database because it is having something called
+00:30:40 indexing and similarity search. So it can perform something called similarity search. You can do something called retriever operations here. So I already
+00:30:47 explained the vector database uh theory in my GNI playlist. Okay, you can check it out. So this is what actually we use
+00:30:54 instead of using any traditional relational database. Okay. Now here what we have to do, we have to connect the
+00:31:00 large language model. So here let's say we are having our LLM.
+00:31:05 Okay, we are having our LLM. So in case let's say we are using GPT model. You
+00:31:10 can use any kinds of model. You can use llama. You can use mistral. Any kinds of model you can use. Okay. So I'll be
+00:31:16 using the provider. So mostly I'll be using the openi provider and we'll be accessing the GPT model. If you want you
+00:31:23 can also use grock provider. You can use something called open router. Open router also gives some free free model.
+00:31:28 You can also utilize that. It's up to you. Okay. So u this model will try to
+00:31:34 connect with the knowledge base. So that means what will happen? Let's say if user so let's say this is the user.
+00:31:40 Okay. This is the user. If they're asking anything so let's say they're asking
+00:31:48 one question. Let's say what is atne?
+00:31:53 Okay. This is the question they're asking. So this question will go to the knowledge base first of all. Okay. knowledge base and knowledge base will
+00:32:00 return some rank result. Okay, rank result. So it
+00:32:06 will return something called rank result. Rank result. So there is a parameter
+00:32:12 called K. If K is equal to three, it will return three relevant response. Okay, three relevant response. It will
+00:32:18 do something called similarity search and the most similar answer it will try to return on this particular question.
+00:32:24 Okay. And this will go to the LLM and LLM also will try to take the question as well from the uh user. Okay. So the
+00:32:33 what is the question? Question is nothing but what is acne and your uh knowledge base is is giving the answer
+00:32:40 that means some uh rank result. Okay that means now LLM has the context
+00:32:46 context. Okay context of the question. So what is acne? Because acne okay what
+00:32:52 is acne exactly? It is coming from the knowledge base that means your LM is already connected with the vector
+00:32:57 database. Okay, it has all all the information about the acne. So, LM will try to process the question as well as
+00:33:04 the answer. Okay, and this will give you something called the actual response that time. Okay, we call it as a actual
+00:33:13 response. So, this is what we need to show the user. Okay, and this response will try to pick and show in the front
+00:33:20 end. Okay. So for for the back end development we'll be also using the flask and for for the front end
+00:33:26 development also we'll be using the flask. Here we'll try to add some HTML and CSS code. We'll try to create a
+00:33:31 front end page. The user can do the chat operation that it will go in the back end and in the back end actually we'll
+00:33:37 try to send the in the lm. Okay. So this is the entire process guys we'll be using in this particular development.
+00:33:51 Yeah. So
+00:33:57 [Music] see uh you can start from the playlist.
+00:34:04 Okay. I have. So here is the generative playlist. So just try to complete it first of all. Uh then uh it would be
+00:34:11 easy for you to develop these kinds of projects. Okay. Happy. Thanks for sharing your knowledge. You
+00:34:18 do such a great job. Thank you so much.
+00:34:23 Yeah. So guys, I think architecture wise it is clear. Okay. And this architecture we call it as rag. Okay. RG rag retal
+00:34:31 augmented generation. Yeah. So here we are not fine-tuning the model. Instead of that we are creating a
+00:34:38 knowledge base and this knowledge base we are giving to the model um as a custom data custom data source. Okay.
+00:34:44 This is the idea and and nowadays whatever application you see over the internet whatever let's say new new
+00:34:51 application comes all of the applications built up with this RG technique guys trust me all of the
+00:34:57 application is built up with this RG technique and is in rag actually there are some different kinds of rags are
+00:35:02 available okay so it's not like that you have to always use the same rag technique there are uh types of rag you
+00:35:09 can use different types of rag you can use maybe in my uh YouTube channel I will also teach the different types of
+00:35:15 rag you can implement. Okay. Yeah.
+00:35:23 Fine. H and and uh nowadays people are also
+00:35:28 using agents. Okay. AI agents uh in this uh rag as well. So we call it as a agentic rag. So I'll also show you how
+00:35:36 we can develop that. Yeah. Now let's talk about the technology. the
+00:35:41 technology we're going to use in this development. So take tech take tech take tech take tech take tech take stack.
+00:35:49 So tech stack wise definitely uh programming language we'll be using Python
+00:35:56 uh then uh we'll be using LLM. So LM wise we'll be using open AI
+00:36:03 open AI GPT then orchestration framework wise we'll
+00:36:08 be using langen to orchestrate the entire system
+00:36:14 vector database wise we'll be using pine cone
+00:36:19 then uh back end and front end development wise we'll be using flask
+00:36:25 okay uh Yeah. And and and for the deployment we'll be using AWS.
+00:36:33 Okay. Amazon Web Service. And here we'll try to deploy this project as a CI/CD.
+00:36:40 CI/CD. Okay. CI/CD we'll try to deploy. Yeah. So this this is the entire take
+00:36:46 guys we'll try to utilize inside our development. This is the idea.
+00:36:54 H
+00:37:03 okay now let me give you some brief idea about the deployment how how we are going to deploy the entire system
+00:37:11 maybe I can give you some idea here so here guys we'll be uh creating the CI/CD
+00:37:16 okay CI/CD approach so let's say here you you have your project code in the
+00:37:22 GitHub
+00:37:29 project code. Uh so here what will happen? Uh so let's
+00:37:36 say this is the entire CI/CD pipeline. CICD
+00:37:42 pipeline we'll try to implement this pipeline. Okay. So here we'll be using GitHub
+00:37:49 actions for the CI/CD tool. Okay. So there is a tool called GitHub action.
+00:37:56 So this is this tool. It will perform the trigger operation. Okay. So here what will happen? Uh we'll be using
+00:38:03 something called AWS cloud. Okay. AWS cloud.
+00:38:08 So here we'll try to use some service from the AWS cloud like we'll be using something called EC2.
+00:38:15 EC2 EC2 instance. This is the virtual machine. Okay. Uh virtual machine. So in
+00:38:22 this virtual machine we'll be executing our application. So that means what will happen if let's say you you as a
+00:38:27 developer let's say this is you you are the developer uh whenever you are
+00:38:32 committing your code to the GitHub so this this GitHub action will detect that okay detect if there there is a new
+00:38:39 update or not if there is update so it will trigger the CI/CD let's say
+00:38:45 pipeline and your entire source code will try to build as a docker image okay
+00:38:51 uh entire uh uh let's say code will try to build as a docker image. So here we'll be using docker docker for that
+00:38:58 and this image will try to save in a service called ECR. ECR elastic
+00:39:04 container registry. So this is like a docker hub. Okay. So this image will store in the ECR and from the ECR we'll
+00:39:10 try to pull this image to the EC2. Okay. And in the EC2 we'll do some port mapping.
+00:39:16 Okay. We'll do some port mapping and after that this will release a IP
+00:39:21 address. And in this IP address your application will run so that user can use your application. Okay, user can use
+00:39:28 your application. So this is the entire idea. So that means it will be connected like that. Okay. So this is the entire CI/CD pipeline we'll try to develop
+00:39:35 guys. It will be more clear whenever I will go go with the practical. So you I believe that you'll be able to
+00:39:41 understand. Okay. Yeah.
+00:39:47 All right. So now let's start the development. Okay. So, uh how we can
+00:39:53 develop guys? First of all, uh here
+00:39:58 the first thing we'll try to create the GitHub repo.
+00:40:06 Every project it's a good practice to create a GitHub repo. Okay. Always because in industry people people use
+00:40:13 GitHub. If you are working in a team so they would prefer to commit their code in the GitHub and to build the CI/CD we
+00:40:19 also need the GitHub. So GitHub repo is important. After that we'll try to create the project
+00:40:28 template that means folder structure. Then after that we'll try to do the project
+00:40:35 setup. We'll try to create the virtual environment. We'll try to install the requirements. Okay. Package each and
+00:40:41 everything. Then after that we'll try to do the notebook experiment.
+00:40:51 Okay, Jupyter notebook experiment because uh it is a good practice before implementing the modular coding. First
+00:40:57 of all try to experiment in the Jupyter notebook. If Jupyter notebook is working fine then try to convert it uh this
+00:41:04 thing as a modular coding. Okay. Once Jupyter notebook is working, we'll try to create the modular coding.
+00:41:12 modular code. Okay. So once modular code is
+00:41:18 built, we'll try to create the app. Okay. Web app. So here I can write web
+00:41:24 app and once web app is built, we'll try to
+00:41:30 do the deployment deployment. Okay. So this is the entire
+00:41:36 idea guys. So this step we'll try to follow one by one. So let's try to uh do the first step
+00:41:43 GitHub repository creation. So before starting guys I I want the
+00:41:48 confirmation from you. Are you ready guys? Let me know. Can I start?
+00:41:54 Can I start? Are you ready? If you're ready, please give me a like any kinds of emoji in the chat chat so
+00:42:00 that I can get the confirmation you are ready and I can start the development guys. please
+00:42:09 and also hit the like uh in this session all of you and also hit the subscribe
+00:42:14 button. Yeah.
+00:42:31 Great. So, let's continue. So, I'll open up my GitHub. All of you, you can open up your GitHub accounts. Okay. All of
+00:42:38 you, you can open up your GitHub accounts. Make sure you have the GitHub accounts. If you don't have, just try to
+00:42:43 create it. Okay. Yeah. And after that, just try to click on the profile. Go to the repository
+00:42:50 section. And here you will see one option called
+00:42:56 new repository. Okay. So, just try to click here. So, here you can give the project name. So here I will try to give
+00:43:04 uh what name I can give maybe I can use the
+00:43:09 same session name. Okay, same session name maybe I can use.
+00:43:16 So this is the name.
+00:43:25 Okay. So after that let's keep it public because I want everyone uh you can
+00:43:31 access this repo. I'll add the readmi file and get ignore. So here we are
+00:43:36 using python programming language. So you have to search for the python and the license. Okay. You can take any
+00:43:42 kinds of license. There are so many license are available. Uh so let's say I'll take this Apache license. Okay.
+00:43:49 Yeah. So now let's create the repository guys.
+00:43:55 Okay, I will also do that code with Romesh
+00:44:02 Langraph series also. I'll try to start. No need to worry. Fine. So, my repository is created. Now, the second
+00:44:09 step, we have to clone this repository in my local. How to clone? There is a button called code. Just try to click
+00:44:15 here and copy this link address. Okay, make sure you copy this https link
+00:44:20 address and open up your local folder. So here you can see I have a empty
+00:44:26 folder. Inside that I'm going to open up my g bash. So here guys you need some
+00:44:31 tool. Okay let me write what what are the tools you need. So here the first
+00:44:36 tool you need the anaconda anaconda distribution. So I think all of you have the anaconda
+00:44:42 guys let me know yes or no anaconda right. Then the second tool you need
+00:44:47 something called G bash. GB bash.
+00:44:54 Okay. And the third tool you need Microsoft VS code.
+00:44:59 Yeah. So uh these three software you have to download. And how you can download? Just go to the Google and
+00:45:05 search for let's say Anagonda. You need Anaconda. Just uh go to go to this link anagonda.com/d download/success. Okay.
+00:45:13 If you open it up, so here you will be getting the link to download the Anagonda software. Let me show you. So
+00:45:20 see, so here here is the free download. So you can either uh download for the Windows, Mac and Linux. Okay. So here if
+00:45:27 you click so it will download and after that just try to do install it. Do next text next and install the software the
+00:45:34 way you install any kinds of software. And once it is installed you can search for the Anagonda. You will see this
+00:45:39 particular option called Anagonda prompt. Okay. Don't open the navigator. We don't use the navigator. We need the prompt. Okay. Now if I open the prompt
+00:45:46 so that's how you'll be getting this particular prompt. Okay. Now here you can execute any kinds of cond command.
+00:45:51 Okay. Cond related command you can execute. Okay. Yeah. Now the second tool
+00:45:56 you need g. Uh so to install the g try try to search gm.
+00:46:03 GM the first website open it up and download it. So those who are using Mac
+00:46:09 OS I think you already have g installed in your terminal just try to
+00:46:14 check just write g command if it is working that means you already have otherwise you can install it okay so for
+00:46:20 windows guys you can uh download uh this exe file after that do next next install
+00:46:25 it and once it is installed just search for the g here okay g so you'll see something called gb bash if I open it up
+00:46:32 so this is my g bash and here I can execute any kind of g related commands Okay.
+00:46:38 Yeah. So once it is done then you need something called VS code. So you can search for VS code download and open the
+00:46:45 first website. Uh here is the VS code guys. Okay. So uh with respect to your
+00:46:50 operating system just try to install it. So see Windows then uh Linux then Mac.
+00:47:00 Okay. So click here. Do the next next. Okay. Install it. And once you install,
+00:47:05 you can search for VS code. It would be available like that. Okay. Yeah. So try to install uh these three tools guys
+00:47:12 because we need it. Uh so now right now what I will do I'll just try to go back to my local folder and here I'm going to
+00:47:19 open up my git bash. Okay. How to open it up? Uh you can uh go to the show more option and you can see something called
+00:47:26 uh this one. Uh see for me it is a little bit different because I integrated GBash in
+00:47:32 my terminal. Okay, Windows Terminal. So there is a tool you'll be getting in Microsoft Store called Windows Terminal.
+00:47:37 Okay, you can install it and you can also integrate your Git Bash with that. Okay, so I already integrated and how to
+00:47:43 integrate for this you can take uh some help from the internet. So there are some tutorial you can follow to connect
+00:47:48 your GitBash with your Windows terminal. So this this will give you some good-looking terminal. Okay, see uh uh
+00:47:54 it's not like that you have to use this terminal. Okay, you can use it. If you want to customize your terminal, you can use it. Okay, for me I already did the
+00:48:00 customization. That's why I got a good-looking terminal here.
+00:48:06 Extremely sorry guys. Yeah. So if you want this kinds of good-looking terminal, you can install this Microsoft
+00:48:14 terminal and here you can integrate multiple let's say uh terminal. Okay. Multiple let's say command prompt. You
+00:48:21 can integrate here. So let's say in a single terminal I can open up my Anagonda. I can open up my uh Azure
+00:48:29 shell. Okay. I can open up my Ubuntu let's say uh terminal. So in a single
+00:48:35 one I can open any kinds of thing. So this is the convenient to use this Microsoft terminal. Okay. So let me
+00:48:42 close all of them. I don't need Yeah, I I have my gbash here. Now here you have to write a command. Okay. What command?
+00:48:48 The command is let me zoom my screen. I think you can see that. Get clone. Okay. Get clone. Now the link you have copied
+00:48:55 from the GitHub, you have to paste it. How you can paste it? Just do the right click operation. Uh okay. So it is
+00:49:01 showing so many option because uh I have to copy it again. So I'll go
+00:49:07 back copy the link address. I'll open up my terminal and let's write the command
+00:49:13 get clone paste it here. Yeah. So now if I hit ex uh enter now see this repo has
+00:49:19 been cloned guys. Okay. This repo has been cloned. So maybe I can change the view. So see this repo has been cloned.
+00:49:25 Now what you have to do? You have to go inside this particular folder. Now how we can go for this? Just write this
+00:49:32 command cd and give the name of the folder. So the folder name is build a complete medical chatbot. So if you just
+00:49:38 write B UI and press tab, it will autocomplete. Okay, you don't need to
+00:49:44 even write everything. Just uh press tab it will autocomplete and press enter.
+00:49:49 Now see you are inside this particular folder. Now you are inside this particular folder. Okay. Now if you want to see the content inside that, you can
+00:49:55 use this ls command. Okay, ls means list everything inside that. So this is the convenient uh uh for this particular g
+00:50:03 bash. Okay, you can execute bash script here. Okay, personally for the development I like bash script a lot
+00:50:09 guys. Okay, so uh with a command actually you can create everything. You can execute everything. You can let's
+00:50:14 say customize everything. All right. So that's why I I personally use git bash
+00:50:20 for my development. So if you want you can also do the configuration like me. Okay. Now let me clear the terminal. So
+00:50:26 here I can execute almost all kinds of Linux command. Okay. If you want to create a folder, I can use a touch
+00:50:31 command. Uh sorry, if I want to create a file, I can use a touch command. If I want to create a folder, I can use MKD.
+00:50:37 Okay. MKDR. So these are the Linux related command I can execute at the end. Okay. Uh yeah. And if you want to
+00:50:44 learn Linux guys like how you can use Linux commands, okay. Uh in the
+00:50:49 production environment, so for this I already created a MLOps playlist, MLOps uh video playlist. Okay. You can see
+00:50:56 MLOps in one video. I think it's a 12 hours video. You can also go through that if you want to understand the uh
+00:51:02 MLOps works. Okay. Let's say how you can use the uh Linux, how we can use the G
+00:51:07 and GitHub. Okay. And everything I have already discussed here. Okay. Yeah. So here I'm showing you the actual
+00:51:12 development. Okay. How things works. So uh I I can also create everything manually. I can open my command prompt
+00:51:19 but I'm not using that because I I want to give you the actual development flavor. Okay. Yeah. my my personal test
+00:51:26 actually I want to share with you that's why I'm using this kinds of tools guys fine all right so now I I want to open
+00:51:33 up my visual code studio in this particular directory okay now how to open it up just do the right click uh
+00:51:39 click on show more options and here you will see something called open the VS code let's open up my VS code here okay
+00:51:46 now I'll zoom little bit because I want everyone to see that
+00:51:51 yeah I think my screen is visible. Okay. And recently the uh in the new VSS code
+00:51:58 you will see they have added something called copilot. I think you have used something called
+00:52:04 cursor ID guys. Okay. Cursor ID. In cursor ID also you will be getting this
+00:52:09 kinds of uh AI uh AI integrated that means AI assistant integrated. So here if you give any kinds of command it will
+00:52:16 uh let's say uh do do the work with respect to that. Let's say if you give I want I want to create a folder or let's
+00:52:23 say I want to create a file or let's say debug my code generate a code everything it can do. So this particular
+00:52:29 functionality that means the copilot functionality they have also added here. Okay. Now uh I think uh this is some of
+00:52:37 the model they will give for the free but if you want to use it uh for the let's say pro level at that time I maybe
+00:52:43 you have to subscribe their subscription plan. Okay but we don't need the co-pilot we'll try to remove this. Yeah.
+00:52:49 So this is my visual code studio.
+00:52:56 All right. So successfully we have created our GitHub repo and uh we opened
+00:53:03 it with our VS code. Now the next thing we'll try to create the project template right now. Okay. So project template
+00:53:09 either you can create manually. So there you can see the file option, folder option. You can click here you can create the folder structure manually.
+00:53:16 But I I feel like uh manual creation is uh always a hard task because you have
+00:53:22 to create manually. Let's say you need multiple folders and file. You have to do again and again the same thing. Uh so
+00:53:28 what I usually do, I use something called bash script to create my
+00:53:33 folder stacks here. Okay. Either you can use the Python script, either you can use the bash script. Okay. So let me
+00:53:39 show you how I use the bash script. So for this I'll create a file here called template.
+00:53:47 SH okay template HS file inside that I'm going to write my bash script to create my folder structure okay so let me write
+00:53:56 so here uh first of all I want to create a um src folder for this this is the
+00:54:02 command I'm going to use mk uh mkdir sorry mk
+00:54:10 dir that means make make directory now you have to give the
+00:54:16 uh hyphen pameter and you have to give the folder name. So the folder name I want to use called src.
+00:54:24 Okay, src. Then the second folder I want to create something called resource. So again what
+00:54:30 I can do I can use the same command uh only the name would be different. So
+00:54:37 research research. Okay. Yeah. Now inside the
+00:54:46 folder. Okay. So here I can maybe make a comment just to make you understand. So
+00:54:52 here I'm creating directories. Okay.
+00:54:59 Directory. And here I'll be creating the file.
+00:55:07 Creating files. Okay. Now to create the file this is the command. You can use the touch command. Okay. Touch. Now what
+00:55:13 file you want to create and in which folder? Let's say I want to create a file inside src folder. Okay. So I'll
+00:55:19 give the folder location src uh / the file name. First of all I'll be
+00:55:24 creating a constructor file called init_.py. Then I'm going to create another file
+00:55:31 inside the same folder called touch uh src/
+00:55:38 the file name should be helper.py. Okay. Then I'm going to create another
+00:55:43 file inside that called prom.py.
+00:55:51 Okay, prom.py. Then I need another file called env
+00:55:57 because here I'm going to mention my uh environment secret. Let's say I want to use the open AI model for this. I need
+00:56:03 open AI secret. I need I I I want to use pine cone. I need pine cone secret. So
+00:56:08 to manage that I need this env file. Okay. Then uh I also need something
+00:56:14 called setup file. So touch setup.py. Then I need something called app.py. So
+00:56:21 touch app.py. Okay. Then I need something called uh experiment file inside my
+00:56:28 research. So what I can do? I can again write touch uh research. Okay. Inside research I
+00:56:36 want to create something called trials
+00:56:43 trials okay dot ipnb notebook file then I also want to create
+00:56:50 a requirements file okay touch requirements txt then uh I need um what I need
+00:57:02 I need another file Uh okay. So as of now uh
+00:57:08 uh I'm not able to get what file I need but later on if I need anything else I'll try to create. Okay. So once
+00:57:13 everything is created I will give a terminal message. I'll just give a eco command. So here I'll give a message
+00:57:20 like directory and files created successfully. Okay. So this is the message I'm going to give. Fine. So this
+00:57:27 is my bash script guys I have written. Now if I want to execute this bash script. So make sure you open up your GB
+00:57:34 bash. Okay, you open up your G bash. So those uh who are already using Mac OS or
+00:57:39 Linux. So they don't need to uh use the G bash because you already have the bash bash terminal with you. So you can
+00:57:46 execute this command called hs and the file name. So template hs. Okay. Now see
+00:57:52 the magic guys. Left hand side I don't have anything. Now if I execute automatically the folder structure would be created. So see guys, my folder
+00:57:59 structure got created. Now you can see so this is the folder resource inside that I created this uh trials.pipv file
+00:58:07 it is available now src is a folder inside that I have this three file in it helper prompt okay now this is my nv
+00:58:14 file and app.py requirement txt setup.py each and everything is there. Okay. So
+00:58:20 that's how I always like to create this kinds of files and folder in an automated way. Okay. Yeah.
+00:58:29 Yeah. Hi Christian. Hello. Hello. I hope you got it guys. Okay. How we can
+00:58:34 create the folder structure. Okay. With the help of bash script.
+00:58:40 H. Now let's commit the changes in my GitHub. So I'll open up the terminal.
+00:58:46 Let's clear it.
+00:58:53 Okay. Yeah. Now here uh to commit to the
+00:59:00 GitHub first of all uh do the adding st. So
+00:59:06 just write g add space dot. Okay. So you you are uh giving
+00:59:13 everything in the stinging area. After that you have to do the commit. So get commit
+00:59:19 m. So here I can write folder structure
+00:59:25 structure uh addit
+00:59:30 then I'll do the push operation. So get push origin
+00:59:36 main. So this is my main branch you can see. Okay. Now if I execute so it should
+00:59:42 push everything. Yeah. Done. Now if I clear now if I go to the my
+00:59:48 uh GitHub let me close these other tab not required.
+00:59:56 Now if I refresh so see guys my uh folder structure is
+01:00:02 updated here. Okay. Now this is the URL guys I'm giving in the chat so that
+01:00:08 everyone can get the code from here. Okay. Even I will also add this link in my description section. Okay. after the
+01:00:13 session. From there you can get it.
+01:00:34 All right.
+01:00:41 Okay. So that means now this step is also complete. Project template. Okay.
+01:00:49 So this step is also complete. Now let's try to create uh uh complete the third one project setup. Now we'll try to do
+01:00:57 the project setup. So first of all uh here you have to create a virtual environment guys. uh this is recommended
+01:01:03 if you're starting any project instead of doing everything in the base environment because if I show you my
+01:01:09 base environment if I just write let's say pip list so there are so many package already installed in my base
+01:01:15 environment but I don't want them okay all of them and uh there is a specific
+01:01:20 Python version also in the base environment see these are the package we I already have and now if I show you the
+01:01:25 Python version so this is uh 3.12 but let's say you want to use any other
+01:01:31 Python version. So how to do that? So for this you have to create a virtual
+01:01:37 environment and for this let me share you the command you can follow to create the virtual environment.
+01:01:45 Uh so here is the step. Okay here is the step. So
+01:01:53 first step just try to clone my repo guys. Uh if you are following my uh code
+01:01:59 just try to clone my repo. uh here you can give the repo link. So maybe I can provide the repo link here. So here I'll
+01:02:06 copy the co link and let me just replace it here.
+01:02:13 So this is the ripple link you can clone. Then after that uh here I can write the
+01:02:21 command get clone. Okay, get clone this link. Then uh the step you have to
+01:02:27 create the virtual environment. Okay. And this is the command to create the virtual environment. Okay. So here you
+01:02:33 have to execute contact create uh hyphen in okay uh medbot. So here the name of
+01:02:40 the environment I'm giving medbot. You can give any kinds of name. It's up to you. And the python version I'm using
+01:02:45 3.10. You can also use 3.11 12. Okay. It's up to you. So this is the command you have to copy and you have to
+01:02:51 execute. So let me first of all check whether I have this environment or not. So cond
+01:02:58 NV list. So medbot yeah it is already there. I
+01:03:04 already created that. So I'm not going to create it again guys. Okay. But if you don't have create it okay just try
+01:03:10 to execute this command. First of all all of you execute this command. Okay.
+01:03:16 So once you execute it your environment would be created. After that you have to activate the environment. Okay. How to
+01:03:22 activate? This is the command. So copy the command and execute it here. Now see
+01:03:27 previously it was base now it has activated with my medbot. Got it? So for
+01:03:32 me I already have the environment because I already created this environment uh before the session. Okay.
+01:03:38 Yeah. And I already activated. Now let me clear the terminal.
+01:03:47 Fine. So once uh you have created the environment successfully now you have to
+01:03:52 install the requirements. Now you need some requirement package to implement this project. I think I you remember I I
+01:03:59 written the tech stack right? So I I written a tech stack here. So you need uh some uh package like clang chain uh
+01:04:07 pine cone flask right. So let me mention all of the in the requirements. So here what I'll do I'll uh write everything in
+01:04:15 my requirements. So first thing guys I need uh
+01:04:20 langen as orchestration framework. So let me
+01:04:25 lchen and here I'm going to use a specific
+01:04:31 version of langen. So here I'll be using 0.3.26.
+01:04:36 Okay. Uh now you can ask me why this version because uh this is the stable version uh uh I
+01:04:44 usually use because here you will be getting um you you won't be getting any kinds of error because the project I
+01:04:51 have designed I created with this langen version. Okay. So that's why I'm using this particular langen. You can also use
+01:04:57 the updated one but what happens if you're using updated one sometimes there would be some dependency added. So it's
+01:05:03 better to use any older version. uh older version is always stable that's why I'm using the older version then I
+01:05:09 need uh the flask okay to create my front end and back end and here I'll be
+01:05:16 using a specific version so I'll be using something called 3.1
+01:05:23 one this version then after that I need sentence transformer because I told you
+01:05:29 we'll be using the opensource embedding model which is available in the hugging face for is you need this library
+01:05:35 sentence transformer and I'll be using this specific version called 4
+01:05:42 1.0. Okay. After that I need uh pi PDF
+01:05:49 because we'll be loading the PDF documents. So for this we need this package pi PDF and again I'm going to
+01:05:54 use a specific version. So 5.6 1. Okay. So it's a good practice guys
+01:06:03 just try to mention the version of the package. So let's say you are executing the project after two month after 1
+01:06:09 month. So uh you will be installing the same version and you can execute the project otherwise what will happen this
+01:06:15 uh package will updated and you will be getting a dependency error and the same thing people already got in my previous
+01:06:20 implementation I did right so that's why it's better to use my uh uh it's better to use the specific version of the
+01:06:27 package okay always and you can also share the version with your other developers. So they can install and they
+01:06:32 can execute your project okay without having any kinds of error. Now I I need the pythonv to manage my in env file. So
+01:06:40 here I can write and I need a specific version. So 1.1.0
+01:06:47 okay then uh I need the pine cone. Okay. And pine cone is already available inside langen. So I can install like
+01:06:54 that. So, Langchen Langchain
+01:07:00 Pine Cone. Okay. And I want to install a specific
+01:07:07 version 0 2.8. Then I need uh Langchen OpenAI because
+01:07:15 we'll be using the OpenAI model from the Langen. And here I'm going to
+01:07:21 install this version 0 3
+01:07:26 24. Then I need langen community as well because this community you need
+01:07:34 for as a dependency. So langen community and again I'm going to install a specific version 0.3
+01:07:43 26 I can use. Yeah. And uh for the setup.py pi file I need to add this
+01:07:50 command hyphen e space dot okay
+01:07:56 yeah now in the setup.py Pi you can mention the setup related code. So let
+01:08:02 me import. So from setup tool uh import
+01:08:09 I need find packages and I need something called setup. Okay.
+01:08:15 Yeah. Then after that here I'm going to initialize the setup.
+01:08:26 So inside that I'm going to first of all mention the name of the project. So medical chatbot. Then the version of the
+01:08:33 project. Let's say this is 0.1.0. And uh the author name. So author name
+01:08:39 maybe I can give my name. Uh dear
+01:08:46 Amed. By the way, I'm using copilot in my VS code. That's why it's giving me the code
+01:08:52 suggestion. Okay. Yeah. Then I I I have to mention the
+01:08:58 author email. So here I can give my email entgmail.com.
+01:09:11 Then after that I can mention this packages is equal to find package. So
+01:09:16 what it will do? It will try to find this constructor file. So wherever it will see the constructor file this
+01:09:22 folder uh it will install as a local package. Okay. Um yeah now there is
+01:09:27 another parameter you have to mention called install requires and this should be empty. Okay. So it
+01:09:33 will automatically take all of the um all of the let's say requirements from
+01:09:39 the requirements and it will try to install them. Okay. Yeah. So this is my setup uh setup.py. Okay. And this will
+01:09:46 help you to install any kinds of folder as a local package because here we'll be following the modular coding. We'll try
+01:09:52 to import some function from different different module. Right? For this the setup.py is required. Yeah. Now let me
+01:09:58 save everything and we'll try to install the requirement now. So for this this is
+01:10:03 the command p installer requirement.txt. I'll copy and let's execute it here.
+01:10:11 So see for me uh it is already done because uh previously I already installed everything the dependency uh
+01:10:17 it's completed for me but for you it will take some time. Okay. Yeah. So yeah I think everything
+01:10:25 is fine. Setup.py
+01:10:35 Yeah. So okay one thing uh there should not be any space. Okay. hypen space dot
+01:10:42 hyen space dot. Now let me execute the requirements file again.
+01:10:49 Yeah, now you can see one egg info file has created. That means your setup uh tool has been installed successfully.
+01:10:56 Okay. Fine. Now let me clear the terminal.
+01:11:04 So I believe guys still here you understood everything. let me know.
+01:11:11 Okay. So now let's let's uh commit the changes. See I can also commit from my VS code. Uh so here I can give let's say
+01:11:19 requirements add it
+01:11:25 seeing the changes. So it will automatically push everything in my GitHub.
+01:11:30 Now if I show you so if I go to my GitHub refresh.
+01:11:35 So see everything is available here. Now you can copy the command and you can use
+01:11:41 it
+01:11:54 H.
+01:12:02 All right. So that means my this part is also ready. Project setup is also ready.
+01:12:09 Okay. Now let's do the notebook experiment. Okay. First of all, we'll try to create the entire project on my
+01:12:16 Jupyter notebook. Uh then once uh I I if I feel like okay everything is working
+01:12:22 then I'll try to uh start the modular coding and web app then deployment. Okay, this is the idea. So for this so
+01:12:29 what I will do I'll just try to close these are the file
+01:12:34 here. Now here you remember I think I created a notebook file inside resource folder. Let's open it up. Let's take
+01:12:41 some code cell and I have to select my terminal. Okay that uh sorry select my
+01:12:47 environment I created. So uh click on select kernel Python environment and
+01:12:53 here you will see the medbot. Okay I'll try to select this one. Now just for testing I'll give a print message.
+01:13:02 Print. Okay. So yeah. So everything is working fine.
+01:13:08 All right.
+01:13:18 H. Now let's start the development guys. Okay. So I'll I'll uh do everything in
+01:13:23 the Jupyter notebook. Yeah.
+01:13:28 Uh so first of all I need the data. Okay. I need the data. So let's let's
+01:13:33 create a folder here. I'm going to name it as data. Inside that I'm going to
+01:13:38 move my PDF documents. I have this medical uh books. I'll copy and in the
+01:13:46 data folder I'll try to paste it. I'll also share this uh books with you guys in my GitHub. You can uh take it from
+01:13:52 there. So this is the PDF documents I have. But currently if I show you my
+01:13:58 project working directory. Okay. If I show you my project working directory PWD.
+01:14:06 So I'm inside the resource folder. Okay. I'm inside the resource folder which is this folder right now. But my data it is
+01:14:13 present inside the data folder. That means out of the resource folder. Okay. So if I want to uh load the data first
+01:14:20 of all I have to get back uh to the project directory that means in this directory
+01:14:26 okay in this directory then I'll be able to access the data for this what I can do I can use a command
+01:14:33 so import operating system and inside there is a function
+01:14:39 called chdir. Now inside that you have to give uh dot
+01:14:44 dot slash. Okay, dot dot slash means you want to get back one folder back. Okay, now if I execute and again if I show you
+01:14:51 my project working directory. Now see guys, I'm inside my root folder right now. Project working folder. Previously
+01:14:57 I was in the research but right now I'm inside my project folder. Okay, now I can easily load the data right now. But
+01:15:04 before that I need to import some library. So I need
+01:15:09 uh PDF loader from the lang. So I'll just import langen langchen
+01:15:15 dot documents loader. Okay. Import
+01:15:23 uh pi pdf pi pdf loader
+01:15:31 and the directory loader as well. Okay. Then I need from langen
+01:15:39 dot text splitter I need recursive character text splitter for the chunking operation. Okay. So
+01:15:46 recursive character text splitter. Yeah. So let me import them. Now here I'm
+01:15:52 going to create a function to load my PDF. So let's create a function. So extract
+01:15:58 text from PDF files. So def uh load
+01:16:06 load and load.
+01:16:11 Let me just uh give it as load PDF files. Okay.
+01:16:18 PDF files.
+01:16:23 Now it will take the PDF path that is the data path and what it will do it
+01:16:29 will try to load it. So loader is equal to uh directory loader
+01:16:37 and inside that you have to give the data that means the path of the PDF okay
+01:16:45 and you have to also mention uh globe okay globe parameter because I
+01:16:51 want to only load the PDF okay not any other file so here I can give like that
+01:16:56 so dot PDF only okay so in this directory in the data folder. So, uh if
+01:17:02 you have multiple PDF also, it will try to load that. Okay. So, let's say you want to use uh three books that time you
+01:17:08 can keep three books here and give the data folder location. It will try to load all of the PDF file. So, because
+01:17:13 here you have mentioned PDF, okay, it should load all of the PDF. Okay, dot PDF file and loader class I have given
+01:17:21 pi PDF loader because this is a PDF documents and to load it I need PI PDF loader from the langen. Okay, that's it.
+01:17:28 So once my loader is ready. So here now I can load it easily. So documents is equal to loader.load. Once it is loaded
+01:17:35 I'll try to return it. So return documents. Okay that's it. Now let me test whether it's working or not. So
+01:17:41 here I can write extracted extracted
+01:17:49 uh data is equal to load PDF files. And here I'm going to give my
+01:17:56 data path. Okay, this folder path and now it should load the data. So let me
+01:18:01 execute.
+01:18:12 So this is a very big page right a very big book. So that's why it's taking some time to load the data. Now if I show you
+01:18:19 this extracted data. Now see guys uh all of the page it has loaded. Okay. And the
+01:18:25 format is document format because langen always written document format. Okay. So all of the page guys it has loaded.
+01:18:32 Okay. All of the page it has loaded. Now how many page you have here. You can also see the length.
+01:18:38 So here I can show you the length of extracted data. So 637. So maybe you can see we
+01:18:46 also have 637 pages. Okay. Yeah. So that means perfectly we're able to load all
+01:18:52 of the uh pages. Now these pages has some uh other information as well like meta
+01:18:58 information like producer creator time. Okay. Then uh mod date source total
+01:19:05 pages. Okay. Page label then the page content. Okay. So here this is the important things space content because
+01:19:11 page content is having all of the information. So I don't need all of these metadata. I I need maybe some of
+01:19:16 the metadata. Maybe let's say I need the uh source like what is the source of this PDF and the and the and the page
+01:19:24 content. Okay. So for this I I will do a filter operation. Okay. I'll do a filter operation. So let's do a filter
+01:19:30 operation. So let's create a function. So for this I'm going to import some library.
+01:19:35 Import typing import list. Then I need
+01:19:40 something called langen schema documents. Okay. So, langen dot schema
+01:19:47 import documents. So, here I'm going to create a function called filter
+01:19:54 to minimal docs. Minimal
+01:20:01 docs. So, this will take your let me show you guys. Uh this is the function.
+01:20:09 Okay. This is the function. So this will take the entire documents okay and it will only return this source
+01:20:17 and the p content of the source okay because I don't need all of the information okay all of the information
+01:20:23 it is not required for your um project now let me show you the output so I will
+01:20:29 call this minimal docs is equal to
+01:20:36 filter to minimal docs and here I'll give my extra racted data. Now if I
+01:20:41 execute now see guys here it will only return me the source and the past
+01:20:48 content. Source the past content. Okay because I already get rid of everything which is unnecessary here. Okay. So
+01:20:56 that's how you can do some filter operation guys. You you you have to make your data clean.
+01:21:02 Yeah
+01:21:07 sir. Uh can we implement this same system for the college chatbot? Yes, you can do it. Uh what is the minimal
+01:21:13 hardware requirement for this system will work for GPU RTX30? Uh yes system
+01:21:18 requirement wise uh if you also have CPU system it will work because here we are using uh open AI provider. Okay, we are
+01:21:26 not using any open source LLM uh which is downloading from the hugging face. Uh open source LM LM will be using the
+01:21:32 embedding model only. So if you don't have GPU also it will work fine. Namaste sir sir I want to make my career in
+01:21:39 computer vision related technology how should I move ahead to the knowledge like you please provide a detailed road map please uh yeah Manisha for this
+01:21:47 start uh watching my computer vision playlist okay so there I already given
+01:21:52 you some road map what are the things you should know to start with the computer vision career okay and if you
+01:21:57 need any personal guidance just try to reach out to my LinkedIn profile yeah so guys uh my filter is done now what I
+01:22:05 will do okay Now what I will do because uh yeah so data data load is done. We
+01:22:10 have uh successfully extracted the data. So if I show you this architecture so we
+01:22:15 had the PDF book. We extracted all of the um documents. Now we'll do the chunking operation. Okay. So let's do
+01:22:22 the chunking. So for this let's create a function. Before that I'll try to comment. So split
+01:22:31 split the documents into the smaller chunks. So def
+01:22:37 uh text split. Let's name it as
+01:22:44 split. So it will take my minimal docs
+01:22:50 and it will do the chunking operation. Okay. So how to perform the chunking? So
+01:22:55 this is the code. So recursive character test splitter. I think remember we imported and here we're giving the chunk
+01:23:01 size. Okay. So let's give the chunk size is equal to 500. that means 500 tokens it will consider as a one chunks and
+01:23:07 here you have to give the chunks overlap. So let's give 20. So there there there are some overlap value you
+01:23:12 also need to give because uh it will understand the context okay with that. Then uh here you have to p uh remove it.
+01:23:21 I don't need it. Yeah. Then text splitter split documents. Here you have to give the minimal docs and it will
+01:23:26 return the chunk text. Okay. So here I can write uh it will return me something called text chunks.
+01:23:34 chunk. Okay, text chunk. So I'll try to return it. That's it. Now let me call the function.
+01:23:41 So here text chunk
+01:23:47 is equal to text split. Inside that I'll pass my minimal docs.
+01:23:53 Okay. And this will give you the chunks. So let me print the number of chunks I
+01:23:59 got here. Okay. Um yeah. So now let me execute.
+01:24:05 So see guys here I got five 5,859 chunks. Okay. So if you want to see all
+01:24:11 of the chunks you can also print it. So see guys this is the chunks you got. Now
+01:24:17 this documents has uh converted as a chunks okay small
+01:24:22 chunks and each chunks will have 500 tokens. Okay. Because you have mentioned here.
+01:24:28 Okay. Now I can easily pass this data to my model. But before that what I have to do I have to do the embeddings. Okay.
+01:24:34 Now here you can see guys uh I have to use the embedding model to generate the vector embedding. That vector embedding
+01:24:40 we'll try to store in the knowledge base. So let's get the ve uh embedding model first of all. So for this I'll be
+01:24:46 using lang uh uh hugging face embedding model. So let's import it. So from lang
+01:24:53 chain lang chain uh embeddings. Okay. uh import
+01:25:01 hugging face embeddings. Okay, I'll try to import it. Now let's write write a function. So download
+01:25:10 download uh embedding.
+01:25:15 So here I will give the model name.
+01:25:21 So this is the model guys I'm going to use.
+01:25:28 So sentence transformer all mini LM L6 V2. Uh so this is embedding model and it
+01:25:34 returns 384 dimensional dense vector. Okay. So let's try to load this model.
+01:25:39 So here I have to give the model name. Yeah. So now uh embedding is equal to
+01:25:44 hugging face embedding model name. Uh and this things I don't need to pass.
+01:25:49 Okay. Yeah. Now it should download the model from the hugging face hub. So let's try
+01:25:56 to download it. So embedding
+01:26:02 is equal to download embedding. Now let's execute. So see guys, it is downloading the model from the hugging
+01:26:08 face app. What is the size of the model? You can also see here. You can go to the files
+01:26:15 and version. So it's around I think uh
+01:26:20 3 to 400 MB. Okay. Now it is getting downloaded. So see it it got downloaded
+01:26:26 okay for me and this is the object of the embedding model okay so this is the
+01:26:32 model now let's test this model whether it's what uh works or not so for this
+01:26:40 uh I will uh use this embedding model and let's do a embed query operation
+01:26:48 here I will give a sentence let's I'll give um
+01:26:53 Hello uh world. Okay. And this will return you some vectors. So
+01:27:02 vector. Now let's print the vector as well.
+01:27:08 So this is the vector guys you can see. Okay. Uh this this is this sentence and this is the vector representation of
+01:27:14 this sentence. Now if you want to see the dimension so you can also see the dimension. So print
+01:27:21 uh vector length length of the vector. So see it's 384 dimensional vector. The
+01:27:28 things they have also mentioned in the model card. See okay. And this is completely open
+01:27:35 source uh embedding model. Now you can also use any uh hugging face embedding model. You can also use any other
+01:27:41 embedding model from any other provider. It's up to you. You already know about the basics. Okay. How we can load different different model from with the
+01:27:47 help of this langjet. It's possible.
+01:27:56 Yeah. I I used because uh see then embedding model is costly. So if you're
+01:28:01 using open embedding model and if you convert uh all of the text from this given book
+01:28:08 so it will charge you more. So that's why I thought let's use free embedding model so that you won't be having charge
+01:28:14 in your account. Okay that's why.
+01:28:23 Yeah.
+01:28:32 Okay. So now uh what I will do guys, I'll try to um
+01:28:38 store this uh vector to the pine cone vector database. Okay. And for this you
+01:28:45 need uh the pine cone um index that means in pine cone you have to create a
+01:28:51 cluster. So let's open up our pine cone because pine cone runs on cloud. You have to search like that pine cone.io.
+01:28:59 This is the website. Let's log in with my account. So make sure first of all you have to
+01:29:04 create a account guys. Okay just try to sign up and with your Gmail just try to create a account. For me I already have
+01:29:09 the account. So I'll try to log in.
+01:29:17 So, I'll log in with my Google account. So, let's see. Let my email.
+01:29:31 What about images are we embed those only text? No. See here images is not
+01:29:37 required. So, this see images is not required. So, here I need the information. I need the diagnosis. I
+01:29:43 need the disease. I need the medicine. Image is is not required. Nikl. Okay.
+01:29:48 Yeah. But I will also show you another project. So there uh I I will also show you let's say in a PDF if you also have
+01:29:55 some meaningful image, meaningful uh tables, meaningful graph. So how you can
+01:30:01 uh create a rag on top of that. You can also take those image, you can also take those graph and you can also convert it
+01:30:06 to the number. I will also show you that part. Okay? But this project we don't need the image. We only need the text. Got it.
+01:30:13 Yeah. So here uh what I will do uh here uh let's try to um uh create a index.
+01:30:22 This is my account. I'll create a index. So you don't need to create the index either you can also create a manually.
+01:30:29 Uh either you can create a programmatically. Okay. So here uh we are using uh Python programming. So
+01:30:34 everything we'll try to create a programmatically. Okay. We are not going to create manually here. So see uh initially I I uh I have one index
+01:30:42 running uh uh because this is another project actually I developed. So let's create a new index but for you it would
+01:30:48 be completely empty if you're logging for the first time guys. Okay.
+01:30:53 We'll be deploying on the AWS. Yeah. Uh so first of all you need the uh pine
+01:30:59 cone API key. So where you will get the API key? So left hand side you will see there is a option called API key. Just try to click here and here you can
+01:31:07 create a API key. Let's create API key. I'll give let's say medical bot
+01:31:14 uh create the key. So this is my key. I'll copy and I will
+01:31:20 try to mention in myv file. So here you have to write like that
+01:31:26 pine cone
+01:31:32 pine cone API key. So here I'll try to paste my API key. So make sure guys you
+01:31:37 use your API key. Okay, don't use my API key because I I'm going to remove after the session. And here you also need to
+01:31:44 mention your open API key. So open AI API key. So let me mention my open API key.
+01:32:00 I already created my open APK guys. I'm not going to show you because people will use that. Let me quickly add it.
+01:32:10 So this is my open API key guys. Okay, let me save it.
+01:32:16 Now I will go back and load it here. So I think you got it guys. How to create
+01:32:22 the pine cone API key. Okay, and you have to mention in the file. Now I have to load it with my pythoni
+01:32:30 install. I think remember here python.enb with the help of that we'll try to load it. So how to load it? So
+01:32:36 first of all you have to import it. So from env import load env
+01:32:42 you you also need operating system then load env. Okay. So this will load your
+01:32:48 env file. Then you can access this credential. Okay. So for this you can write this code. So python uh I'll open
+01:32:57 it up. Pine cone API key
+01:33:04 is equal to west.get env pine cone API key. Okay. And similar
+01:33:10 wise I also need my open AIP key.
+01:33:18 Open AIP. Okay. Yeah. So once I got
+01:33:23 everything I also need to set as a environment variable. How to set? Just write this comm.inviron
+01:33:33 uh pine cone API key and pine cone API key.
+01:33:39 Then I will also do it for my open AI as well. So open a API key,
+01:33:46 open a API key. Okay. So once everything is ready now
+01:33:51 let me execute. Yeah. So it is set already. Now let me import the pine cone. Okay.
+01:34:00 So from pine cone.
+01:34:05 Okay. Import
+01:34:10 pine cone. Then here you have to pass the pine cone API key. So, pine cone
+01:34:19 pine cone uh API
+01:34:27 key is equal to the pine cone API key
+01:34:33 pine cone. It should be pine cone. Yeah. Then I'll try to
+01:34:40 I'll try to first of all authenticate my pine cone account. So for this you have
+01:34:46 to write this code. So pine cone client you have to initialize the pine cone client
+01:34:52 and you have to give the API key here. So API key is equal to by pine cone API key. Okay. So if you execute this code
+01:34:59 it will authenticate with your pine cone account. So this should be executed perfectly guys.
+01:35:06 Okay. uh if it is not executing perfectly that means there is some issue with your API key. Okay. So for me it
+01:35:12 has executed successfully. Now here what I'll do I'm going to create a index there. That means I'm going to create a
+01:35:17 database. So for this let's import pine cone
+01:35:23 uh import serverless. So this is the update guys. Okay. So
+01:35:29 those who have already watched my previous implementation uh so there I was using in a different
+01:35:35 way. Maybe I was using something called pine cone environment also. But now right now this this has been changed. So
+01:35:41 you have to import something called serverless serverless specification. Then you have to give the index name. So
+01:35:47 index name is equal to so let's say index name I'm going to give medical
+01:35:52 chatbot. So once uh it is ready now let's create the index. So for this I'm going to write a condition if
+01:36:00 uh not my pine cone client
+01:36:05 uh pine cone client doesn't have any index. Okay that time I will pass my
+01:36:11 index name then let's create it. So PC
+01:36:18 dot create index inside that you have to give the
+01:36:24 you have to give the index name
+01:36:30 name is equal to index name then you have to me uh specify the dimension okay dimension of the vector so right now the
+01:36:38 embedding model we're using called sentence transformer and it returns 384 dimensional vector I think you already s
+01:36:44 saw that Right. So here I think you remember. So this is the vector size
+01:36:51 384. So this dimension you have to provide here. Okay. Then you have to give the matrix the similarity matrix
+01:36:58 you want to use here. So I'm going to use something called cosine. Okay. Cosine matrix. I'm going to use
+01:37:04 cosine similarity. Uh then uh you have to specify the
+01:37:10 specification. So spec is equal to server le specification. Uh so cloud I'm
+01:37:17 going to use uh AWS and region I'm going to use uh US east one. So US east one.
+01:37:27 Yeah. So once it is done now let's let's uh
+01:37:32 create the index. So index is equal to uh PC.index and index name. Okay. Okay.
+01:37:40 So there is a error I'm getting. The error is uh okay I have to give a comma here. Yeah. Now fine. Now let me save.
+01:37:46 Now see guys here it will create a index for you. Okay. It will create a index for you. See in the in the database. And
+01:37:52 this is the free tire. So here you will be getting storage is equal to 2GB. And this is the RUS and W's. Okay. And if
+01:37:59 you need some more let's say powerful uh or let's say if you want to store some more vectors that time you can
+01:38:04 upgrade their plan. But this is fine for us.
+01:38:10 Okay. So now I think uh we are ready to create the index. Now let me execute.
+01:38:18 So it should successfully create the index. But there is a error. Invalid matrix cosine must be cosine.
+01:38:25 Okay. So cosine I think spelling is not correct. Let me check.
+01:38:30 Uh yeah cosine. Okay. Sorry. It should be cosine. Now if I execute it should
+01:38:35 create again one error pine cone object no
+01:38:41 attribute index. Uh okay I think I should be capital
+01:38:50 H. Now index is created. Now if I come here if I refresh.
+01:38:57 So see guys my medical chatbot index has created and it is running. Now if I click here. So see it is running guys
+01:39:04 and currently there is no records now uh because we haven't pushed any records yet. Okay, now we have to push the
+01:39:10 records. How to decide what would be the best
+01:39:15 vector dimensions for any use case? Uh see uh always if vector dimension is uh
+01:39:22 high that means there are more information in the vector. So if you are if you're using open AAI embedding model
+01:39:29 so that time vector dimension will increase that means it has more depth
+01:39:35 information about the data. So definitely uh uh the higher dimensional
+01:39:40 uh embedding model would be better instead of using the lower dimensional. Okay but we got stuck that if possible
+01:39:48 to make learn only the format structure of the documents like a level of letter or content.
+01:39:54 Okay. So just say what DV chroma pine con see what embedding method please see
+01:40:00 uh you can use any embedding embedding method okay it doesn't matter with any kinds of vector vector database
+01:40:07 okay you can I either use chromadv I can use pine cone I can use web I can use files it's completely up to you so here
+01:40:13 I'm using pine cone because I love the pine cone it has one beautiful web interface you can also visualize your vector so yeah so that's why I'm using
+01:40:20 you can also use chromad chrom is it's the local one you you have to execute in the local. Yeah. So that's why.
+01:40:41 All right, guys.
+01:40:54 Okay. So my index is created. Now we are ready to store our vector. Okay. Now let's try to store our vector. So for
+01:41:01 this uh I will write the code.
+01:41:07 So first of all let's import. So from langen
+01:41:14 langchen pine cone uh import
+01:41:19 uh pine cone vector store. Okay. So there is a function called pine cone vector store. I have to import it. Then
+01:41:26 let's create a variable called doc source.
+01:41:31 Okay. Pine cone vector store dot from documents. Okay. From documents
+01:41:39 and inside that I'm going to store my documents. So
+01:41:46 documents is equal to my text chunks. Okay. Okay, the T text chunks we created and embedding model is equal to my
+01:41:52 embedding model and the index name is equal to my index name. Okay, so these three parameter you have to pass. Okay,
+01:41:59 so once it is done now if I execute what it will do, it will take all of the text chunks. It will use the embedding model
+01:42:06 and it will try to convert them to the vector embedding and it will store in the pine cone vector database. So it will take some time. Let's wait guys
+01:42:13 because here we are having almost 5,000 chunks. So we have to wait for that. Now if I come here, if you continuously
+01:42:20 refresh here, so you'll be able to see the vector count. Okay, record count. So
+01:42:25 it will store one by one. And even you can also see the vector
+01:43:00 Okay. Still uh because it takes some time to load. See record count 3,000.
+01:43:06 Okay. 3,000 chunks it has already stored here. And you can see all of the chunks. Okay. You can see the ID. So this ID
+01:43:12 would be uniquely created. Then the source source we have in the data. Then this is the text. Okay. And now this
+01:43:18 text is having the vector. So if you want to see the vector, click on fetch. And this is the vector guys. This is the
+01:43:25 value. So this value we we we already got from the embedding model. Okay. And the dimension is 384. Now see I I'll
+01:43:32 wait for all of my vector to be stored. So this is the beauty of pine cone. You
+01:43:38 can visualize everything here. But in chrom files you can't see that. So 5,000 almost still executing. Let's wait.
+01:43:59 got stuck in that is possible to make it learn only the format structure of a
+01:44:06 document like leave later not the content uh repical actually I'm
+01:44:14 not clear your question. Okay. Uh what do you want to uh I mean why why do you
+01:44:20 got stack for image
+01:44:26 got stack in the possible to learn make it only format stack server documents level not please try to clarify the
+01:44:32 question I'm not clear with that
+01:44:37 yeah uh when you will complete the opencv course computer vision course would be
+01:44:43 covered soon okay yeah so now you can see Guys, all of the chunks has been stored. That means I have in total 5,
+01:44:51 um, 859 chunks. So, yeah, execution is also done. That means I'm able to
+01:44:57 successfully stored all of the chunks. Okay. And it has al also converted to
+01:45:02 the vector representation. Got it. Yeah.
+01:45:08 Fine. Now if if you want to load any existing index because uh right uh right
+01:45:14 now we created the index and we have the object right now let's say uh I want to only load this index and I want to
+01:45:20 continue my work okay so how to do it so for this you can use this code load existing index
+01:45:26 okay load load existing index so here you have pine cone vector store inside
+01:45:33 that there is a function see previously I was using from document now you have to use from existing index and here you
+01:45:38 have to give the uh index name as well as the embedding model you are using. Okay. So what it will do? It will load
+01:45:44 any kinds of existing index. Okay. And it will load all of the vectors. So let's execute.
+01:45:50 Now again you can use this object to continue your work. Okay. So both I showed you either you can directly
+01:45:55 create and get the object either you can load any kinds of existing index if you have in the pine cone.
+01:46:02 Okay. Yeah. Now if you want to add more data. So let me comment here because this part is also important because many
+01:46:08 people ask this question add more data uh to the to the
+01:46:17 existing pine cone index. Okay so let's say we already have a index right we already have a index uh which is running
+01:46:24 here now let's say I need I I I want to store more data here because let's say I got another PDF file I got another books
+01:46:30 and I want to store in the same same let's say index. So how to do it? Okay. So for this let's create a dummy
+01:46:35 documents here. So I created a dummy documents. So let's say this is a dummy document. So this is the page content.
+01:46:41 So I have written like about my channel DS with BAP is a YouTube channel that provides a tutorial on various topics
+01:46:46 and source is equal to YouTube. Okay. So let's say this this documents I want to store to my existing index. So how to do
+01:46:52 it? For this you have to use this code. Add documents. There is a function called add document. Docers dot add
+01:46:59 documents. And here you have to give documents is equal to your documents inside a list. Okay. So if you pass it
+01:47:05 now see if I execute. So this document would be added. Now this is the unique ID. I'll copy the ID. Now see previously
+01:47:12 the count was uh uh 59. Now it's 60. Now
+01:47:18 you can also search that ID. So let's say I will search that ID to find my new one.
+01:47:24 So see DS with BP. Okay. So that's how if you want you can also add any kinds
+01:47:29 of existing sorry any kinds of new new documents in the same index if you want
+01:47:35 it's possible okay like I want to make it learn a
+01:47:40 structure of document such that to make this we need a from address and address
+01:47:46 subject and content but it should not read the content of labels later
+01:47:53 and if I if it contests images the documents cannot purp using the chrom with the lama embeddings. Yeah, if if it
+01:48:00 has the image. So for this we have to use the image embedding. Okay, I'll also create a project on top of that. Okay,
+01:48:05 how how we can handle the image tables this thing as well. Got it guys? So this
+01:48:12 thing I I got lots of questions how how I can add uh more data to the existing
+01:48:18 um index. So that's how we can do. Okay.
+01:48:25 Fine. So now here we are ready guys. We we already stored uh everything in the pine cone and this becomes my knowledge
+01:48:31 base. Now we'll try to create the retriever. That means we'll try to connect the lm and user will ask the question. We'll get the response. Okay.
+01:48:38 So for this let's create the retriever and that's how we create the retriever guys. So docers as retriever. There is a
+01:48:44 function called as retriever. See docs as retriever and search type is equal to similarity and search keyword is equal
+01:48:50 to k is equal to three. That means it will return you three relevant response. three most similarity response from the
+01:48:57 knowledge base. Okay. Now let's try to test it. So for this let's say I'll give a question here.
+01:49:02 Uh I'll just write uh uh let's say retrieve
+01:49:10 it. Retrieve
+01:49:15 docs is equal to retriever
+01:49:21 dot invoke. Okay. Okay, there's a function called invoke. Now let's see if I ask what is acne.
+01:49:29 Okay, so this will give you three different response.
+01:49:35 See three response, three most similar response. And you can see the similarity score is also there. Each and every
+01:49:42 vector has this similarity. This similarity score. Okay, this similarity score. So I'll try to refresh. Maybe
+01:49:49 you'll be able to understand. So this is the beauty of pine cone. See this is
+01:49:55 this code. This is this code. Okay. So based on this code actually it is returning you the three relevant
+01:50:01 response from this particular question. Now this is not understandable for us. Okay. I want to uh let's say I want to
+01:50:08 refine this response with my LLM right now. Now let's try to connect the LLM. So for this uh I will import the lm. So
+01:50:16 from langen from lang langchen
+01:50:23 uh openai uh import chat open a okay so here I'm going to use the GPT4 model so chat uh
+01:50:31 chat model is equal to chat open AI uh
+01:50:40 so model is equal to GPT GPT
+01:50:48 4 okay let's use 4 O model okay 4 O model this model actually I'm going to use let's import it
+01:50:56 then after that we'll try to create the chain lang chain okay so let's import
+01:51:04 some necessary library so you you can see guys I'm importing the create retrieval chain create stuff document
+01:51:10 chain and the chat prompt template okay I already covered in my langen series in my genative video guys you can go ahead
+01:51:16 and check it out then I'll create a prompt template first of all so this is my prompt template
+01:51:22 so here I have written you are an assistant for question answering task uh you are a following piece of retriever
+01:51:27 context to answer the question if uh you don't know say thank uh that you don't know okay use the three sentence maximum
+01:51:34 to keep the answer concise okay so maybe you can also modify you are an medical assistant uh medical assistant for the
+01:51:42 for the for the for uh question answering task. Okay. So here you can
+01:51:48 modify this prompt with respect to your requirement guys. Okay. The way actually you want the response. Then here I'm
+01:51:54 creating the prompt template and here I'm giving the system prompt as well as whatever prompt user will try to pass
+01:51:59 because this is a chat model I'm using and chat model takes two input system prompt as well as the user prompt. Okay.
+01:52:04 So this will become my prompt. Right now here I'm going to create a chain. So that's how we create the chain guys. So
+01:52:10 create uh stuff document chain. You have to give the chat model and you have to pass the prompt. After that create
+01:52:18 retrieval chain. So here you have to pass the retriever the retriever you created here and you also need to pass the question
+01:52:25 answer chain. Okay. Now this will become your rag chain right now. Now here you can ask any kinds of
+01:52:32 question. So let's say here I will ask a question. So this is one kinds of disease guys. uh
+01:52:39 acro uh uh acromegali and giganizome
+01:52:45 you can search in the pdf so let me show you I'll open the pdf I'll ctrl f and
+01:52:53 see this is this is the disease this is the disease okay I'm asking about this particular disease and whatever response
+01:52:59 I'm having I'm getting the answer only now I think it should return me the correct response guys of this disease
+01:53:05 see this is a disorder caused by the abnormal release of the chemicals from
+01:53:12 the pituitary gland leading to the increased growth in the bones and soft
+01:53:18 tissues. Okay, it occurs after bones grow growth has stopped. When this uh
+01:53:23 abnormally happens before growth steps, it results in gigantism characterized by unusual
+01:53:32 height. So you can see this is the disease. Okay, this is the disease they're talking about this particular
+01:53:38 disease. Okay, that means my um chatbot is working perfectly right now. And this
+01:53:43 is the power of rack guys. Okay, this is the power of rag.
+01:53:52 Okay, now let's uh ask another question here. So I'll ask uh what is
+01:54:02 what is let's say acne.
+01:54:11 So acne is a common skin disease characterized by pimples on the face, chest and back. It occurs when the
+01:54:17 skin's uh pores become uh clogged with oil and dead skin cells and bacteria.
+01:54:23 The medical terms for the common acne is a acne vulgaris. Okay. Now let's say if
+01:54:28 I ask like what is the treatment of acne so it should also suggest me the treatment because in the PDF it has all
+01:54:34 kinds of information the treatment the diagnosis. Okay. The medicine. So see the treatment of the acne depends on the
+01:54:40 severity for the midn acne. CC this is the treatment it is suggesting. Okay.
+01:54:46 Yeah. Now I think I also given uh the information about my channel DS with bi. So maybe it can also give the response.
+01:54:52 Let's say what is DS with Buppy. So I think it should give me the response. See DS with Buppy's YouTube channel that
+01:54:58 provides tutorials on the various topic. Yeah. So that means my chatbot is perfectly working guys. Okay. My
+01:55:03 notebook is perfectly working. There is no error. Now we are ready for the modular code implementation. Okay. So
+01:55:10 here uh this part is done. Now let's try to implement the modular coding. So till here guys everything is clear. Let me
+01:55:17 know. Please let me know guys. If clear please hit a like all of you. If clear
+01:55:23 please hit a like all of you guys. Now we will be implementing the modular coding.
+01:55:35 Okay. And now we'll try to copy paste the same code from the notebook. Okay. Because the actual code we have already written. So writing modular coding is
+01:55:42 very easy right now. Okay. So let's uh implement the modular coding. Okay. So
+01:55:47 for this first of all I'll try to open up the helper.py pi and inside that I'm going to write uh keep some of the
+01:55:53 function I used in the notebooks. Okay. So the first function guys I think
+01:55:59 remember we we u we use this load PDF. Okay. Load PDF
+01:56:06 uh because it will load the PDF documents. Let me select my environment. Uh this is uh
+01:56:13 medbot. Okay. Now this error will disappear. Yeah. Then the second function the filter to minimal.
+01:56:20 See the same code I'm copy pasting from my notebook guys I think remember. So here we have already written. So load
+01:56:26 PDF then the filter to minimal. Okay. Then the
+01:56:33 third one the split documents that mean the chunking.
+01:56:38 Okay. Then the fourth one the download embedding model.
+01:56:45 So I'm downloading the sentence transformer model. Okay, that's it. So these are the function I'll try to keep in the helper.py because I I want this
+01:56:52 function and then I don't want to write every time. So I'll if I need it, I'll try to call from the helper.py itself.
+01:56:58 Okay, this is the idea. And I think remember we also created a prompt template here. So we'll try to keep the
+01:57:04 prompt in the prompt.py. So let's try to keep it. So this is the prompt.
+01:57:10 Okay, this is the prompt. So you are an an
+01:57:16 assistant. Okay. So this will take the context. All
+01:57:22 right. So prompt is done, helper is done. Now uh first module we'll be writing
+01:57:29 uh for storing the vector in the knowledge base. Okay. So for this let's create another file here. I'm going to
+01:57:34 name it as store_index.py.
+01:57:40 pi. Okay. And here I'm going to copy paste
+01:57:45 the same code I written in the notebook. That means this part. So here first of
+01:57:50 all I'll load the documents uh do the filtering. Then after that we'll do the
+01:57:56 chunking. After chunking we'll try to get the embedding model. After that we'll try to convert to the vector
+01:58:02 embedding. That is create the pine core instance. Then uh store as a vector embedding. Okay. So till here we'll try
+01:58:08 to copy paste the same code.
+01:58:14 So this is the code guys. Okay. So you can see I'm loading all the necessary library from helper. I'm loading load
+01:58:21 PDF filter minimal docs text and hanging face. Then pine cone serverless. Okay each and everything. Then loading the
+01:58:26 env file then uh setting as environment variable. Then loading the data then
+01:58:32 filtering to the minimal. Then perform the chunking. Downloading the embedding model. then initializing the pine cone
+01:58:38 creating the index okay so we already have the index uh name right so let's say I'll give the same name
+01:58:46 medical chatbot so this is the automated file guys right now we have done everything with the help of this
+01:58:53 notebook but right now I'll try to do with my python script okay this is the idea so medical chatbot it will create
+01:58:59 the index after that it will store all of the vector in the embedding okay yeah now let me test this file but before
+01:59:04 that let me delete my existing index I have here. So I try to delete
+01:59:10 this medical chatbot. Let's delete it. Let's give the confirmation.
+01:59:17 Delete. Yeah, it's deleted. Now let's execute
+01:59:22 this store index.py to again create my index and store all of the vector as
+01:59:27 embedding. So python uh store index.py. Okay. Now if I
+01:59:34 execute so again it will run all the pipeline one by one and I'll come here
+01:59:40 and I'll try to wait for my vector.
+01:59:54 So it's getting executed. Let's wait guys. Okay, it will take some time because again it will store all of the
+02:00:00 chunks. Okay, so it will take some time. Let's wait.
+02:00:18 Okay, medical chatbot is created. Now inside that it will store all of my vector. See executing is going execution
+02:00:26 is going on.
+02:00:31 So that's how guys actual development happens. Uh you have to go step by step
+02:00:36 uh neat and clean code and uh definitely a proper plan, proper architecture
+02:00:42 and uh selection of proper tool stack. So then you will be able to uh implement any kinds of system with any kinds of
+02:00:49 problem statement.
+02:01:06 Yeah. So, 4,000 uh chunks has already stored. Let's wait for the execution
+02:01:24 pre-image embedding
+02:01:30 model.
+02:01:38 See you can use this embedding model clip vit then tiny clip and nomic embed
+02:01:45 vision okay it is available in the hugging face who is asking this question
+02:01:50 uh are what we have image in the PDF for this
+02:01:57 we we will be using another technique okay multimodel technique timeless but this this problem statement doesn't need
+02:02:03 any kinds of image okay That's why we don't need it. Okay, my execution is completed. Now, if I come here in my
+02:02:09 pine cone, if I refresh, see all of my vector is present here. Okay, so right
+02:02:15 now it's 59 because I didn't store the DS with BP because that one I did with my notebook. All right, so my index is
+02:02:22 working fine and we're able to store the index. Now, right now, we'll try to create the
+02:02:28 uh app app.py. Okay, so now let's try to create my app.py, Pi guys because we are
+02:02:33 very uh close to our application right now.
+02:02:39 So here we'll be using the flask guys. Uh and I think you know how to use the flask. Uh for this you need two folders.
+02:02:48 Uh you need something called template and you need starting. Okay. So let's
+02:02:53 create uh one by one. So here you need
+02:03:00 template. Okay, it should be templates. Okay, inside that you create the HTML file. So
+02:03:07 I'm going to name it as chat
+02:03:12 do HTML and let's mention the HTML code here. See, I already created a basic uh
+02:03:19 user interface for you. Uh so this is the HTML code for that. And if you are not familiar with HTML code guys, it's
+02:03:26 completely fine. Okay, you can also generate with chat GPT. You can uh there are some different different templates
+02:03:32 is also available like chatbot free template free uh HTML
+02:03:39 and CSS template. So there are some many website okay they will they will provide you free free template you can use. Okay
+02:03:47 not this one I think free chatbot template. So see like there are many website so
+02:03:54 you can go to the website and you can collect the code
+02:03:59 okay you can go to the website you can collect the code okay so that's how guys
+02:04:04 I uh implemented a basic template for you and this is the HTML code for that okay you can go through that then I need
+02:04:11 another folder called static
+02:04:16 static and inside that I'll keep the CSS file that means for the designing
+02:04:21 Uh I'll try to keep the style dot CSS. So let's create a file
+02:04:27 style dot CSS. Okay.
+02:04:35 So this is the CSS style that means the color style. Okay. Everything I have
+02:04:41 added here. Let me save. Yeah. Now let me show you how this uh this uh
+02:04:48 interface will look like. how the front end will look like. For this, let's launch my app.py. So, first of all, I'm
+02:04:54 going to import all of the necessary library. Okay. So here you can see I'm importing flask from uh different different
+02:05:02 function. Then download hugging face embedding model, pine cone, chat, openi. Then all the langen chain part. Okay.
+02:05:09 The thing uh things I imported in my notebook everything I have imported here. And the from prompt also I'm also
+02:05:14 importing all of the prompt. Okay. Yeah. Now I'll first of all initialize my
+02:05:19 app.py that means my flask. So for this is the flask initialization code. Okay
+02:05:24 you can go to the flask documentation you will be able to understand how to initialize it. So once it is ready now
+02:05:30 I'll try to create a basic route that is my uh default route. So this is the default route. If you open the
+02:05:36 application it will render the HTML dot stat HTML and to execute the app. This
+02:05:42 is the code. So here I'm running on local host port number 80080. Okay, now
+02:05:48 let me show you guys how your app look like. So I'll open up my terminal. Clear. So python app.py.
+02:05:56 It's running. So now let's open up my local host.
+02:06:05 Local host port number 8080.
+02:06:11 So this is the interface guys. Okay. This is the uh chatbot interface. Okay,
+02:06:17 we'll be using. Thank you so much. Uh timeless talk
+02:06:24 maya how to execute an AI idea from A to Z like a startup. Please make a series
+02:06:30 about that. Not it. Yeah. So guys, this is the interface. Okay. This is the
+02:06:35 interface of the chatbot. Now here user can give any kinds of message and they can get the response. Okay. But let's
+02:06:41 try to make it functional. So here what I'm going to do, I'm going to um write
+02:06:47 some more code. First of all, let's load my OpenAI API key
+02:06:53 because here I need to load my model as well as the embedding model uh to load
+02:06:58 my index. So this thing you have to import. Okay. So the same uh code I
+02:07:05 written in my uh notebook, I'm importing it here. Okay. Then I will load my
+02:07:10 embedding model and try to load the index because I want to load my existing index right now. My index is already running
+02:07:17 in the pine cone cloud. So first of all uh load the embedding then uh give the
+02:07:22 index name. So what is the index name guys? Index name is nothing but uh medical chatbot.
+02:07:29 Copy and try to give it here.
+02:07:34 Sorry medical chatbot.
+02:07:45 What I can do? I can copy from here.
+02:07:58 Done. Now once my index is loaded, I'll got my doc search. Then I'll try to
+02:08:04 create my chain. So this is the chain code I think remember
+02:08:11 same code I written in the notebook ret then initializing the openi model prompt. I'm loading the prompt and this
+02:08:18 is the chain rag chen and for this I will create another route.
+02:08:24 So whenever user will click on this uh chat okay click on this send button. So
+02:08:29 this route will be executed that means it will get a get okay get uh get message then uh whatever message user is
+02:08:36 sending in this form I'm receiving it here input then I'm executing in my rag
+02:08:42 chain okay input is equal to message then whatever response I'm getting I'm showing in the uh chatbot okay so this
+02:08:48 is ready now let me save and if I come here if I refresh
+02:09:05 you're done. Now let's send a message. Let's say I'll give hi.
+02:09:12 So see hello. How I can assist you? So I'll ask the same question I asked in my notebook. So here I'll copy
+02:09:22 I will ask for this disease.
+02:09:31 Now see amazingly it is giving you the response. Now let's ask another question. What is acne?
+02:09:44 Yeah. So this is the acne. Now I'll ask for the treatment.
+02:09:56 So this is the statement. Now if I give let's say hey I got
+02:10:02 sudden fever. Uh what should
+02:10:10 I do?
+02:10:17 So see this is inter uh giving you inter uh suggestion on top of that. Okay. So
+02:10:22 that's how guys you can uh build the entire medical system. Okay. Now you
+02:10:27 have your chatbot. Now if you are having any issue you can interact with your chatbot to get the response to get the
+02:10:34 suggestion. Okay. Based on that you can take the decision. Got it guys? Now this is the application
+02:10:40 is running on my local host. Now our task is to uh create this uh make this application public. So we have to deploy
+02:10:47 it right now. So our application is completely ready. So let's deploy the application guys. So I'll first of all
+02:10:54 update my GitHub. So here I'll write
+02:11:00 uh web app completed. Let's commit the changes.
+02:11:28 Done. Now if I go to my GitHub refresh, so all of the code is updated. Yeah. So
+02:11:36 guys, you can fork it. You can also restart this repository all of you. Okay. Just try to start the repository as well.
+02:11:44 Okay. So guys, I think uh you understood. Let me know all of you.
+02:11:50 So we completed the entire deployment sorry uh development. Now it is time for the deployment. Let me know guys.
+02:11:58 If yes uh please uh try to hit the like. It has the memory or not. No, currently I haven't added the memory. But if you
+02:12:04 want you can also add the memory. It is also super easy. So for this you can use uh
+02:12:10 um conversation buffer memory.
+02:12:19 So I already discussed in my langen series. Okay. So in my YouTube channel I
+02:12:24 want to give you as a task guys. Okay. So you you can see I also have a video
+02:12:29 on langen one short video. So langen. Okay. So here I talked about the memory. Okay.
+02:12:36 How we can integrate the memory. Just try to see that. Okay. Conversation b memory you can add here. Very easy.
+02:12:42 Okay. It is like very easy. Only one line of code you have to add.
+02:12:51 Yeah, conversation buffer memory is there. Summary memory is there. Okay, you can
+02:12:57 use any of them. Just try to go through the video. It's just a one line of code.
+02:13:04 Okay. So now we are ready for the deployment. Okay. Now let's try to deploy the project over the AWS cloud.
+02:13:12 Okay. So for the deployment guys uh I will be following some step. So let me
+02:13:20 show you the step I'm going to follow
+02:13:26 just a minute.
+02:13:41 So here in the readme file I'm going to add all of these step.
+02:13:51 So let me commit the changes. Read me
+02:13:58 updated.
+02:14:07 I will go to my GitHub. So let's close these other tab.
+02:14:13 Yeah. So refresh. So see guys this is the step we are going to follow. See I also added this
+02:14:19 step like what to do after cloning my repo. Create av file because file I have committed I haven't committed yet. Okay.
+02:14:26 So create a pine cone API key. Give your API key. Open ap. Okay. After that you
+02:14:32 have to execute the store index.py to generate the index of the pine cone. Then app.py. Okay, then this is the
+02:14:39 deployment step guys we'll be following right now. Okay, AWS sed deployment. So first of all we'll be logging with the
+02:14:45 as console. So this is my AWS account guys. So if you don't have the account first of all
+02:14:50 try to uh create one account. Okay all of you try to create a account uh then
+02:14:56 try to follow the deployment along with me.
+02:15:08 Sir can you please share how to deploy this ism cubernet is also fine tuning
+02:15:13 part as well uh cubernetes deployment I think I created a video just go through that okay currently I don't have the um
+02:15:21 um Google cloud with me okay
+02:15:26 all right so now uh here the first thing guys let me let me I think uh copy of
+02:15:32 this repo. Yeah, now I can follow this one. So, first of all here I will uh create a
+02:15:39 IM user for the deployment. So, let's create IM user. I'll click on the IM.
+02:15:46 Okay, I'll click on the IM.
+02:15:56 So let's click on the user.
+02:16:02 So here I'll create a new user. I'll give the name. I'll give let's say medical
+02:16:08 chatbot uh chatbot
+02:16:14 or click on next. I'll attach the policy
+02:16:23 because here I I want to give some specific permission not all the permission. Okay, that's why. So here uh
+02:16:29 you can provide some permission like uh I only need the ECR ECR and EC2
+02:16:36 machine. Okay, these two two uh access. So this is the access guys. Just try to copy the policy
+02:16:42 and try to add s here. So first of all I am giving EC2 uh okay EC2 permission
+02:16:49 and then once it is done try to close it then copy the
+02:16:54 uh sorry this is the ECR. Okay. And this is the EC2.
+02:17:01 I'll select it. And once it is done, I'll click on next.
+02:17:09 Then create the user. See just behind me there is a button. Okay. Create user. I'm clicking on that.
+02:17:16 So user is created. Okay. With a permission of EC2 and ECR. I I I need these two service only for the
+02:17:21 deployment. I don't use like all of the service. So this is called user management. I'm giving my uh permission
+02:17:28 like what are the service I want to use and this is the deployment process guys. So here first of all we'll try to build
+02:17:34 and docker image for the source code. Push your uh docker image to the ECR. Launch the EC2 machine. Pull your uh
+02:17:41 image from ECR to EC2. Launch your Docker image in the EC2. Okay. This is the entire deployment step we'll try to
+02:17:46 follow. So yeah, my user is created. So I think there are too many tab. I can close it. delete all of them.
+02:17:58 Yeah. Okay. So my user is created. Okay. Now here I'll go inside the user. I have to
+02:18:04 create uh the access token and secret access token. Okay. So for this click on the security credential
+02:18:12 and and and see yeah there are some alternative model also. Open router you
+02:18:17 can use. Grock you can use okay anything you can use. uh access key. So create access key
+02:18:24 command line CLI. I understand above recommendation. Then click on the next
+02:18:31 then create the access key. So this is the access key and secret access key. I need it for the deployment guys. Okay.
+02:18:37 So I'll try to download as a CSV file. Just keep it with you. Okay. This CSV file you need later on. Now I'll go to
+02:18:43 my AWS again. Now the next process guys uh you have to create the ECR report to
+02:18:49 store the uh docker base. So let's do it. I'll search for ECR ER
+02:18:57 elastic container registry. I'll open it up.
+02:19:06 Then I'll create the repo. So here you can give the repo name. So
+02:19:13 I'll give medical bot.
+02:19:19 Uh keep it everything as default and click on create.
+02:19:24 Yeah. So now copy this URI and save it somewhere. Okay. I need it later on. So maybe I can save it some here just for
+02:19:31 the future reference. Okay. Yeah. Done.
+02:19:38 Okay. So my uh ECR repo is also created. Now I have to create the EC2 machine
+02:19:43 virtual machine. So for this again I'll go back to my AWS and search for EC2 instance
+02:19:52 open it up
+02:19:59 okay so here I'll click on launch instance and currently you can see I'm working in
+02:20:05 the US East1 region. Okay. So make sure you also check your region.
+02:20:11 So give the machine name. So I'll give medical machine
+02:20:20 and I'll select the Ubuntu instance. Okay, let's select the Ubuntu instance because deployment servers we always use
+02:20:26 Ubuntu instance. Okay, Linux instance and instance type I'll be taking at
+02:20:31 least uh at least let's say 8 GB memory. Okay, 8 GB memory. I will take this
+02:20:36 instance. You can see there are lots of instance. Let's take 8 GB memory
+02:20:42 and this is the per hour cost. Okay, per hour cost. Uh you can see now select the
+02:20:47 key value pair. I'll create a new one. I'll give let's say medical chat bot. Uh
+02:20:54 let's create the file and select it here. Okay, this file you need. Let's say if you want to access your instance
+02:21:00 with any third party tool. Let's say put your mobile extreme that time you can use that. But I don't need that because I'll be opening this uh terminal this
+02:21:08 machine in a separate terminal in AWS only. Now try to select this uh HTTP and
+02:21:14 HTTP https and http and storage wise let's take 30 GB storage everything in
+02:21:20 five. Now try to launch the instance. Okay, just behind me there is a button. Click here.
+02:21:30 Now I'll click on view all instance. Yeah. So now status is pending. Now
+02:21:37 let's refresh.
+02:21:47 So it should be running. Okay. Now see my instance is running. I'll click on instance ID and it is running. You can
+02:21:54 see. So here what I will do I'll uh try to connect this uh instance.
+02:22:00 Keep it default everything. And there is a connect button. Just try to click here. It will give me a black terminal. Okay.
+02:22:08 In the terminal, we'll try to make the setup and we'll try to do all the configuration for the deployment.
+02:22:25 Yeah. So, let's clear. So, this is my production server, guys. Okay. This is
+02:22:31 the Ubuntu Linux environment and uh you need some Linux uh command guys. You need to understand some Linux command
+02:22:36 because in production we always use Linux and for this you can check out my MLOps course. So here I'm going to do
+02:22:43 some setup and these are some command guys you have to execute. First of all let's update the machine. I'll copy and
+02:22:50 execute.
+02:23:05 Now copy the next command
+02:23:12 here. Let's give VS permission.
+02:23:23 Here this is the new machine. Right here we are doing the update operation. Some required tools and package we are
+02:23:28 updating
+02:23:52 then copy the next command. So now we'll be we have to install the docker. Okay, docker in the uh machine we created
+02:23:58 because we don't have docker installed here. So this is this is the command to install the docker. This command you
+02:24:04 have to execute. Let's install it. So currently if I run docker command see there is no docker
+02:24:11 version. See there is no docker. Okay. So let's install the docker.
+02:24:18 Then I'll copy the next command. This one
+02:24:25 it is installing Docker right now.
+02:24:44 Okay. Then this command and the last command
+02:24:53 done. Now if I execute the same command docker version
+02:24:59 docker version. Now see docker is running. Okay. This is the version uh we have
+02:25:06 installed here. Fine. So now everything is running. Now we have to configure our EC2 as a self-hosted runner. Okay. For
+02:25:11 this go to your project setting. Okay. Now this is my GitHub repo guys. Make sure you're using your repository not my
+02:25:17 repository. Go to the setting. Then here you will see one option called
+02:25:23 action then runner. Then new self-hosted runner.
+02:25:30 Then here select the Linux and you have to execute this command. So let's copy the first command and execute in the
+02:25:37 terminal. That means we are doing the connection with our uh AWS right now.
+02:25:43 Okay, because in GitHub whenever there is a code new code you will try to commit it will automatically trigger my
+02:25:49 CI/CD and my as will deploy everything. Okay, that's why you're making the connection. Now copy the third command
+02:25:57 one by one we have to copy all of the command.
+02:26:03 And then the fourth command
+02:26:12 done. Now two more command you have to execute in the configured section. So this command.
+02:26:21 So say GitHub action connected to the GitHub. Now it is telling enter the name
+02:26:26 of the runner groups you want to add. Uh I don't want to give anything. I'll press enter. Now it is telling enter the
+02:26:32 name of the runner. I'll give self hyphen hosted. Make sure you give the same name. Okay. Uh then it's telling
+02:26:40 additional label. I'll press enter. Now name of the work folder. I'll press
+02:26:45 enter. Now it's done. Now you have to execute the last command. This one. Now
+02:26:51 your uh GitHub would be connected with the AWS. See connected to the GitHub listening
+02:26:58 for the jobs. That means now my runner has connected. Now if you want to check it, go to the runner again
+02:27:04 and you can see starter is idle right now. Okay, this is connected. Okay, so now we are ready for the
+02:27:10 deployment guys. Okay, but before that here you have to set the secret. Okay, secret that means AWS access key secret
+02:27:16 key region EC pine cone open. Okay, because if you don't have the credential
+02:27:22 how it will authenticate with the account. So you have to give the secret as well. So let's add the secret. So to
+02:27:27 add the secret go to the secret and variable go to the action and here you
+02:27:33 will see repository secret. Okay. So I'll click new repository secret. Let's copy the name. First of all I'll give
+02:27:39 AWS access key ID and here you have to give the secret and
+02:27:44 where you will get the access key ID guys remember we downloaded a CSV file. So let's open it up. I'll open in my
+02:27:50 notepad. Not this one. I think this secret. Okay.
+02:27:56 There is a CSV file. So this is the secret and don't share the secret with anyone otherwise they will be accessing
+02:28:01 your account. Okay. I'll copy the access key ID and paste it here. Add secret.
+02:28:09 Then I will create a new repository secret. Next one is my AWS secret access
+02:28:15 key. I'll copy the secret access key.
+02:28:22 See after the comma this one you know secret access key. Okay. And before the comma this one here access key ID
+02:28:29 just here add secret then new repository secret again I'll do
+02:28:35 it for my region. Region is nothing but US- East one. Make
+02:28:42 sure you check your region. Okay, I'm inside US east one. If you are in other region you can give the same ID. So here
+02:28:49 US one then new repository secret
+02:28:55 uh ECR repo. Okay, I'll copy the name paste it here. ECR repo name. What is
+02:29:00 the repo name guys? Repon is medical chatbot. Just copy this repo name and paste it here.
+02:29:10 Then next one is my pine cone API key. Copy that. Give it here. Pine cone API
+02:29:17 key. And what is the pine cone API key? So we have in the environment variable.
+02:29:23 Let's copy it and paste it here.
+02:29:32 This is the pine cone. Yeah. Now let me add the secret. Now I have for my open AI. Okay. Open
+02:29:40 AI. Open AI. So I'll quickly add this openi
+02:29:46 guys in my other screen because I don't want to show my openi uh like secret.
+02:29:52 Okay. So I'll do it in my other screen.
+02:30:14 Yeah. So, open A is also added here.
+02:30:22 Fine. Okay. So, all of the secret is added guys. Nothing is left. Now, we are ready for the deployment. But before
+02:30:28 that, here you need a Docker file. So, let's create a Docker file.
+02:30:35 So, here you have to give the Docker command. So, let's add the Docker command.
+02:30:44 darker.
+02:30:50 Just a minute. Yeah. So
+02:30:58 this is the docker command. So here we're taking the python image 3.10 10 creating a working
+02:31:05 directory copy all of the source code require uh installing requirements and after that here uh we we are uh
+02:31:13 executing our app.py Pi. Okay. So now uh here I need another file
+02:31:18 called GitHub action.
+02:31:25 U GitHub. Okay. GitHub because here we are using GitHub action and we have to create the workflow. So dot GitHub
+02:31:32 inside that there is there should be another folder called workflow.
+02:31:39 Okay. Workflows I think. Workflows.
+02:31:45 Okay, inside that we have to create a file called CICDL.
+02:31:52 Inside that I have to mention all of the CI/CD related command.
+02:32:04 So let me show you.
+02:32:12 So this is the CI/CD command guys. See, so this is this is for the GitHub
+02:32:18 action. Okay. So this one you will be getting in the internet. Okay. Mostly in the GitHub actions, if you search like
+02:32:24 GitHub action CI/CD uh command, you will be getting this command. Okay. So here we are doing the continuous integration
+02:32:30 inside that. First of all, you're authenticating with our account. Then logging to the ECR, building the Docker image and pushing it to the ECR. Then
+02:32:38 continuous deployment. We are again authenticating with the AWS account. We are uh taking the image and running on
+02:32:43 my EC2 machine. Okay. And all the docker command actually you can see here. Okay. So this is the yl file I need guys. Uh
+02:32:51 cicdml for the deployment. Okay. Now let me do a verify. So we got github action
+02:32:57 workflows cicd.l. Okay. Everything is fine. Now we are ready to deploy guys. So now what I'll do I'll try to push the
+02:33:04 changes. Okay. So here I'll just write cicd addit.
+02:33:10 Now seeing the changes. Now automatically your deployment will start.
+02:33:15 Done. Now if I open up my GitHub.
+02:33:22 So here you can see action is running. I'll go to the action. Uh open the action. Now see continuous integration
+02:33:29 is running. So it is right now building my docker image. Okay. Let's wait.
+02:33:35 So once uh this execution is complete then we'll be able to see the app.
+02:34:41 Yeah. So this would be available. Okay. Because we are doing live after the live it would be saved as a recorded on the
+02:34:47 YouTube worth. Okay. Yeah. And check out this playlist always. Okay. So in this
+02:34:52 playlist all the video would be added end to end generative project. So this is the playlist.
+02:35:00 This one.
+02:35:13 Okay. So, let's wait uh for the completion.
+02:35:20 And please guys uh all of you give the like and subscribe to my channel. Please try to support my channel guys. Let's
+02:35:27 hit 50k subscriber as soon as possible. Let's take a target. It's possible guys. If you give your support so definitely
+02:35:34 everything is possible and let me know if you need anything else. I'll try to provide that also.
+02:35:46 No barcel I I didn't deploy. See you can also deploy on the render. There is another service called render. So render
+02:35:52 you don't need to do this many of configuration because here we're doing the custom deployment we we are creating
+02:35:57 the custom instance so that's why we have u done so many uh steps okay but in
+02:36:03 render you can simply do the deployment also
+02:36:14 so now see image is built now it is pushing the image to the ECR so I can show you my ECR as well let's open the
+02:36:21 AWS Let's go to the elastic container registry. Uh right now there is nothing.
+02:36:29 Okay. Once the execution is complete, you will see the image.
+02:36:38 Yeah, sure. Threat. We'll try to see that.
+02:37:11 So this part usually takes time guys. Let's wait.
+02:37:16 It's just a one time setup. Okay. Once you have done the setup, next time only you just need to commit your code. It
+02:37:22 will automatically get deployed.
+02:38:21 I like your projects. AI job recommends
+02:38:32 industries started adopting. I will also talk about that. Okay. Tri in my channel.
+02:38:43 So in between let's have have some water guys have some water or anything I think this process will take some time and I
+02:38:50 think almost uh almost 3 hours almost two uh I think it's more than uh
+02:38:58 two and a half hours right guys we are implementing this project
+02:39:03 on live yeah so this is fun right always live
+02:39:09 live coding is fun And you are also staying with me. So I I
+02:39:15 really appreciate that guys. And next time I want just try to sit with your
+02:39:20 system. You can also implement with me because real time also committing the code on my GitHub. Try to fetch it and
+02:39:26 try to execute from from your end. Yeah.
+02:39:32 So let me know guys recording is better or this kinds of live session is better? Because in recording what happens
+02:39:39 just to make the uh recording simple some sometimes we also skip some of the part okay but in live uh I I can uh I
+02:39:48 can explain everything okay in detail so I I always like the live uh implementation so you can let me know
+02:39:55 which one you feel uh more comfortable maybe I'll try to um give that content
+02:40:03 in a recorded mode or live mode let me
+02:40:09 live session. Okay, thank you.
+02:40:19 Yeah, even we we also can clarify the question live. Okay, this is another fun.
+02:40:24 Yeah, fine. So guys, you can see continuous integration is done. Now continuous deployment is running. So now
+02:40:30 it is running the docker image from in the EC2 machine after pulling it. Now if I show my elastic image guys, elastic
+02:40:37 container registry. So there is the docker image. See the docker image is pushed here. Okay. So now let's wait for
+02:40:43 the continuous deployment
+02:40:55 during LLM coding. We can explain on the live for the AWS deploy mostly same commands we can do record. Yeah. So uh
+02:41:02 that thing we can refer. See uh currently I'm showing you the deployment on live. Maybe in later project I'm not
+02:41:08 going to show you the deployment again. So you can refer this this deployment as a reference. Okay. Th
+02:41:15 you can um use that as a reference
+02:41:22 because yeah most of the deployment will remain same. So we are not supposed to do again and again.
+02:41:32 Now see it is pulling the image. Let's wait.
+02:41:46 Why to get front end template for such projects? It is available over the internet. Just try to search free uh
+02:41:52 chatbot HTML and CSS template. There are many website they will give you the code. Download it and use it. Otherwise
+02:41:58 you can also generate with the help of chart GPT. So nowadays everyone use chat
+02:42:04 GP to gen generate this kinds of work. Okay. Yeah.
+02:42:47 Any
+02:42:57 any other question guys? Let me know in between. Let's take some query.
+02:43:14 When uh targeting specific geni role do we need indepth yolo as well or till CNN
+02:43:23 work better when targeting specific geni role do we need in-depth yolo as well or
+02:43:30 till CNN works better uh see uh if you are targeting for the geni role so uh
+02:43:36 you don't need to deep dive in the computer vision okay so try to deep dive in the geni only but knowing computer
+02:43:42 vision will help you a lot to understand the multimodel.
+02:43:48 Yeah. So, pine cone version was changed when you saw the last time. Okay. That's why I I'm I I took this project for the
+02:43:54 reimplementation. Okay. So that I can show you the updated one. Now see guys, deployment is done. Uh both of the
+02:44:00 execution is completed. Now uh I will go to the uh instance. Uh let's copy this
+02:44:07 IP address. Okay. IP address. Now if I paste it here. Now see if I execute it
+02:44:12 will not work. Okay, because we haven't added the port yet because my application is running on port number
+02:44:18 8080. Okay, we have to add this port. How we can add the port? So for this uh
+02:44:23 you can see in the instance go to the security then security groups. Okay.
+02:44:31 Then we can see edit inbound rules. Click here. Then add rules. Custom TCP
+02:44:37 port number 8080. Now select 000. So that means you can access from anywhere
+02:44:43 and save the rows. Then go to the instance uh click on the instance ID. Now copy the IP address and
+02:44:50 again replace here and give port number 8080. Okay. Now if I hit enter, see you
+02:44:56 can see your chatbot is it is live. Okay, it is live. Now I can also share this URL with you. You can also access
+02:45:04 my chatbot guys. But initially if you send any message it will take some time because it has to download that sentence
+02:45:10 transformer model. I think remember it is downloading from the hugging face. It's around 500 MB. So you have to give
+02:45:15 some time to download the model. Okay. If you're using open source embedding model but if you're using u this uh I
+02:45:22 mean open a embedding model uh it will not take time. Okay. For the first time execution it will take some time because
+02:45:28 it has to download the model. Okay. I hope you got it. So yes guys, currently our application is live and we have
+02:45:33 successfully deployed and this is called CI/CD, continuous integration, continuous deployment. Okay. Now next
+02:45:39 time if you add any other feature, if you dep uh commit the code, it will again retake the uh new update and it
+02:45:47 will deploy over the AWS cloud without stopping your server. Okay. Now let's see if I close this terminal also. Let's
+02:45:53 say this this this window. Okay. If I also close it now, still my application will run. Okay. Yeah. and it is running
+02:46:00 in the docker container right now. Okay. Now let's try to see how we can uh close
+02:46:06 and terminate all the instance because if I keep on running it it will charge me. So for this uh first of all here I'm
+02:46:13 going to stop my instance. So go to the instance and select the instance instance state and terminate and delete.
+02:46:19 Okay. You can stop it. If you stop it it will charge for the storage. Okay. And if you terminate and delete it will
+02:46:24 delete everything. Let's delete everything. I'll delete.
+02:46:34 So now see it is shutting down. Okay. After some time it would be deleted. Now I also need to delete my uh elastic
+02:46:41 repository. Okay. So I'll go to the repository medical bot. Delete.
+02:46:50 Okay. Then I will also delete my uh IM user. So, let's delete it. I'll go to
+02:46:57 the IM user.
+02:47:05 Select the user and delete everything. So, here I'll give the confirm message.
+02:47:15 Deactive the key. Confirm and delete. Yeah. So, everything is deleted guys.
+02:47:21 Now, it won't be charging you. So can we uh upload code from gith code from
+02:47:27 github directly to render without as yes you can do it. Okay. And render it is possible. There is different different
+02:47:32 option. Either you can uh uh deploy as a docker image. Either you can take as a code. Okay. Everything is possible.
+02:47:38 Yeah. Okay. I'm quering and it working truth. Okay. Great. Now it won't be working
+02:47:44 because I have terminated I have terminated this instance. Okay. Now you can see not it will not work because my
+02:47:50 instant got deleted. Okay. Now you can try guys from your end. You can use your account to do to the deployment and you
+02:47:56 can try internally. Yeah. So guys uh this is the entire implementation. Now let me know guys how was the entire
+02:48:02 development. Did you like it? Let me know guys. Did you like it? How was the entire development?
+02:48:08 If you like it so please try to uh send like I like it or I didn't like
+02:48:15 it. If you have any feedbacks just let me know guys. It was helpful guys. This kinds of
+02:48:21 implementation do you want?
+02:48:33 Thank you so much. Thank you so much. Really appreciate it, guys. Thank you. Yeah.
+02:48:41 Yeah. I have a question. Please ask. What is your question?
+02:48:54 Great session. I I more about dynamic memory of agency in part definitely we'll be discussing about. Thank you so
+02:49:00 much. Okay guys, great. And now it's your uh
+02:49:05 turn uh you you just need to practice you you just need to develop and
+02:49:11 definitely you will be able to uh do any kinds of project. Where do you work? I worked uh uh in a company it is in
+02:49:18 United State called Quantum Human. Okay. Yeah. I'm working as a IML developer.
+02:49:25 Knowledge graph is good for the for rag or not. Yeah. So see there are types of
+02:49:31 rag. Okay. So every types of rag has every potential different potential. I'll also discuss about Hamid. Okay. I
+02:49:37 want to join your team. Uh uh yes definitely you can join. If there
+02:49:42 is a opening definitely you can apply. Yeah, very helpful. I like it. Thank you so much. Can I apply? Yes, definitely
+02:49:48 you can apply. If there is opening, you can apply. Okay, but here I also I'm also working with robotics. Okay, so
+02:49:54 robotics is also involvement. Robotics and AI. Okay, both uh actually I'm working on
+02:50:01 you should have robotics skill as well.
+02:50:09 Any tips for remote jobs in GI? I will I'll be uh conducting a live on top of that. Okay. How we can apply for the
+02:50:16 remop remov. Okay. Great. Yeah. So, okay guys, uh thanks for joining and follow
+02:50:21 me here on my LinkedIn. If you have any query, you can send me a message and you can also email me and please try to
+02:50:27 subscribe to my channel. Okay. This is the humble request to all of you. With that guys, uh I think it's already uh
+02:50:32 11. Uh let's uh uh close the session. Let's have the dinner and good night
+02:50:37 everyone. Bye. Thank you so much guys.
